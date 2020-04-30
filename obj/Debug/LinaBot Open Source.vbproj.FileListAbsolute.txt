@@ -9,3 +9,4 @@ C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.vbproj.
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.exe
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.xml
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.pdb
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot_Open_Source.Form1.resources
