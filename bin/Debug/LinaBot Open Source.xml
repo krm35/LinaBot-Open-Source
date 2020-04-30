@@ -22,5 +22,48 @@ LinaBot Open Source
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="M:LinaBot_Open_Source.All_CallBack.Connexion_Game(System.Boolean)">
+ <summary>
+ Se connecte / Se deconnecte
+ </summary>
+ <param name="Active">Active ou desactive la socket</param>
+ <remarks>METHODE A REVOIR</remarks>
+</member>
+<member name="M:LinaBot_Open_Source.All_CallBack.CallBackConnect(System.IAsyncResult)">
+ <summary>
+ Callback de connexion vers le serveur
+ </summary>
+ <param name="async"></param>
+ <remarks></remarks>
+</member>
+<member name="M:LinaBot_Open_Source.All_CallBack.CallBackDisconnect(System.IAsyncResult)">
+ <summary>
+ Callback declenché à la deconnexion
+ </summary>
+ <param name="async"></param>
+ <remarks></remarks>
+</member>
+<member name="M:LinaBot_Open_Source.All_CallBack.CallBackSender(System.IAsyncResult)">
+ <summary>
+ Callback d'envoi des données
+ </summary>
+ <param name="async"></param>
+ <remarks></remarks>
+</member>
+<member name="M:LinaBot_Open_Source.All_CallBack.#ctor(System.String,System.Int32)">
+ <summary>
+ Constructeur par defaut
+ </summary>
+ <param name="Hote"></param>
+ <param name="Port"></param>
+ <remarks></remarks>
+</member>
+<member name="M:LinaBot_Open_Source.All_CallBack.Dispose(System.Boolean)">
+ <summary>
+ IDisposable
+ </summary>
+ <param name="disposing"></param>
+ <remarks></remarks>
+</member>
 </members>
 </doc>

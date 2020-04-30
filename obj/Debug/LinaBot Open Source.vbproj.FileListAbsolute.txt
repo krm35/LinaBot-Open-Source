@@ -1,12 +1,12 @@
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.vbproj.GenerateResource.cache
 C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\LinaBot Open Source.exe.config
 C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\LinaBot Open Source.exe
 C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\LinaBot Open Source.pdb
 C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\LinaBot Open Source.xml
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.vbprojAssemblyReference.cache
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot_Open_Source.Form1.resources
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot_Open_Source.Resources.resources
-C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.vbproj.GenerateResource.cache
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.vbproj.CoreCompileInputs.cache
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.exe
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.xml
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.pdb
-C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot_Open_Source.Form1.resources
