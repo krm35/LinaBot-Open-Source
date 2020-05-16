@@ -1,6 +1,8 @@
 ﻿Imports System.Net.Sockets, System.Text, System.Net
 Imports System.Threading
 
+'Refaire une bonne parti du code, améliorer, ajouter/supprimer
+
 Public Class Socket_EventArgs
 
     Inherits EventArgs
@@ -19,7 +21,6 @@ Public Class Socket_EventArgs
         Me.LaSocket = LaSocket
     End Sub
 End Class
-
 
 Public Class All_CallBack
     Implements IDisposable
@@ -46,18 +47,11 @@ Public Class All_CallBack
         End Get
     End Property
 
-    Public Async Function Envoyer(ByVal message As String) As Task
+    Public Sub Envoyer(ByVal message As String, Optional ByVal reponseAttend As Boolean = False)
 
         Try
 
-            Bloqueur.Reset()
-
-            If Await Task.Run(Function() EnvoieMessage(message)) = False Then
-
-                RaiseEvent Deconnexion(Me, New Socket_EventArgs("Bot non connecté !", LaSocket))
-                Bloqueur.Set()
-
-            End If
+            EnvoieMessage(message, reponseAttend)
 
         Catch ex As Exception
 
@@ -66,29 +60,39 @@ Public Class All_CallBack
 
         End Try
 
-    End Function
+    End Sub
 
-    Public Function EnvoieMessage(ByVal Message As String) As Boolean
+    Private Async Sub EnvoieMessage(ByVal Message As String, ByVal reponseAttend As Boolean)
 
         Message = Message & Chr(10) & Chr(0)
 
         Try
+
             If (LaSocket.Connected) Then
+
+                If reponseAttend Then Bloqueur.Reset()
+
                 Dim ByteBuffer As Byte() = Encoding.UTF8.GetBytes(Message)
                 LaSocket.BeginSend(ByteBuffer, 0, ByteBuffer.Length, SocketFlags.None, AddressOf CallBackSender, LaSocket)
                 RaiseEvent Envoie(Me, New Socket_EventArgs(Message, LaSocket))
-                Return Bloqueur.Wait(15000) = False
+
+                Await Task.Delay(Bloqueur.Wait(15000))
+
             Else
+
                 RaiseEvent Deconnexion(Me, New Socket_EventArgs("Bot non connecté !", LaSocket))
                 Bloqueur.Set()
+
             End If
+
         Catch ex As Exception
 
             RaiseEvent Deconnexion(Me, New Socket_EventArgs(ex.Message, Nothing))
             Bloqueur.Set()
 
         End Try
-    End Function
+
+    End Sub
 
 
     ''' <summary>
@@ -102,6 +106,7 @@ Public Class All_CallBack
             LaSocket.BeginConnect(New IPEndPoint(IPAddress.Parse(Hote), Port), New AsyncCallback(AddressOf CallBackConnect), LaSocket)
         Else
             Try
+
                 LaSocket.Shutdown(SocketShutdown.Both)
                 CallBackDisconnect(LaSocket)
 

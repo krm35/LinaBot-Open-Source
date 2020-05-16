@@ -1,0 +1,35 @@
+<Move>
+Map = [-1,2] | Direction = Gauche
+Map = [-2,2] | Direction = Gauche
+Map = [-2,3] | Direction = Bas
+Mapid = 10337 | Cellule = 447
+Mapid = 10258 | Cellule = 463
+Map = [0,3] | Direction Droite
+Map = [1,3] | Direction Droite
+Map = [2,3] | Direction Droite
+Map = [3,3] | Condition = Metier = Paysan = False | Balise = Apprend Paysan
+Map = [3,3] | Condition = Metier = Paysan = True | Direction = Droite
+Map = [4,3] | Condition = Equipement = Equiper = idObjet > Caractéristique = False | Equipe = IdObjet > Caractéristique
+Map = [4,3] | Condition = Equipement = Equiper = idObjet > Caractéristique = True | Balise = Recolte
+<Move>
+
+<Recolte>
+Map = [4,3] | Recolte = Ble = Faucher | Direction = Haut
+Map = [4,2] | Recolte = Ble = Faucher | Direction = Haut
+Map = [4,1] | Recolte = Ble = Faucher | Direction = Haut
+Map = [4,0] | Recolte = Ble = Faucher | Direction = Droite
+Map = [5,0] | Recolte = Ble = Faucher | Direction = Bas
+Map = [5,1] | Recolte = Ble = Faucher | Direction = Droite
+Map = [6,1] | Recolte = Ble = Faucher | Direction = Bas
+Map = [6,2] | Recolte = Ble = Faucher | Direction = Gauche
+Map = [5,2] | Recolte = Ble = Faucher | Direction = Bas
+Map = [5,3] | Recolte = Ble = Faucher | Direction = Gauche
+</Recolte>
+
+<Apprend Paysan>
+PnjParler = Contremaitre Ikul
+PnjReponse = Je cherche a apprendre un metier.
+PnjReponse = Dites moi comment devenir paysan.
+PnjReponse = Je retrousse mes manches et on y va !
+PnjReponse = Terminer la discussion.
+</Apprend Paysan>

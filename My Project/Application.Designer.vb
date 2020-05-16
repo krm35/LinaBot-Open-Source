@@ -32,7 +32,7 @@ Namespace My
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.LinaBot_Open_Source.Form1
+            Me.MainForm = Global.LinaBot_Open_Source.LinaBot
         End Sub
     End Class
 End Namespace
