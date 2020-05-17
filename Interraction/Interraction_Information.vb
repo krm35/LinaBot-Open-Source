@@ -33,7 +33,7 @@
 
                                     Case 3, 4 'Cut
 
-                                        Pair.Cells(3).Value = Pair.Cells(3).Value.ToString.Replace("En Utilisation", "Indisponible")
+                                        Pair.Cells(3).Value = Pair.Cells(3).Value.ToString.Replace("En Utilisation", "Indisponible").Replace("Disponible", "Indisponible")
 
                                         Pair.DefaultCellStyle.BackColor = Color.Red
 

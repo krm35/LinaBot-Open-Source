@@ -306,6 +306,7 @@ Partial Class UserControlPersonnage
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TimerRegeneration = New System.Windows.Forms.Timer(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPageTchat.SuspendLayout()
         Me.TabControl2.SuspendLayout()
@@ -346,6 +347,7 @@ Partial Class UserControlPersonnage
         Me.TabPageCraft.SuspendLayout()
         CType(Me.DataGridViewMoi, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewLui, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage8.SuspendLayout()
         Me.SuspendLayout()
         '
         'TimerStatut
@@ -2220,6 +2222,7 @@ Partial Class UserControlPersonnage
         '
         Me.TabPage8.AutoScroll = True
         Me.TabPage8.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.TabPage8.Controls.Add(Me.Button1)
         Me.TabPage8.Location = New System.Drawing.Point(4, 47)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
@@ -2243,6 +2246,15 @@ Partial Class UserControlPersonnage
         '
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(230, 65)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(206, 60)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'UserControlPersonnage
         '
@@ -2296,6 +2308,7 @@ Partial Class UserControlPersonnage
         Me.TabPageCraft.ResumeLayout(False)
         CType(Me.DataGridViewMoi, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewLui, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage8.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -2486,4 +2499,5 @@ Partial Class UserControlPersonnage
     Friend WithEvents DéséquiperToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UtiliserToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents Button1 As Button
 End Class

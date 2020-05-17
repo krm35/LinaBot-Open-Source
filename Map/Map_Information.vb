@@ -475,8 +475,6 @@
 
                         .EnDeplacement = True
 
-                        MapInMove(index, .CaseActuelle)
-
                     End If
 
                     Return
@@ -484,20 +482,6 @@
                 End If
 
             Next
-
-        End With
-
-    End Sub
-
-    Private Async Sub MapInMove(ByVal index As Integer, ByVal cellFin As Integer)
-
-        With Comptes(index)
-
-            Await Task.Delay(If(.PathTotal < 9, .PathTotal * 180, .PathTotal * 80)) '180 / 162
-
-            .Socket.Envoyer("GKK0")
-
-            .EnDeplacement = False
 
         End With
 

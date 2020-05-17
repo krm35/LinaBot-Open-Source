@@ -6,6 +6,7 @@
 
     'Les Sockets
     Public Socket_Authentification, Socket As All_CallBack
+    Public Send As String
 
     'Personnage
     Public NomDeCompte As String
@@ -51,7 +52,7 @@
     Public MapLargeur As Integer
     Public MapHauteur As Integer
 
-    Public PathTotal As Integer
+    Public PathTotal As String
 
     Public MapHandler(1280) As Cell
 
@@ -62,6 +63,7 @@
 
     Public CaseActuelle As Integer
     Public EnDeplacement As Boolean
+    Public StopDeplacement As Boolean
 
     'Guilde
     Public EnGuilde As Boolean

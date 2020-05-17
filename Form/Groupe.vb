@@ -1,6 +1,6 @@
 ﻿Public Class Groupe
 
-    Public PodsGroupe As Integer
+    Public PodsGroupe As Integer = 80
 
     Public DicoTrajet As New Dictionary(Of String, List(Of String))
 

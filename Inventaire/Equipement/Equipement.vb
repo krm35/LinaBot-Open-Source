@@ -8,7 +8,7 @@
 
             For Each Pair As DataGridViewRow In CopyDatagridView(index, .FrmUser.DataGridViewInventaire).Rows
 
-                If Pair.Cells(0).Value = item OrElse Pair.Cells(2).Value.ToString.ToUpper = item.ToUpper Then
+                If Pair.Cells(0).Value.ToString = item OrElse Pair.Cells(2).Value.ToString.ToUpper = item.ToUpper Then
 
                     If caractéristique = Nothing OrElse ComparateurCaractéristiqueObjets(caractéristique, Pair.Cells(4).Value) Then
 
@@ -197,7 +197,7 @@
 
             For Each Pair As DataGridViewRow In CopyDatagridView(index, .FrmUser.DataGridViewInventaire).Rows
 
-                If Pair.Cells(0).Value = item OrElse Pair.Cells(2).Value.ToString.ToLower = item.ToLower Then
+                If Pair.Cells(0).Value.ToString = item OrElse Pair.Cells(2).Value.ToString.ToLower = item.ToLower Then
 
                     If caracteristique.ToLower = "nothing" OrElse ComparateurCaractéristiqueObjets(Pair.Cells(4).Value, caracteristique) Then
 

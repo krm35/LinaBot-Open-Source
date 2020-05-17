@@ -18,9 +18,9 @@
 
                     SeDeplace(index, cellule)
 
-                    .Socket.Envoyer("GA500" & cellule & ";" & ReturnAction(index, action), True)
+                    .Socket.Envoyer("GA500" & cellule & ";" & ReturnAction(laRecolte, action), True)
 
-                    Task.Delay(1000).Wait()
+                    Task.Delay(2000).Wait()
 
                     While .EnRecolte
 
@@ -119,7 +119,7 @@
 
         For Each Pair As KeyValuePair(Of Integer, sInterraction) In DicoDivers
 
-            If Pair.Value.Nom.ToUpper = nomRecolte.ToUpper Then
+            If Pair.Value.Nom.ToString.ToUpper = nomRecolte.ToUpper Then
 
                 Return Pair.Value.DicoInterraction(action)
 

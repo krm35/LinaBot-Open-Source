@@ -83,7 +83,7 @@ Public Class Pathfinding
     Public Function pathing(ByVal index As Integer,
                             ByVal nCellEnd As Integer,
                             Optional ByVal nbrPM As Integer = 9999,
-                            Optional ByVal eviteSoleil As Boolean = False,
+                            Optional ByVal eviteSoleil As Boolean = True,
                             Optional ByVal enCombat As Boolean = False,
                             Optional ByVal antiAgro As Boolean = False,
                             Optional ByVal antiTacle As Boolean = False)
@@ -107,7 +107,7 @@ Public Class Pathfinding
             closelist.Remove(nCellEnd)
             Dim returnPath As String = Findpath(.CaseActuelle, nCellEnd)
 
-            .PathTotal = returnPath.Length
+            .PathTotal = returnPath
 
             Return cleanPath(returnPath)
 

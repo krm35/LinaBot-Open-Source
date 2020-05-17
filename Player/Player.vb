@@ -663,7 +663,7 @@ Public Class Player
 
                                 Case "C" ' DC
 
-                                    Select Case Mid(e.Message, 2, 1)
+                                    Select Case Mid(e.Message, 3, 1)
 
                                         Case "K" ' DCK
 
@@ -1243,15 +1243,15 @@ Public Class Player
 
                                                         Case "5" ' GA0;5
 
-                                                            Select Case Mid(e.Message, 7, 1)
+                                                            Select Case Mid(e.Message, 6, 1)
 
                                                                 Case "0" ' GA0;50
 
-                                                                    Select Case Mid(e.Message, 8, 1)
+                                                                    Select Case Mid(e.Message, 7, 1)
 
                                                                         Case "1" ' GA0;501
 
-                                                                            Select Case Mid(e.Message, 9, 1)
+                                                                            Select Case Mid(e.Message, 8, 1)
 
                                                                                 Case ";" ' GA0;501;
 
@@ -1309,17 +1309,17 @@ Public Class Player
 
                                                             End Select
 
-                                                        Case "5" ' GA0;5
+                                                        Case "5" ' GA1;5
 
-                                                            Select Case Mid(e.Message, 7, 1)
+                                                            Select Case Mid(e.Message, 6, 1)
 
                                                                 Case "0" ' GA1;50
 
-                                                                    Select Case Mid(e.Message, 8, 1)
+                                                                    Select Case Mid(e.Message, 7, 1)
 
                                                                         Case "1" ' GA1;501
 
-                                                                            Select Case Mid(e.Message, 9, 1)
+                                                                            Select Case Mid(e.Message, 8, 1)
 
                                                                                 Case ";" ' GA1;501;
 
@@ -1361,9 +1361,10 @@ Public Class Player
 
                                             Select Case Mid(e.Message, 4, 1)
 
-                                                Case "0"
+                                                Case "0" ' GA;0
 
-                                                    'Deplacement ou action raté.
+                                                    EnDeplacement = False
+                                                    PathTotal = ""
 
                                                 Case "1" ' GA;1
 

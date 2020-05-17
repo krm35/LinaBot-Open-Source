@@ -19,7 +19,7 @@
 
                 separateData = Split(separateData(3), ",") ' 35,18800
 
-                If idPlayer = .IdUnique AndAlso .EnRecolte = False Then
+                If idPlayer = .IdUnique Then
 
                     .EnRecolte = True
 

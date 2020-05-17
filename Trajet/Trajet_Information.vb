@@ -1,4 +1,6 @@
-﻿Module Trajet_Information
+﻿Imports System.Web.UI
+
+Module Trajet_Information
 
     'VERSION DE TEST trajet
 
@@ -13,6 +15,8 @@
 
             'Puis je ferme le fichier.
             swLecture.Close()
+
+            .FrmGroupe.DicoTrajet.Clear()
 
             For i = 0 To ligne.Count - 1
 
@@ -45,13 +49,13 @@
 
                             Case Else
 
-                                If Not .DicoTrajet.ContainsKey(balise) Then
+                                If Not .FrmGroupe.DicoTrajet.ContainsKey(balise) Then
 
-                                    .DicoTrajet.Add(balise, New List(Of String) From {ligne(i)})
+                                    .FrmGroupe.DicoTrajet.Add(balise, New List(Of String) From {ligne(i)})
 
                                 Else
 
-                                    .DicoTrajet(balise).Add(ligne(i))
+                                    .FrmGroupe.DicoTrajet(balise).Add(ligne(i))
 
                                 End If
 
@@ -98,11 +102,15 @@
 
                     Select Case separateAction(0).ToLower ' Exemple : "Map"
 
+                        Case "map"
+
+                            If separateAction(1) <> returnmap(index) Then Exit For
+
                         Case "mapid" ' Map = 7515 
 
-                            If .MapID <> CInt(separateAction(1)) Then Exit For
+                                If .MapID <> CInt(separateAction(1)) Then Exit For
 
-                        Case "move" ' Move = Direction ou Cellule
+                        Case "direction", "cellule" ' Move = Direction ou Cellule
 
                             SeDeplace(index, separateAction(1))
 
@@ -122,9 +130,23 @@
 
                             PnjReponse(index, separateAction(1))
 
+                        Case "pnjquittedialogue"
+
+                            PnjQuitteDialogue(index)
+
+                        Case "equipe"
+
+                            Dim separateEquipement As String() = Split(separateAction(1), " > ")
+
+                            ItemEquipe(index, separateEquipement(0), separateEquipement(1))
+
                         Case "recolte"
 
                             RecolteRessource(index, separateAction(1), separateAction(2))
+
+                        Case "balise"
+
+                            TrajetEnCours(index, separateAction(1))
 
                         Case "condition"
 
@@ -171,5 +193,23 @@
 
     End Sub
 
+    Private Delegate Function dlgf()
+    Private Function returnmap(ByVal index As Integer)
+
+        With Comptes(index)
+
+            If .FrmUser.InvokeRequired Then
+
+                Return .FrmUser.Invoke(New dlgf(Function() returnmap(index)))
+
+            Else
+
+                Return .FrmUser.LabelMap.Text
+
+            End If
+
+        End With
+
+    End Function
 
 End Module

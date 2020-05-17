@@ -64,7 +64,7 @@ Public Class UserControlPersonnage
 
     Private Sub RichTextBoxSocket_TextChanged(sender As Object, e As EventArgs) Handles RichTextBoxSocket.TextChanged
 
-        If NbrLigneSocket > 100 Then
+        If NbrLigneSocket > 1000 Then
 
             RichTextBoxSocket.Text = ""
 
@@ -336,7 +336,15 @@ Public Class UserControlPersonnage
 
             If .Connecté Then
 
-                .Socket.Envoyer("OU" & DataGridViewInventaire.CurrentRow.Cells(1).Value)
+                Dim supprime As New FrmSuppression
+
+                supprime.Index = Index
+
+                supprime.Item = "Od" & DataGridViewInventaire.CurrentRow.Cells(1).Value & "|"
+
+                supprime.TextBox1.Text = DataGridViewInventaire.CurrentRow.Cells(3).Value
+
+                supprime.Show()
 
             End If
 
@@ -378,13 +386,15 @@ Public Class UserControlPersonnage
 
             If .Connecté Then
 
-                .Socket.Envoyer("Od" & DataGridViewInventaire.CurrentRow.Cells(1).Value & "|" & "1")
+                .Socket.Envoyer("OU" & DataGridViewInventaire.CurrentRow.Cells(1).Value & "|")
 
             End If
 
         End With
 
     End Sub
+
+
 
 #End Region
 
@@ -433,6 +443,39 @@ Public Class UserControlPersonnage
 
         End If
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        With Comptes(Index)
+            If .FrmGroupe.ThreadTrajet IsNot Nothing AndAlso .FrmGroupe.ThreadTrajet.IsAlive Then .FrmGroupe.ThreadTrajet.Abort()
+
+            Select Case Button1.Text
+
+                Case "Charger un trajet"
+
+                    Dim Ouverture_Fichier As New OpenFileDialog
+
+                    If Ouverture_Fichier.ShowDialog = 1 Then
+
+                        TrajetLoad(Index, Ouverture_Fichier.FileName)
+
+                        Button1.Text = "Trajet chargé"
+                        Button1.ForeColor = Color.Lime
+
+                    Else
+
+                        Button1.Text = "Charger un trajet"
+                        Button1.ForeColor = Color.Red
+
+                    End If
+
+                Case Else
+
+                    Button1.Text = "Charger un trajet"
+                    Button1.ForeColor = Color.Red
+
+            End Select
+        End With
     End Sub
 
 End Class

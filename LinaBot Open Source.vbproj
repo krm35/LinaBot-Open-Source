@@ -157,6 +157,12 @@
     <Compile Include="Form\Multi Form\FrmMétier.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Form\Multi Form\FrmSuppression.Designer.vb">
+      <DependentUpon>FrmSuppression.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Multi Form\FrmSuppression.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\Personnage\UserControlPersonnage.Designer.vb">
       <DependentUpon>UserControlPersonnage.vb</DependentUpon>
     </Compile>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Multi Form\FrmMétier.resx">
       <DependentUpon>FrmMétier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Multi Form\FrmSuppression.resx">
+      <DependentUpon>FrmSuppression.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Personnage\UserControlPersonnage.resx">
       <DependentUpon>UserControlPersonnage.vb</DependentUpon>

@@ -21,3 +21,4 @@ C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\SwfDotNet.IO.dll
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.vbproj.CopyComplete
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot_Open_Source.FrmMétier.resources
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot_Open_Source.FrmDragodindeArbreGénéalogique.resources
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot_Open_Source.FrmSuppression.resources
