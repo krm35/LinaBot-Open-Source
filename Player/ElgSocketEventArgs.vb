@@ -40,7 +40,6 @@ Public Class All_CallBack
 
     Dim Bloqueur As ManualResetEventSlim = New ManualResetEventSlim(False)
 
-
     Public ReadOnly Property Connecter() As Boolean
         Get
             Return LaSocket.Connected
@@ -162,6 +161,12 @@ Public Class All_CallBack
 
     End Sub 'Provient de Maxoubot, non modifié
 
+
+    'il créer une function qui reset la liste des packets
+    'ensuite il tcheck toutes les X temps si un certains paket est reçu
+    'si oui il continue sinon il reste et se casse.
+    ' de cette façon il attend un certains packet pour continier.
+    'Le mieux reste d'utiliser les manuelreseevent.
 
     Dim sb As New StringBuilder()
     Private Sub CallBackReceive(ByVal async As IAsyncResult)

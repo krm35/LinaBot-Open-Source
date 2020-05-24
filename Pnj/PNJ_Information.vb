@@ -8,6 +8,7 @@
             ' DCK ID sur la map
 
             .EnDialogue = True
+            .BloqueDialogue.Set()
 
             'J'affiche le nom du PNJ auquel je parle.
 
@@ -62,6 +63,8 @@
                 EcritureMessage(index, "(Bot)", "Il n'y a plus aucune réponse disponible pour ce Pnj.", Color.Green)
 
             End If
+
+            .BloqueDialogue.Set()
 
         End With
 

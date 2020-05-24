@@ -1,5 +1,4 @@
-﻿Imports System.Runtime.CompilerServices
-
+﻿
 Public Class Player
 
     'En dév
@@ -13,7 +12,6 @@ Public Class Player
         AddHandler Socket_Authentification.Deconnexion, AddressOf e_Deconnexion
         AddHandler Socket_Authentification.Envoie, AddressOf e_Envoi
         AddHandler Socket_Authentification.Reception, AddressOf E_Reception
-
     End Sub
 
     Public Sub CreateSocketServeurJeu(ByVal IP As String, ByVal Port As String)
@@ -678,6 +676,13 @@ Public Class Player
                                 Case "Q" ' DQ
 
                                     GaPnjQuestionReponse(Index, e.Message)
+
+                                Case "V" ' DV
+
+                                    EnDialogue = False
+                                    ListePnjReponseDisponible.Clear()
+                                    DialogueReponse = 0
+                                    BloqueDialogue.Set()
 
                                 Case Else
 
@@ -1365,6 +1370,15 @@ Public Class Player
 
                                                     EnDeplacement = False
                                                     PathTotal = ""
+                                                    BloqueDeplacement.Set()
+
+                                                    If Send <> "" Then
+
+                                                        Socket.Envoyer(Send)
+
+                                                        Send = ""
+
+                                                    End If
 
                                                 Case "1" ' GA;1
 
@@ -1379,6 +1393,10 @@ Public Class Player
                                                             ErreurFichier(Index, NomDuPersonnage, "GA;1", e.Message)
 
                                                     End Select
+
+                                                Case "2" 'GA;2;1234567;
+
+                                                    'Inconnu
 
                                                 Case Else
 
@@ -1438,61 +1456,69 @@ Public Class Player
 
                                 Case "D" ' GD
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    If e.Message = "GD" Then
 
-                                        Case "F" ' GDF
+                                        Socket.Envoyer("GD" & IdUnique)
 
-                                            GaInterractionEnJeu(Index, e.Message)
+                                    Else
 
-                                        Case "K" ' GDK
+                                        Select Case Mid(e.Message, 3, 1)
 
-                                            If e.Message = "GDK" Then
+                                            Case "F" ' GDF
 
-                                                ' Inconnu
+                                                GaInterractionEnJeu(Index, e.Message)
 
-                                            Else
+                                            Case "K" ' GDK
+
+                                                If e.Message = "GDK" Then
+
+                                                    ' Inconnu
+
+                                                Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "GD", e.Message)
+
+                                                End If
+
+                                            Case "M" ' GDM
+
+                                                Select Case Mid(e.Message, 4, 1)
+
+                                                    Case "|" ' GDM|
+
+                                                        GaMapData(Index, e.Message)
+
+                                                    Case Else
+
+                                                        ErreurFichier(Index, NomDuPersonnage, "GDM", e.Message)
+
+                                                End Select
+
+                                            Case "O" ' GDO
+
+                                                Select Case Mid(e.Message, 4, 1)
+
+                                                    Case "+" ' GDO+
+
+                                                        GaMapObjetSolAjoute(Index, e.Message)
+
+                                                    Case "-" ' GDO-
+
+                                                        GaMapObjetSolSupprime(Index, e.Message)
+
+                                                    Case Else
+
+                                                        ErreurFichier(Index, NomDuPersonnage, "GDO", e.Message)
+
+                                                End Select
+
+                                            Case Else
 
                                                 ErreurFichier(Index, NomDuPersonnage, "GD", e.Message)
 
-                                            End If
+                                        End Select
 
-                                        Case "M" ' GDM
-
-                                            Select Case Mid(e.Message, 4, 1)
-
-                                                Case "|" ' GDM|
-
-                                                    GaMapData(Index, e.Message)
-
-                                                Case Else
-
-                                                    ErreurFichier(Index, NomDuPersonnage, "GDM", e.Message)
-
-                                            End Select
-
-                                        Case "O" ' GDO
-
-                                            Select Case Mid(e.Message, 4, 1)
-
-                                                Case "+" ' GDO+
-
-                                                    GaMapObjetSolAjoute(Index, e.Message)
-
-                                                Case "-" ' GDO-
-
-                                                    GaMapObjetSolSupprime(Index, e.Message)
-
-                                                Case Else
-
-                                                    ErreurFichier(Index, NomDuPersonnage, "GDO", e.Message)
-
-                                            End Select
-
-                                        Case Else
-
-                                            ErreurFichier(Index, NomDuPersonnage, "GD", e.Message)
-
-                                    End Select
+                                    End If
 
                                 Case "M" ' GM
 
@@ -1635,6 +1661,10 @@ Public Class Player
                                 Case "O" ' IO
 
                                     GaCraftInfoBulleItem(Index, e.Message)
+
+                                Case "Q" ' IQ
+
+                                    HarvestDrop(Index, e.Message)
 
                                 Case Else
 

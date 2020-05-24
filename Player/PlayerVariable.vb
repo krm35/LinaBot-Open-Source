@@ -1,4 +1,6 @@
-﻿Partial Class Player
+﻿Imports System.Threading
+
+Partial Class Player
 
     Public FrmGroupe As New Groupe
     Public TabPage As New TabPage
@@ -64,6 +66,7 @@
     Public CaseActuelle As Integer
     Public EnDeplacement As Boolean
     Public StopDeplacement As Boolean
+    Public BloqueDeplacement As ManualResetEvent = New ManualResetEvent(False)
 
     'Guilde
     Public EnGuilde As Boolean
@@ -73,6 +76,7 @@
     Public EnDialogue As Boolean
     Public ListePnjReponseDisponible As New List(Of Integer)
     Public DialogueReponse As Integer
+    Public BloqueDialogue As ManualResetEvent = New ManualResetEvent(False)
 
     'Maison
     Public Maison As sMaison

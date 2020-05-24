@@ -108,7 +108,7 @@ Module Trajet_Information
 
                         Case "mapid" ' Map = 7515 
 
-                                If .MapID <> CInt(separateAction(1)) Then Exit For
+                            If .MapID <> CInt(separateAction(1)) Then Exit For
 
                         Case "direction", "cellule" ' Move = Direction ou Cellule
 

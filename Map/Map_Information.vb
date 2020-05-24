@@ -26,6 +26,11 @@
 
             .Socket.Envoyer("GI")
 
+            .EnDeplacement = False
+            .BloqueDeplacement.Set()
+            .Send = ""
+            .StopDeplacement = False
+
         End With
 
     End Sub
@@ -69,7 +74,7 @@
                 'J'obtient les cellules qui me permet de changer de map via les soleils.
                 For i As Integer = 1 To .MapHandler.Length - 1
                     If (.MapHandler(i).movement > 0) Then
-                        If (.MapHandler(i).layerObject1Num = 1030) OrElse (.MapHandler(i).layerObject2Num = 1030) Then
+                        If (.MapHandler(i).layerObject1Num = 1030) OrElse (.MapHandler(i).layerObject2Num = 1030) OrElse (.MapHandler(i).layerObject2Num = 4088) OrElse (.MapHandler(i).layerObject1Num = 4088) Then
                             Dim x As Integer = getX(i, Index)
                             Dim y As Integer = getY(i, Index)
                             If If(x - 1 = y, True, x - 2 = y) Then
@@ -473,7 +478,7 @@
 
                         .CaseActuelle = Pair.Cells(0).Value
 
-                        .EnDeplacement = True
+                        Task.Run(Sub() PauseDéplacement(index))
 
                     End If
 
@@ -482,6 +487,81 @@
                 End If
 
             Next
+
+        End With
+
+    End Sub
+
+    Private Async Sub PauseDéplacement(ByVal index As Integer)
+
+        With Comptes(index)
+
+            Dim changeur As Boolean = False
+            .EnDeplacement = True
+            .BloqueDeplacement.Reset()
+
+            If (.MapHandler(.CaseActuelle).layerObject1Num = 1030) OrElse (.MapHandler(.CaseActuelle).layerObject2Num = 1030) OrElse
+               (.MapHandler(.CaseActuelle).layerObject1Num = 4088) OrElse (.MapHandler(.CaseActuelle).layerObject2Num = 4088) Then
+
+                changeur = True
+
+            End If
+
+            If .Send <> "" Then
+
+                .Socket.Envoyer(.Send)
+
+                .Send = ""
+
+            End If
+
+            If .PathTotal.Length > 3 Then
+
+                For i = 0 To .PathTotal.Length Step 3
+
+                    If .StopDeplacement Then
+
+                        .Socket.Envoyer("GKE0|" & ReturnLastCell(Mid(.PathTotal, i + 2, 2)))
+
+                        .StopDeplacement = False
+                        .EnDeplacement = False
+                        .Send = ""
+                        .BloqueDeplacement.Set()
+
+                        Return
+
+                    Else
+
+                        If .PathTotal.Length < 9 Then
+
+                            Await Task.Delay(180 * 3)
+
+                        Else
+
+                            Await Task.Delay(80 * 3)
+
+                        End If
+
+                    End If
+
+                Next
+
+            Else
+
+                Await Task.Delay(180 * 3)
+
+            End If
+
+            .Socket.Envoyer("GKK0")
+
+            If changeur = False Then
+
+                .EnDeplacement = False
+                .BloqueDeplacement.Set()
+                .StopDeplacement = False
+                .Send = ""
+
+            End If
 
         End With
 
@@ -509,6 +589,7 @@
                         .CaseActuelle = separate(1)
                         .Socket.Envoyer("GKK1")
                         .EnDeplacement = False
+                        .BloqueDeplacement.Set()
 
                     End If
 

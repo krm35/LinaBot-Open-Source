@@ -52,6 +52,9 @@ Public Class Pathfinding
 
     End Sub
 
+    'refaire entity
+
+
     Private Sub LoadEntity(ByVal dgv As ListView, ByVal cellEnd As Integer, ByVal caseActuel As Integer)
 
         For Each Pair As ListViewItem In dgv.Items

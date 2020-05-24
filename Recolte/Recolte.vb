@@ -1,4 +1,6 @@
-﻿Module Recolte
+﻿Imports System.Net.Sockets
+
+Module Recolte
 
     'Code non fini, pouvant être amélioré, test en cours sur les récoltes + agro
 

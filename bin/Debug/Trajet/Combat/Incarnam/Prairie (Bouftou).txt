@@ -1,0 +1,20 @@
+<Move>
+Map = [-1,2] | Direction = Gauche
+Map = [-2,2] | Direction = Gauche
+Map = [-2,3] | Direction = Bas
+Mapid = 10337 | Cellule = 447
+Mapid = 10258 | Cellule = 463
+Map = [0,3] | Direction = Droite
+Map = [1,3] | Direction = Droite
+Map = [2,3] | Combat = 3 | Direction = Haut
+Map = [2,2] | Combat = 3 | Direction = Droite
+Map = [3,2] | Combat = 3 | Direction = Haut
+Map = [3,1] | Combat = 3 | Direction = Haut
+Map = [3,0] | Combat = 3 | Direction = Gauche
+Map = [2,0] | Combat = 3 | Direction = Gauche
+Map = [1,0] | Combat = 3 | Direction = Bas
+Map = [1,1] | Combat = 3 | Direction = Gauche
+Map = [0,1] | Combat = 3 | Direction = Droite
+Map = [1,1] | Combat = 3 | Direction = Droite
+Map = [2,1] | Combat = 3 | Direction = Bas
+</Move>

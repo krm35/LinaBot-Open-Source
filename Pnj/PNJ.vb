@@ -16,7 +16,11 @@
 
                         If RenvoieInformation(Pair.Cells(3).Value, "Id Race") = idNamePnj OrElse Pair.Cells(2).Value.ToUpper = idNamePnj.ToUpper Then
 
+                            .BloqueDialogue.Reset()
+
                             .Socket.Envoyer("DC" & Pair.Cells(1).Value, True)
+
+                            .BloqueDialogue.WaitOne(30000)
 
                             Return
 
@@ -46,7 +50,11 @@
 
                             EcritureMessage(index, "(Bot)", "Réponse : " & DicoPnjReponse(.ListePnjReponseDisponible(i)), Color.Orange)
 
+                            .BloqueDialogue.Reset()
+
                             .Socket.Envoyer("DR" & .DialogueReponse & "|" & .ListePnjReponseDisponible(i), True)
+
+                            .BloqueDialogue.WaitOne(30000)
 
                             Return
 
@@ -72,7 +80,11 @@
 
             If .EnDialogue Then
 
+                .BloqueDialogue.Reset()
+
                 .Socket.Envoyer("DV", True)
+
+                .BloqueDialogue.WaitOne(30000)
 
             End If
 

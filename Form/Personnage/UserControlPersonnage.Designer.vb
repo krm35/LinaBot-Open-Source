@@ -303,10 +303,11 @@ Partial Class UserControlPersonnage
         Me.DataGridViewTextBoxColumn56 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn57 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TimerRegeneration = New System.Windows.Forms.Timer(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPageTchat.SuspendLayout()
         Me.TabControl2.SuspendLayout()
@@ -403,6 +404,7 @@ Partial Class UserControlPersonnage
         '
         Me.TabPage_Tchat.AutoScroll = True
         Me.TabPage_Tchat.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.TabPage_Tchat.Controls.Add(Me.Button2)
         Me.TabPage_Tchat.Controls.Add(Me.TextBoxTchatJoueur)
         Me.TabPage_Tchat.Controls.Add(Me.PictureBox10)
         Me.TabPage_Tchat.Controls.Add(Me.LabelMap)
@@ -2230,6 +2232,15 @@ Partial Class UserControlPersonnage
         Me.TabPage8.TabIndex = 9
         Me.TabPage8.Text = "TabPage8"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(230, 65)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(206, 60)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'ToolTip1
         '
         Me.ToolTip1.AutomaticDelay = 1
@@ -2247,14 +2258,14 @@ Partial Class UserControlPersonnage
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
-        'Button1
+        'Button2
         '
-        Me.Button1.Location = New System.Drawing.Point(230, 65)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(206, 60)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button2.Location = New System.Drawing.Point(1657, 432)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 371
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'UserControlPersonnage
         '
@@ -2500,4 +2511,5 @@ Partial Class UserControlPersonnage
     Friend WithEvents UtiliserToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 End Class
