@@ -47,6 +47,7 @@ Partial Class Player
 
     'Ami
     Public AmiAvertie As Boolean
+    Public BloqueAmi As ManualResetEvent = New ManualResetEvent(False)
 
     'Map
     Public MapID As Integer
@@ -72,6 +73,13 @@ Partial Class Player
     Public EnGuilde As Boolean
     Public GuildeInvitation As Boolean
 
+    'Groupe
+    Public EnGroupe As Boolean
+    Public InvitationGroupe As Boolean
+    Public GroupeIdChef As Integer
+    Public BloqueGroupe As ManualResetEvent = New ManualResetEvent(False)
+    Public DicoGroupe As New Dictionary(Of Integer, String())
+
     'Pnj
     Public EnDialogue As Boolean
     Public ListePnjReponseDisponible As New List(Of Integer)
@@ -85,6 +93,7 @@ Partial Class Player
     'Interraction
     Public EnInteraction As Boolean
     Public InteractionCellId As Integer
+    Public BloqueInterraction As ManualResetEvent = New ManualResetEvent(False)
 
     'Craft
     Public ForgemagieListe As New List(Of String)
@@ -101,6 +110,10 @@ Partial Class Player
 
     'Inventaire
     Public MonEquipement As New sEquipement
+    Public BloqueItem As ManualResetEvent = New ManualResetEvent(False)
+
+    'Banque
+    Public EnBanque As Boolean
 
     'Trajet
     Public DicoTrajet As New Dictionary(Of String, List(Of String))
@@ -126,23 +139,23 @@ Partial Class Player
 
     End Structure
 
-    Structure sEquipement
+    Public Structure sEquipement
 
-        Dim Amulette As String
-        Dim Anneaux1 As String
-        Dim Anneaux2 As String
-        Dim Arme As String
-        Dim Familier As String
-        Dim Ceinture As String
-        Dim Botte As String
-        Dim Coiffe As String
-        Dim Cape As String
-        Dim Dofus1 As String
-        Dim Dofus2 As String
-        Dim Dofus3 As String
-        Dim Dofus4 As String
-        Dim Dofus5 As String
-        Dim Dofus6 As String
+        Public Amulette As String()
+        Dim Anneaux1 As String()
+        Dim Anneaux2 As String()
+        Dim Arme As String()
+        Dim Familier As String()
+        Dim Ceinture As String()
+        Dim Botte As String()
+        Dim Coiffe As String()
+        Dim Cape As String()
+        Dim Dofus1 As String()
+        Dim Dofus2 As String()
+        Dim Dofus3 As String()
+        Dim Dofus4 As String()
+        Dim Dofus5 As String()
+        Dim Dofus6 As String()
 
     End Structure
 

@@ -513,22 +513,27 @@
                         Case "032"
 
                             EcritureMessage(Index, "[Familier]", "Votre familier apprécie le repas.", Color.Green)
+                            .BloqueItem.Set()
 
                         Case "031"
 
                             EcritureMessage(Index, "[Familier]", "Vous donnez à manger à votre familier famélique qui traînait comme un zombi. Il se force à manger mais la nourriture qu'il avale fait 3 fois son estomac et il se tord de douleur. Au moins il a mangé.", Color.Red)
+                            .BloqueItem.Set()
 
                         Case "029"
 
                             EcritureMessage(Index, "[Familier]", "Vous donnez à manger à votre familier. Il semble qu'il avait très faim.", Color.Green)
+                            .BloqueItem.Set()
 
                         Case "027"
 
                             EcritureMessage(Index, "[Familier]", "Vous donnez à manger à répétition à votre familier déjà obèse. Il avale quand même la ressource et fait une indigestion.", Color.Red)
+                            .BloqueItem.Set()
 
                         Case "026"
 
                             EcritureMessage(Index, "[Familier]", "Vous donnez à manger à votre familier alors qu'il n'avait plus faim. Il se force pour vous faire plaisir.", Color.Red)
+                            .BloqueItem.Set()
 
                         Case "025"
 
@@ -537,6 +542,7 @@
                         Case "153"
 
                             EcritureMessage(Index, "[Familier]", "Votre familier prend la ressource, la renifle un peu, ne semble pas convaincu et vous la rend.", Color.Red)
+                            .BloqueItem.Set()
 
                         Case "024"
 

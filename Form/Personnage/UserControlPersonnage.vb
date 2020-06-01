@@ -398,6 +398,32 @@ Public Class UserControlPersonnage
 
 #End Region
 
+#Region "Ami/Ennemi"
+
+    Private Sub TabControlAmiEnnemi_Click(sender As Object, e As EventArgs) Handles TabControlAmiEnnemi.Click
+
+        TabControlAmiEnnemi.SelectedTab.Controls.Add(ListViewAmi)
+
+        If Comptes(Index).Connecté Then
+
+            Select Case TabControlAmiEnnemi.SelectedTab.Text
+
+                Case "Ami"
+
+                    Task.Run(Sub() AmiOuvreListe(Index))
+
+                Case "Ennemi"
+
+                    Task.Run(Sub() EnnemiOuvreListe(Index))
+
+            End Select
+
+        End If
+
+    End Sub
+
+#End Region
+
     Private Sub DataGridViewDragodindeEquipé_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewDragodindeEquipé.CellContentDoubleClick, DataGridViewDragodindeEnclo.CellContentDoubleClick, DataGridViewDragodindeEtable.CellContentDoubleClick
 
         If e.ColumnIndex = 2 Then
@@ -445,7 +471,11 @@ Public Class UserControlPersonnage
 
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
+        'Task.Run(Sub() FamilierGestion(Index))
+        Comptes(Index).Socket.Envoyer(TextBox1.Text)
+    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         With Comptes(Index)

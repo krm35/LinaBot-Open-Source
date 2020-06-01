@@ -29,6 +29,9 @@
         {46, "Doree et Rousse"},
         {55, "Emeraude et Indigo"}
         }
+
+    Public DicoFamilier As New Dictionary(Of Integer, Dictionary(Of String, sFamilier))
+
     Public cases(2500) As String
     Public ListOfMap(13000) As String
 
@@ -124,6 +127,16 @@
         Dim IdMetier As Integer
         Dim NomMetier As String
         Dim Atelier As Dictionary(Of Integer, String())
+
+    End Structure
+
+    Structure sFamilier
+
+        Dim Nourriture As List(Of Integer)
+        Dim IntervaleRepasMin As Integer
+        Dim IntervaleRepasMax As Integer
+        Dim CapacitéNormal As Integer
+        Dim CapacitéMax As Integer
 
     End Structure
 

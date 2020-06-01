@@ -14,6 +14,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,10 +25,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -64,6 +65,18 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>ezgif-4-1aea7c1ed603 %281%29.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>037EBA2F28D801F047C94BE80D340214004AC669</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>LinaBot Open Source_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net">
@@ -105,6 +118,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ami\Ami.vb" />
+    <Compile Include="Ami\AmiInformation.vb" />
     <Compile Include="Caractéristique\Caractéristique_Information.vb" />
     <Compile Include="Connexion\Connexion.vb" />
     <Compile Include="Craft\Craft.vb" />
@@ -114,6 +129,8 @@
     <Compile Include="Divers\Load.vb" />
     <Compile Include="Divers\Variable.vb" />
     <Compile Include="Dragodinde\Dragodinde_Information.vb" />
+    <Compile Include="Familier\Familier.vb" />
+    <Compile Include="Familier\FamilierFunction.vb" />
     <Compile Include="Form\Gestion des comptes\Ajouter un compte.Designer.vb">
       <DependentUpon>Ajouter un compte.vb</DependentUpon>
     </Compile>
@@ -169,6 +186,8 @@
     <Compile Include="Form\Personnage\UserControlPersonnage.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Groupe\ModGroupe.vb" />
+    <Compile Include="Groupe\Groupe_Information.vb" />
     <Compile Include="Guilde\Guilde_Information.vb" />
     <Compile Include="Interraction\Interraction.vb" />
     <Compile Include="Inventaire\Equipement\Equipement.vb" />
@@ -254,6 +273,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="LinaBot Open Source_TemporaryKey.pfx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -280,6 +300,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Modérateur\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

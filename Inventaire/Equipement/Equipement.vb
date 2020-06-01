@@ -48,40 +48,40 @@
 
                 Case 1 'Amulette
 
-                    If .MonEquipement.Amulette = "" Then Return True
+                    If .MonEquipement.Amulette(0) = "" Then Return True
 
                 Case 5, 19, 8, 22, 7, 3, 4, 6, 20, 21, 83 'Arme
 
-                    If .MonEquipement.Arme = "" Then Return True
+                    If .MonEquipement.Arme(0) = "" Then Return True
 
                 Case 18 'Familier 
 
-                    If .MonEquipement.Familier = "" Then Return True
+                    If .MonEquipement.Familier(0) = "" Then Return True
 
                 Case 10 'Ceinture 
 
-                    If .MonEquipement.Ceinture = "" Then Return True
+                    If .MonEquipement.Ceinture(0) = "" Then Return True
 
                 Case 11 'Botte  
 
-                    If .MonEquipement.Botte = "" Then Return True
+                    If .MonEquipement.Botte(0) = "" Then Return True
 
                 Case 16 'Coiffe 
 
-                    If .MonEquipement.Coiffe = "" Then Return True
+                    If .MonEquipement.Coiffe(0) = "" Then Return True
 
                 Case 17, 81 'Cape/Sac
 
-                    If .MonEquipement.Cape = "" Then Return True
+                    If .MonEquipement.Cape(0) = "" Then Return True
 
                 Case 9 'Anneaux
 
-                    If .MonEquipement.Anneaux1 = "" OrElse .MonEquipement.Anneaux2 = "" Then Return True
+                    If .MonEquipement.Anneaux1(0) = "" OrElse .MonEquipement.Anneaux2(0) = "" Then Return True
 
                 Case 23 'Dofus
 
-                    If .MonEquipement.Dofus1 = "" OrElse .MonEquipement.Dofus2 = "" OrElse .MonEquipement.Dofus3 = "" OrElse
-                        .MonEquipement.Dofus4 = "" OrElse .MonEquipement.Dofus5 = "" OrElse .MonEquipement.Dofus6 = "" Then
+                    If .MonEquipement.Dofus1(0) = "" OrElse .MonEquipement.Dofus2(0) = "" OrElse .MonEquipement.Dofus3(0) = "" OrElse
+                        .MonEquipement.Dofus4(0) = "" OrElse .MonEquipement.Dofus5(0) = "" OrElse .MonEquipement.Dofus6(0) = "" Then
 
                         Return True
 
@@ -131,25 +131,25 @@
 
                 Case 9 'Anneaux
 
-                    If .MonEquipement.Anneaux1 <> "" Then
+                    If .MonEquipement.Anneaux1(0) <> "" Then
                         Return 2
-                    ElseIf .MonEquipement.Anneaux2 <> "" Then
+                    ElseIf .MonEquipement.Anneaux2(0) <> "" Then
                         Return 4
                     End If
 
                 Case 23 'Dofus
 
-                    If .MonEquipement.Dofus1 <> "" Then
+                    If .MonEquipement.Dofus1(0) <> "" Then
                         Return 9
-                    ElseIf .MonEquipement.Dofus2 <> "" Then
+                    ElseIf .MonEquipement.Dofus2(0) <> "" Then
                         Return 10
-                    ElseIf .MonEquipement.Dofus3 <> "" Then
+                    ElseIf .MonEquipement.Dofus3(0) <> "" Then
                         Return 11
-                    ElseIf .MonEquipement.Dofus4 <> "" Then
+                    ElseIf .MonEquipement.Dofus4(0) <> "" Then
                         Return 12
-                    ElseIf .MonEquipement.Dofus5 <> "" Then
+                    ElseIf .MonEquipement.Dofus5(0) <> "" Then
                         Return 13
-                    ElseIf .MonEquipement.Dofus6 <> "" Then
+                    ElseIf .MonEquipement.Dofus6(0) <> "" Then
                         Return 14
                     End If
 

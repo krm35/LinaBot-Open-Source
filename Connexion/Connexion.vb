@@ -593,4 +593,54 @@ Module Connexion
 
     End Sub
 
+    Public Sub GaProblemeConnexion(ByVal index As Integer, ByVal erreur As String, Optional ByVal data As String = "")
+
+        With Comptes(index)
+
+            Select Case erreur
+
+                Case "M01"
+
+                    EcritureMessage(index, "(Dofus)", "Connexion interrompue avec le serveur." & vbCrLf &
+                                                      "Tu es resté trop longtemps inactif.", Color.Red)
+
+                Case "M018"
+
+                    ' M018 | [Toblik]  ; Bot Joueur
+                    ' M018 | NomJoueur ; Message
+
+                    Dim separate As String() = Split(data, "|")
+                    separate = Split(separate(1), ";")
+                    EcritureMessage(index, "[Modérateur]", separate(0) & " : " & separate(1), Color.Red)
+
+
+                Case "M013"
+
+                    EcritureMessage(index, "(Dofus)", "Connexion interrompue avec le serveur." & vbCrLf &
+                                                      "Le serveur est actuellement en maintenance, Merci de votre compréhension." & vbCrLf &
+                                                      "Profitez-en pour découvrir les différents jeux Linabots, tel que 'Agrandir la taille de son chibre' ou encore 'Le caca c'est trop génial !'", Color.Red)
+
+                Case "M030"
+
+                    EcritureMessage(index, "[Dofus]", "Déconnecté, Connexion trop lente, vérifiez qu'un logiciel,
+                                                       le streaming ou autre ne prenne pas toute votre connexion.", Color.Red)
+
+                Case "M132"
+
+                    .EnCombat = True
+
+                    EcritureMessage(index, "[Combat]", "Afin de ne pas gêner les autres joueurs, veuillez attendre " &
+                                                       Mid(data, 5) & " secondes avant de vous reconnectez.", Color.Red)
+
+                    Return
+
+            End Select
+
+            .Socket.Connexion_Game(False)
+
+        End With
+
+    End Sub
+
+
 End Module

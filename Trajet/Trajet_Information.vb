@@ -17,6 +17,10 @@ Module Trajet_Information
             swLecture.Close()
 
             .FrmGroupe.DicoTrajet.Clear()
+            .FrmGroupe.ReturnBanque = False
+            .FrmGroupe.PodsGroupe = 80
+            .FrmGroupe.GrpSupprime.Clear()
+            .FrmGroupe.FamilierList.Clear()
 
             For i = 0 To ligne.Count - 1
 
@@ -26,13 +30,13 @@ Module Trajet_Information
 
                 ElseIf ligne(i).StartsWith("<") Then
 
-                    balise = ligne(i).Replace("<", "").Replace(">", "")
+                    balise = ligne(i).Replace("<", "").Replace(">", "").ToLower
 
                 Else
 
                     If ligne(i) <> "" Then
 
-                        Select Case balise.ToLower
+                        Select Case balise
 
 
                             Case "forgemagie"
@@ -46,6 +50,28 @@ Module Trajet_Information
                             Case "forgemagie exotique"
 
                                 .ForgemagieExo.Add(ligne(i))
+
+                            Case "suppression"
+
+                                Dim newSupprime As New Groupe.sSupprime
+
+                                Dim separate As String() = Split(ligne(i), " = ")
+
+                                With newSupprime
+
+                                    .IdNom = separate(0) ' Id on nom
+                                    .Quantité = separate(1) ' Max ou X
+                                    .Caractéristique = separate(2) ' Vitalité : 0 a 15 , Sagesse : 5 a 41  ou Nothing
+
+                                End With
+
+                                .FrmGroupe.GrpSupprime.Add(newSupprime)
+
+                            Case "familier"
+
+                                Dim separate As String() = Split(ligne(i), " = ")
+
+                                .FrmGroupe.FamilierList.Add(separate(0), separate(1))
 
                             Case Else
 
@@ -80,7 +106,22 @@ Module Trajet_Information
 
             While True
 
-                TrajetEnCours(index, .FrmGroupe.DicoTrajet.Keys(0))
+                If .FrmGroupe.ReturnBanque Then
+
+                    Suppression(index)
+
+                    ' Si mes bots sont toujours au dessus de la limite après la suppression.
+                    If .FrmGroupe.ReturnBanque Then
+
+                        TrajetEnCours(index, "banque", 1)
+
+                    End If
+
+                Else
+
+                    TrajetEnCours(index, .FrmGroupe.DicoTrajet.Keys(0))
+
+                End If
 
             End While
 
@@ -88,7 +129,7 @@ Module Trajet_Information
 
     End Sub
 
-    Public Sub TrajetEnCours(ByVal index As Integer, ByVal balise As String, Optional ByVal banque As Integer = 0)
+    Public Sub TrajetEnCours(ByVal index As Integer, ByVal balise As String, Optional ByVal Banque As Integer = 0)
 
         With Comptes(index)
 
@@ -97,6 +138,9 @@ Module Trajet_Information
                 Dim separate As String() = Split(Pair, " | ")
 
                 For a = 0 To separate.Count - 1
+
+                    'Vérification des pods.
+                    If Banque = 0 AndAlso .FrmGroupe.ReturnBanque Then Return
 
                     Dim separateAction As String() = Split(separate(a), " = ")
 
@@ -126,9 +170,13 @@ Module Trajet_Information
 
                             PnjParler(index, separateAction(1))
 
+                            Task.Delay(1000).Wait()
+
                         Case "pnjreponse"
 
                             PnjReponse(index, separateAction(1))
+
+                            Task.Delay(1000).Wait()
 
                         Case "pnjquittedialogue"
 
@@ -146,7 +194,7 @@ Module Trajet_Information
 
                         Case "balise"
 
-                            TrajetEnCours(index, separateAction(1))
+                            TrajetEnCours(index, separateAction(1).ToLower)
 
                         Case "condition"
 
@@ -181,6 +229,24 @@ Module Trajet_Information
 
                             End Select
 
+                        Case "familier" 'Familier = Nourrir = 
+
+                            Select Case separateAction(1).ToLower
+
+                                Case "nourrir"
+
+                                    FamilierDépose(index)
+
+                                Case "reconnexion"
+
+                                    Dim tempsReconnexion As Integer = FamilierReconnexion(index)
+
+                                    Task.Run(Sub() Reconnexion(index, tempsReconnexion))
+
+                                    If .FrmGroupe.ThreadTrajet IsNot Nothing AndAlso .FrmGroupe.ThreadTrajet.IsAlive Then .FrmGroupe.ThreadTrajet.Abort()
+
+                            End Select
+
                     End Select
 
                     Task.Delay(10).Wait()
@@ -211,5 +277,28 @@ Module Trajet_Information
         End With
 
     End Function
+
+    Private Sub Reconnexion(ByVal index As Integer, ByVal tempsReconnexion As Integer)
+
+        With Comptes(index)
+
+            If .Connecté Then
+
+                .Socket.Connexion_Game(False)
+
+            End If
+
+            Task.Delay(tempsReconnexion).Wait()
+
+            .Socket.Connexion_Game(True)
+
+            Task.Delay(30000).Wait()
+
+            .FrmGroupe.ThreadTrajet = New Threading.Thread(Sub() MyTrajet(index)) With {.IsBackground = True}
+            .FrmGroupe.ThreadTrajet.Start()
+
+        End With
+
+    End Sub
 
 End Module

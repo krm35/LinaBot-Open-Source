@@ -33,6 +33,31 @@
 
                 .FrmUser.DataGridViewInventaire.Rows.Clear()
 
+                'Equipement
+                Dim varEquipement As New Player.sEquipement
+
+                With varEquipement
+
+                    .Amulette = {"", ""}
+                    .Anneaux1 = {"", ""}
+                    .Anneaux2 = {"", ""}
+                    .Arme = {"", ""}
+                    .Botte = {"", ""}
+                    .Cape = {"", ""}
+                    .Ceinture = {"", ""}
+                    .Coiffe = {"", ""}
+                    .Dofus1 = {"", ""}
+                    .Dofus2 = {"", ""}
+                    .Dofus3 = {"", ""}
+                    .Dofus4 = {"", ""}
+                    .Dofus5 = {"", ""}
+                    .Dofus6 = {"", ""}
+                    .Familier = {"", ""}
+
+                End With
+
+                .MonEquipement = varEquipement
+
                 GaItemsAjoute(index, separateData(10), .FrmUser.DataGridViewInventaire)
 
                 .FrmUser.DataGridViewInventaire.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter

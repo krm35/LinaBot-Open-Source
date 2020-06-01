@@ -79,6 +79,7 @@
             .TabPage.AutoScroll = True
 
             'Charger les options ici.
+            frmGroupe.ListIndex.Add(index)
 
         End With
 
@@ -297,5 +298,51 @@
         Return Nothing
 
     End Function
+
+    Public Function CopyListView(ByVal Index As Integer, ByVal La_Listview As ListView) As ListView
+        'Je met une listview u lieu d'un arraylist pour les utilisateurs qui débute, 
+        'il sera plus simple pour eux de comprendre le code s'ils ont toujours une listview.
+
+        With Comptes(Index)
+
+            If .FrmUser.InvokeRequired Then
+
+                'Ne pas oublier de "return" l'invoke, sinon il retourne du vide !
+                Return .FrmUser.Invoke(New dlgFDivers(Function() CopyListView(Index, La_Listview)))
+
+            Else
+
+                Dim New_Liste As New ListView With {.CheckBoxes = True}
+
+                For Each Line As ListViewItem In La_Listview.Items
+
+                    With New_Liste
+
+                        .Items.Add(Line.SubItems(0).Text)
+
+                        With .Items(.Items.Count - 1)
+
+                            For i = 1 To Line.SubItems.Count - 1
+
+                                .SubItems.Add(Line.SubItems(i).Text)
+
+                            Next
+
+                            .BackColor = Line.BackColor
+
+                        End With
+
+                    End With
+
+                Next
+
+                Return New_Liste
+
+            End If
+
+        End With
+
+    End Function
+
 
 End Module

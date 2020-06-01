@@ -309,6 +309,10 @@
                             '26f#0#0#93,26f#0#0#94,26f#0#0#94,26f#0#0#94,26f#0#0#65,26f#0#0#65,26f#0#0#65,26f#0#0#65;
                             resultat &= "Pierre ame : " & valeur3 & vbCrLf
 
+                        Case 699
+
+                            resultat &= "Lier son métier : " & DicoMétier(valeur1).NomMetier & vbCrLf
+
                         Case 701
 
                             resultat &= "Puissance : " & valeur1 & vbCrLf
@@ -320,7 +324,7 @@
                         Case 800 '320 = Point de vie +
 
                             '320 #5      #48     #7
-                            resultat &= "Point de Vie : " & valeur1 & vbCrLf
+                            resultat &= "Point de Vie : " & valeur3 & vbCrLf
 
                         Case 806 ' 326 = 'Repas et Corpulence 
 
@@ -499,7 +503,7 @@
         For i = 0 To caractéristiqueVoulu.Count - 1
 
             ' J'obtient le nom de la caractéristique
-            Dim separateSearch As String() = Split(caractéristiqueVoulu(i), " : ") 'Vitalité : 0 à 15 
+            Dim separateSearch As String() = Split(caractéristiqueVoulu(i), " : ") 'Vitalité : 0 a 15 
 
             For a = 0 To caractéristiqueItem.Count - 1
 
@@ -526,5 +530,63 @@
 
     End Function
 
+    Public Sub GaItemModifieCaractéristique(ByVal index As Integer, ByVal data As String)
+
+        With Comptes(index)
+
+            ' OCO 4a239fd  ~ 1f40    ~ 1        ~ 8                 ~ 320#5#48#9,328#28a#1f5#466,326#0#0#48,327#0#0#18a,9e#2da#0#0#0d0+730 ; 
+            ' OCO idUnique ~ IdObjet ~ Quantité ~ Numéro Equipement ~ Caractéristique                                                      ; Next item
+
+            data = Mid(data, 4)
+
+            Dim separateData As String() = Split(data, ";")
+
+            For i = 0 To separateData.Count - 1
+
+                Dim separateItem As String() = Split(separateData(i), "~")
+
+                Dim IdUnique As String = Convert.ToInt64(separateItem(0), 16)
+
+                For Each Pair As DataGridViewRow In .FrmUser.DataGridViewInventaire.Rows
+
+                    If Pair.Cells(1).Value = IdUnique Then
+
+                        'Quantité
+                        Pair.Cells(3).Value = Convert.ToInt64(separateItem(2), 16)
+
+                        'Caractéristique
+                        Pair.Cells(4).Value = ItemCaractéristique(separateItem(4))
+
+                        Pair.Cells(4).ToolTipText = separateItem(4)
+
+                        If separateItem(3) <> "" Then
+
+                            Pair.DefaultCellStyle.BackColor = Color.Lime
+
+                            Pair.Cells(4).Value &= "Equipement : " & Convert.ToInt64(separateItem(3), 16)
+
+                        ElseIf DicoItems(Convert.ToInt64(separateItem(1), 16)).Catégorie = "24" Then
+
+                            Pair.DefaultCellStyle.BackColor = Color.Orange
+
+                        Else
+
+                            Pair.DefaultCellStyle.BackColor = Color.White
+
+                        End If
+
+                        .BloqueItem.Set()
+
+                        Return
+
+                    End If
+
+                Next
+
+            Next
+
+        End With
+
+    End Sub
 
 End Module

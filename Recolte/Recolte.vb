@@ -18,9 +18,9 @@ Module Recolte
 
                     .InteractionCellId = cellule
 
-                    SeDeplace(index, cellule)
+                    .Send = "GA500" & cellule & ";" & ReturnAction(laRecolte, action)
 
-                    .Socket.Envoyer("GA500" & cellule & ";" & ReturnAction(laRecolte, action), True)
+                    SeDeplace(index, cellule)
 
                     Task.Delay(2000).Wait()
 

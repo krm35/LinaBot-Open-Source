@@ -488,4 +488,61 @@
 
     End Sub
 
+
+    Public Sub LoadFamilier()
+
+        'J'ouvre et je lis le fichier.
+        Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Data/Familier.txt")
+        Dim ligne() As String = Split(swLecture.ReadToEnd, vbCrLf)
+
+        'Puis je ferme le fichier.
+        swLecture.Close()
+
+        For i = 0 To ligne.Count - 1
+
+            If ligne(i) <> "" Then
+
+                Dim separate As String() = Split(ligne(i), "|")
+
+                Dim varFamilier As New sFamilier
+
+                With varFamilier
+
+                    Dim separateInfo As String() = Split(separate(2), ",")
+
+                    .Nourriture = New List(Of Integer)
+
+                    For a = 0 To separateInfo.Count - 1
+
+                        .Nourriture.Add(separateInfo(a))
+
+                    Next
+
+                    separateInfo = Split(separate(3), ",")
+
+                    .CapacitéNormal = separateInfo(0)
+                    .CapacitéMax = separateInfo(1)
+
+                    separateInfo = Split(separate(4), ",")
+
+                    .IntervaleRepasMin = separateInfo(0)
+                    .IntervaleRepasMax = separateInfo(1)
+
+                End With
+
+                If Not DicoFamilier.ContainsKey(separate(0)) Then ' IdFamilier
+
+                    DicoFamilier.Add(separate(0), New Dictionary(Of String, sFamilier) From {{separate(1), varFamilier}})
+
+                Else 'Il contient l'ID
+
+                    DicoFamilier(separate(0)).Add(separate(1), varFamilier)
+
+                End If
+
+            End If
+
+        Next
+
+    End Sub
 End Module

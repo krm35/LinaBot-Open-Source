@@ -50,4 +50,32 @@
 
     End Sub
 
+    Public Sub GaItemsSupprimeLui(ByVal index As Integer, ByVal data As String, ByVal dgv As DataGridView)
+
+        With Comptes(index)
+
+            ' EsKO- 40420233
+            ' EsKO- Id Unique
+
+            data = Mid(data, 6)
+
+            For Each Pair As DataGridViewRow In dgv.Rows
+
+                If Pair.Cells(1).Value = data Then
+
+                    dgv.Rows.RemoveAt(Pair.Index)
+
+                    Return
+
+                End If
+
+            Next
+
+            .BloqueItem.Set()
+
+        End With
+
+    End Sub
+
+
 End Module

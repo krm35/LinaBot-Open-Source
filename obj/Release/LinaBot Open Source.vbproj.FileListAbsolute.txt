@@ -1,0 +1,27 @@
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Release\LinaBot Open Source.exe.config
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Release\LinaBot Open Source.exe.manifest
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Release\LinaBot Open Source.application
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Release\LinaBot Open Source.exe
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Release\LinaBot Open Source.pdb
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Release\LinaBot Open Source.xml
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Release\log4net.dll
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Release\SharpZipLib.dll
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Release\SwfDotNet.IO.dll
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot_Open_Source.Ajouter_un_compte.resources
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot_Open_Source.Charger_un_compte.resources
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot_Open_Source.Supprimer_un_compte.resources
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot_Open_Source.Groupe.resources
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot_Open_Source.LinaBot.resources
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot_Open_Source.FrmDragodindeArbreGénéalogique.resources
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot_Open_Source.FrmMétier.resources
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot_Open_Source.FrmSuppression.resources
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot_Open_Source.UserControlPersonnage.resources
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot_Open_Source.Resources.resources
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot Open Source.vbproj.GenerateResource.cache
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot Open Source.vbproj.CoreCompileInputs.cache
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot Open Source.exe.manifest
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot Open Source.application
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot Open Source.vbproj.CopyComplete
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot Open Source.exe
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot Open Source.xml
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot Open Source.pdb

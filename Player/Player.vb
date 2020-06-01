@@ -142,19 +142,19 @@ Public Class Player
                     FrmUser.RichTextBoxSocket.ScrollToCaret()
 
                     'Selection des infos
-                    Select Case Mid(e.Message, 1, 1)
+                    Select Case e.Message(0)
 
                         Case "A"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "A" ' AA
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "E" ' AAE
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "a" ' AAEa
 
@@ -188,7 +188,7 @@ Public Class Player
 
                                 Case "B" ' AB
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "E" ' ABE
 
@@ -202,7 +202,7 @@ Public Class Player
 
                                 Case "c" ' Ac
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "0" ' Ac0
 
@@ -220,7 +220,7 @@ Public Class Player
 
                                 Case "f" ' Af
 
-                                    Select Case Mid(e.Message, 3, 1) 'Af0
+                                    Select Case e.Message(2) 'Af0
 
                                         Case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "-"
 
@@ -238,7 +238,7 @@ Public Class Player
 
                                 Case "L" ' AL
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "K" 'ALK
 
@@ -252,14 +252,14 @@ Public Class Player
 
                                 Case "l" ' Al
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "E" 'AlE
 
                                             'Je déconnecte le bot.
                                             Socket_Authentification.Connexion_Game(False)
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "a" 'AlEa
                                                     EcritureMessage(Index, "[Dofus]", "Déjà en connexion.", Color.Red)
@@ -313,7 +313,7 @@ Public Class Player
 
                                         Case "K" ' AlK
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "0" ' AlK0
 
@@ -343,7 +343,7 @@ Public Class Player
 
                                 Case "P" ' AP
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "K" ' APK
 
@@ -373,7 +373,7 @@ Public Class Player
 
                                 Case "S" ' AS
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "K" ' ASK
 
@@ -395,7 +395,7 @@ Public Class Player
 
                                 Case "T" ' AT
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "E" 'ATE  co trop lente
 
@@ -408,7 +408,7 @@ Public Class Player
 
                                         Case "K" 'ATK
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "0" 'ATK0
 
@@ -429,7 +429,7 @@ Public Class Player
 
                                 Case "V" ' AV -- Manque une information
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "0" 'AV0
 
@@ -446,11 +446,11 @@ Public Class Player
 
                                 Case "X" ' AX
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "E" ' AXE  
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "d"
 
@@ -486,7 +486,7 @@ Public Class Player
 
                                 Case "x" ' Ax
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "K" ' AxK
 
@@ -500,7 +500,7 @@ Public Class Player
 
                                 Case "Y" ' AY
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "K" ' AYK
 
@@ -520,7 +520,7 @@ Public Class Player
 
                         Case "a"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "l" ' al
 
@@ -540,7 +540,7 @@ Public Class Player
 
                         Case "B"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "D" 'BD
 
@@ -579,11 +579,11 @@ Public Class Player
 
                         Case "c"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "C" ' cC
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "+" ' cC+
 
@@ -601,11 +601,11 @@ Public Class Player
 
                                 Case "M" ' cM
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "E" ' cME
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "A" ' cMEA
 
@@ -627,7 +627,7 @@ Public Class Player
 
                                         Case "K" ' cMK
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "F", "T", "$", "#", "*", "%", "!", "?", ":", "|" ' cMKF
 
@@ -657,15 +657,20 @@ Public Class Player
 
                         Case "D"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "C" ' DC
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "K" ' DCK
 
                                             GaPnjDialogue(Index, e.Message)
+
+                                        Case "E"
+
+                                            EnDialogue = True
+                                            EcritureMessage(Index, "[Dofus]", "Vous êtes déjà en dialogue.", Color.Red)
 
                                         Case Else
 
@@ -696,15 +701,15 @@ Public Class Player
 
                         Case "E"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "C" 'faire les eck3 ETC.... pour la fm etc....
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "K" ' ECK
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "0" ' ECK0
 
@@ -974,7 +979,7 @@ Public Class Player
 
                                                 Case "5" ' ECK5
 
-                                                    '   EnBanque = True
+                                                    EnBanque = True
 
                                                 Case Else
 
@@ -990,11 +995,11 @@ Public Class Player
 
                                 Case "c" ' Ec
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "E" ' EcE
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "F" ' EcEF
 
@@ -1011,7 +1016,7 @@ Public Class Player
 
                                         Case "K" ' EcK
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case ";" ' EcK;
 
@@ -1029,17 +1034,35 @@ Public Class Player
 
                                     End Select
 
+                                Case "L" ' EL
+
+                                    Select Case e.Message(2)
+
+                                        Case "O" ' ELO 
+
+                                            If EnBanque Then
+
+                                                GaItemsAjoute(Index, e.Message.Replace("EL", "").Replace("O", ""), FrmUser.DataGridViewLui)
+
+                                            End If
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "EL", e.Message)
+
+                                    End Select
+
                                 Case "M" ' EM
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "K" ' EMK
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "O" ' EMKO
 
-                                                    Select Case Mid(e.Message, 5, 1)
+                                                    Select Case e.Message(4)
 
                                                         Case "+" ' EMKO+
 
@@ -1069,15 +1092,15 @@ Public Class Player
 
                                 Case "m" ' Em
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "K" ' EmK
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "O" ' EmKO
 
-                                                    Select Case Mid(e.Message, 5, 1)
+                                                    Select Case e.Message(4)
 
                                                         Case "+" ' EmKO+
 
@@ -1101,9 +1124,68 @@ Public Class Player
 
                                     End Select
 
+                                Case "s" ' Es
+
+                                    Select Case e.Message(2)
+
+                                        Case "K" ' EsK
+
+                                            Select Case e.Message(3)
+
+                                                Case "O" ' EsKO
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "+" ' EsKO+
+
+                                                            GaItemsAjouteLui(Index, e.Message, FrmUser.DataGridViewLui)
+
+                                                        Case "-" ' EsKO-
+
+                                                            GaItemsSupprimeLui(Index, e.Message, FrmUser.DataGridViewLui)
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "EsKO", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "EsK", e.Message)
+
+                                            End Select
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Es", e.Message)
+
+                                    End Select
+
+                                Case "V" ' EV
+
+                                    If e.Message = "EV" Then
+
+                                        If EnBanque Then
+
+                                            EnDialogue = False
+                                            ListePnjReponseDisponible.Clear()
+                                            DialogueReponse = 0
+                                            BloqueDialogue.Set()
+                                            BloqueInterraction.Set()
+                                            EnBanque = False
+
+                                        End If
+
+                                    Else
+
+                                        ErreurFichier(Index, NomDuPersonnage, "EV", e.Message)
+
+                                    End If
+
                                 Case "W" ' EW
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "+" ' EW+
 
@@ -1136,11 +1218,15 @@ Public Class Player
 
                                     End Select
 
+                                Case Else
+
+                                    ErreurFichier(Index, NomDuPersonnage, "E", e.Message)
+
                             End Select
 
                         Case "e"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "L" ' eL
 
@@ -1154,11 +1240,11 @@ Public Class Player
 
                         Case "F"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "O" ' FO
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "-" ' FO- 
 
@@ -1186,11 +1272,11 @@ Public Class Player
 
                         Case "f"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "C" ' fC
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case CInt(e.Message(2).ToString)
 
                                         Case "0" ' fC0
 
@@ -1218,23 +1304,23 @@ Public Class Player
 
                         Case "G"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "A" ' GA
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "0" ' GA0
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case ";" ' GA0;
 
-                                                    Select Case Mid(e.Message, 5, 1)
+                                                    Select Case e.Message(4)
 
                                                         Case "1" ' GA0;1
 
-                                                            Select Case Mid(e.Message, 6, 1)
+                                                            Select Case e.Message(5)
 
                                                                 Case ";" ' GA0;1;
 
@@ -1248,15 +1334,15 @@ Public Class Player
 
                                                         Case "5" ' GA0;5
 
-                                                            Select Case Mid(e.Message, 6, 1)
+                                                            Select Case e.Message(5)
 
                                                                 Case "0" ' GA0;50
 
-                                                                    Select Case Mid(e.Message, 7, 1)
+                                                                    Select Case e.Message(6)
 
                                                                         Case "1" ' GA0;501
 
-                                                                            Select Case Mid(e.Message, 8, 1)
+                                                                            Select Case e.Message(7)
 
                                                                                 Case ";" ' GA0;501;
 
@@ -1294,15 +1380,15 @@ Public Class Player
 
                                         Case "1" ' GA1
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case ";" ' GA1;
 
-                                                    Select Case Mid(e.Message, 5, 1)
+                                                    Select Case e.Message(4)
 
                                                         Case "4" ' GA1;4
 
-                                                            Select Case Mid(e.Message, 6, 1)
+                                                            Select Case e.Message(5)
 
                                                                 Case ";" ' GA1;4;
 
@@ -1316,15 +1402,15 @@ Public Class Player
 
                                                         Case "5" ' GA1;5
 
-                                                            Select Case Mid(e.Message, 6, 1)
+                                                            Select Case e.Message(5)
 
                                                                 Case "0" ' GA1;50
 
-                                                                    Select Case Mid(e.Message, 7, 1)
+                                                                    Select Case e.Message(6)
 
                                                                         Case "1" ' GA1;501
 
-                                                                            Select Case Mid(e.Message, 8, 1)
+                                                                            Select Case e.Message(7)
 
                                                                                 Case ";" ' GA1;501;
 
@@ -1364,7 +1450,7 @@ Public Class Player
 
                                         Case ";" ' GA;
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "0" ' GA;0
 
@@ -1382,7 +1468,7 @@ Public Class Player
 
                                                 Case "1" ' GA;1
 
-                                                    Select Case Mid(e.Message, 5, 1)
+                                                    Select Case e.Message(4)
 
                                                         Case ";" ' GA;1;
 
@@ -1412,19 +1498,19 @@ Public Class Player
 
                                 Case "C" ' GC
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "K" ' GCK
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "|" ' GCK|
 
-                                                    Select Case Mid(e.Message, 5, 1)
+                                                    Select Case e.Message(4)
 
                                                         Case "1" ' GCK|1
 
-                                                            Select Case Mid(e.Message, 6, 1)
+                                                            Select Case e.Message(5)
 
                                                                 Case "|" ' GCK|1|
 
@@ -1462,7 +1548,7 @@ Public Class Player
 
                                     Else
 
-                                        Select Case Mid(e.Message, 3, 1)
+                                        Select Case e.Message(2)
 
                                             Case "F" ' GDF
 
@@ -1482,7 +1568,7 @@ Public Class Player
 
                                             Case "M" ' GDM
 
-                                                Select Case Mid(e.Message, 4, 1)
+                                                Select Case e.Message(3)
 
                                                     Case "|" ' GDM|
 
@@ -1496,7 +1582,7 @@ Public Class Player
 
                                             Case "O" ' GDO
 
-                                                Select Case Mid(e.Message, 4, 1)
+                                                Select Case e.Message(3)
 
                                                     Case "+" ' GDO+
 
@@ -1522,11 +1608,11 @@ Public Class Player
 
                                 Case "M" ' GM
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "|" ' GM|
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "+" ' GM|+
 
@@ -1560,11 +1646,11 @@ Public Class Player
 
                         Case "g"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "K" 'gK
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "K" ' gKK
 
@@ -1588,7 +1674,7 @@ Public Class Player
 
                         Case "H"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "C" ' HC
 
@@ -1606,11 +1692,11 @@ Public Class Player
 
                         Case "h"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "L" ' hL
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "+" ' hL+
 
@@ -1634,11 +1720,15 @@ Public Class Player
 
                         Case "I"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
+
+                                Case "C" ' IC
+
+                                    GaGroupePositionSuivre(Index, e.Message)
 
                                 Case "L" ' IL
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "F" ' ILF
 
@@ -1678,7 +1768,7 @@ Public Class Player
 
                         Case "J"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "N" ' JN
 
@@ -1694,7 +1784,7 @@ Public Class Player
 
                                 Case "S" ' JS
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "|" ' JS|
 
@@ -1708,7 +1798,7 @@ Public Class Player
 
                                 Case "X" ' JX
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "|" ' JX|
 
@@ -1748,7 +1838,122 @@ Public Class Player
 
                         Case "M"
 
-                            ErreurFichier(Index, NomDuPersonnage, "M", e.Message)
+                            Select Case e.Message(1)
+
+                                Case "0" ' M0
+
+                                    Select Case e.Message(2)
+
+                                        Case "1" ' M01
+
+                                            If e.Message.Length > 3 Then
+
+                                                Select Case e.Message(3)
+
+                                                    Case "3" ' M013
+
+                                                        GaProblemeConnexion(Index, "M013", e.Message)
+
+                                                    Case "8" ' M018
+
+                                                        GaProblemeConnexion(Index, "M018", e.Message)
+
+                                                    Case Else
+
+                                                        ErreurFichier(Index, NomDuPersonnage, "M01", e.Message)
+
+                                                End Select
+
+                                            Else
+
+                                                If e.Message = "M01" Then
+
+                                                    GaProblemeConnexion(Index, e.Message)
+
+                                                Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "M01", e.Message)
+
+                                                End If
+
+                                            End If
+
+                                        Case "3" ' M03
+
+                                            Select Case e.Message(3)
+
+                                                Case "0" ' M030
+
+                                                    GaProblemeConnexion(Index, e.Message)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "M03", e.Message)
+
+                                            End Select
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "M0", e.Message)
+
+                                    End Select
+
+                                Case "1" ' M1
+
+                                    Select Case e.Message(2)
+
+                                        Case "1"
+
+                                            Select Case e.Message(3)
+
+                                                Case "0" ' M110
+                                                    'M110|542
+
+                                                    EcritureMessage(Index, "(Bot - Banque)", "Il vous faut au moins " & Split(e.Message, "|")(1) & " kamas pour accéder à votre coffre.", Color.Red)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "M1", e.Message)
+
+                                            End Select
+
+                                        Case "3" ' M13
+
+                                            Select Case e.Message(3)
+
+                                                Case "2" ' M132
+
+                                                    GaProblemeConnexion(Index, "M132")
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "M13", e.Message)
+
+                                            End Select
+
+                                        Case "6"
+
+                                            If e.Message <> "M16" Then
+
+                                                ErreurFichier(Index, NomDuPersonnage, "M16", e.Message)
+
+                                            Else
+
+                                                EcritureMessage(Index, "[Dofus]", "Le nombre maximum d'objets pour cet inventaire est déjà atteint.", Color.Red)
+
+                                            End If
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "M", e.Message)
+
+                                    End Select
+
+                                Case Else
+
+                                    ErreurFichier(Index, NomDuPersonnage, "M", e.Message)
+
+                            End Select
 
                         Case "m"
 
@@ -1764,15 +1969,15 @@ Public Class Player
 
                         Case "O"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "A" ' OA
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "K" ' OAK
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "O" ' OAKO
 
@@ -1794,6 +1999,20 @@ Public Class Player
 
                                     GaJoueurChangeEquipement(Index, e.Message)
 
+                                Case "C" ' OC
+
+                                    Select Case e.Message(2)
+
+                                        Case "O" ' OCO
+
+                                            GaItemModifieCaractéristique(Index, e.Message)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "OC", e.Message)
+
+                                    End Select
+
                                 Case "M" ' OM
 
                                     GaEquipement(Index, e.Message)
@@ -1808,7 +2027,7 @@ Public Class Player
 
                                 Case "S" ' OS
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "+" ' OS+
 
@@ -1844,7 +2063,90 @@ Public Class Player
 
                         Case "P"
 
-                            ErreurFichier(Index, NomDuPersonnage, "P", e.Message)
+                            Select Case e.Message(1)
+
+                                Case "C" ' PC
+
+                                    Select Case e.Message(2)
+
+                                        Case "K" ' PCK
+
+                                            GaGroupeRejoint(Index, e.Message)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "PC", e.Message)
+
+                                    End Select
+
+                                Case "F" ' PF
+
+                                    Select Case e.Message(2)
+
+                                        Case "K" ' PK
+
+                                            GaGroupeSuivezMoiLeTous(Index, e.Message)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "PF", e.Message)
+
+                                    End Select
+
+                                Case "I" ' PI
+
+                                    Select Case e.Message(2)
+
+                                        Case "K" ' PIK
+
+                                            GaGroupeReçoitInvitation(Index, e.Message)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "PI", e.Message)
+
+                                    End Select
+
+                                Case "L" ' PL
+
+                                    GaGroupeChefId(Index, e.Message)
+
+                                Case "M" ' PM
+
+                                    Select Case e.Message(2)
+
+                                        Case "+" ' PM+
+
+                                            GaGroupeAddJoueur(Index, e.Message)
+
+                                        Case "-" ' PM-
+
+                                            GaGroupeDeleteJoueur(Index, e.Message)
+
+                                        Case "~" ' PM~
+
+                                            GaGroupeModifieInformation(Index, e.Message)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "P", e.Message)
+
+                                    End Select
+
+                                Case "R" ' PR
+
+                                    GaGroupeRefuse(Index, e.Message)
+
+                                Case "V" ' PV
+
+
+                                    GaGroupeQuitte(Index, e.Message)
+
+                                Case Else
+
+                                    ErreurFichier(Index, NomDuPersonnage, "P", e.Message)
+
+                            End Select
 
                         Case "p"
 
@@ -1860,7 +2162,7 @@ Public Class Player
 
                         Case "R"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "p" ' Rp
 
@@ -1868,7 +2170,7 @@ Public Class Player
 
                                 Case "e" ' Re
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "+" ' Re+
 
@@ -1884,7 +2186,7 @@ Public Class Player
 
                                 Case "x" ' Rx
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "0" ' Rx0
 
@@ -1908,15 +2210,15 @@ Public Class Player
 
                         Case "S"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "L" ' SL
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2).ToString
 
                                         Case "o" ' SLo
 
-                                            Select Case Mid(e.Message, 4, 1)
+                                            Select Case e.Message(3)
 
                                                 Case "+" ' SLo+
 
@@ -1951,11 +2253,11 @@ Public Class Player
 
                         Case "s"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "L" ' sL
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "+" ' sL+
 
@@ -1975,11 +2277,11 @@ Public Class Player
 
                         Case "T"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "T" ' TT
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2).ToString
 
                                         Case > 0 ' TT32
 
@@ -2041,11 +2343,11 @@ Public Class Player
 
                         Case "Z"
 
-                            Select Case Mid(e.Message, 2, 1)
+                            Select Case e.Message(1)
 
                                 Case "C" ' ZC
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "0" ' ZC0
 
@@ -2067,7 +2369,7 @@ Public Class Player
 
                                 Case "S" ' ZS
 
-                                    Select Case Mid(e.Message, 3, 1)
+                                    Select Case e.Message(2)
 
                                         Case "0" ' ZS0
 

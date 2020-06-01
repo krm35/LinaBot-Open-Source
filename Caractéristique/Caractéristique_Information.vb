@@ -249,6 +249,13 @@
 
             .Pods = (separateData(0) / separateData(1)) * 100
 
+            'Indique si l'un des bots a atteint la limite de pods.
+            If .Pods >= .FrmGroupe.PodsGroupe Then
+
+                .FrmGroupe.ReturnBanque = True
+
+            End If
+
         End With
 
     End Sub

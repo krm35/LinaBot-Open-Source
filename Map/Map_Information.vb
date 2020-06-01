@@ -14,6 +14,7 @@
             With .FrmUser
 
                 .DataGridViewMap.Rows.Clear()
+                .DataGridViewDivers.Rows.Clear()
 
             End With
 

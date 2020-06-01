@@ -114,6 +114,9 @@
 
             End If
 
+            .FrmUser.DataGridView_BonusPanoplie.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .FrmUser.DataGridView_BonusPanoplie.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True
+
         End With
 
     End Sub
@@ -191,7 +194,7 @@
 
                     If separateData(1) <> Nothing Then
 
-                        EquipementChange(index, separateData(1), DicoItems(Pair.Cells(0).Value).Catégorie, "")
+                        EquipementChange(index, separateData(1), DicoItems(Pair.Cells(0).Value).Catégorie, "", separateData(0))
 
                         Pair.Cells(4).Value &= "Equipement : " & separateData(1)
 
@@ -199,13 +202,15 @@
 
                     Else
 
-                        EquipementChange(index, "", DicoItems(Pair.Cells(0).Value).Catégorie, Pair.Cells(4).Value)
+                        EquipementChange(index, "", DicoItems(Pair.Cells(0).Value).Catégorie, Pair.Cells(4).Value, "")
 
                         Pair.Cells(4).Value = ReplaceInformation(Pair.Cells(4).Value, "Equipement", "")
 
                         Pair.DefaultCellStyle.BackColor = Color.White
 
                     End If
+
+                    .BloqueItem.Set()
 
                     Return
 
@@ -217,7 +222,7 @@
 
     End Sub
 
-    Private Sub EquipementChange(ByVal index As Integer, ByVal numero As String, ByVal categorie As String, ByVal information As String)
+    Public Sub EquipementChange(ByVal index As Integer, ByVal numero As String, ByVal categorie As String, ByVal information As String, ByVal idUnique As String)
 
         With Comptes(index)
 
@@ -227,31 +232,35 @@
 
                 Case 1 'Amulette
 
-                    varEquipement.Amulette = numero
+                    varEquipement.Amulette(0) = numero
+                    varEquipement.Amulette(1) = idUnique
 
                 Case 5, 19, 8, 22, 7, 3, 4, 6, 20, 21, 83 'Arme
 
-                    varEquipement.Arme = numero
+                    varEquipement.Arme(0) = numero
+                    varEquipement.Arme(1) = idUnique
 
                 Case 18 'Familier 
 
-                    varEquipement.Familier = numero
+                    varEquipement.Familier(0) = numero
+                    varEquipement.Familier(1) = idUnique
 
                 Case 10 'Ceinture 
 
-                    varEquipement.Ceinture = numero
-
+                    varEquipement.Ceinture(0) = numero
+                    varEquipement.Ceinture(1) = idUnique
                 Case 11 'Botte  
 
-                    varEquipement.Botte = numero
-
+                    varEquipement.Botte(0) = numero
+                    varEquipement.Botte(1) = idUnique
                 Case 16 'Coiffe 
 
-                    varEquipement.Coiffe = numero
-
+                    varEquipement.Coiffe(0) = numero
+                    varEquipement.Coiffe(1) = idUnique
                 Case 17, 81 'Cape/Sac
 
-                    varEquipement.Cape = numero
+                    varEquipement.Cape(0) = numero
+                    varEquipement.Cape(1) = idUnique
 
                 Case 9 'Anneaux
 
@@ -259,11 +268,13 @@
 
                         Case "2"
 
-                            varEquipement.Anneaux1 = numero
+                            varEquipement.Anneaux1(0) = numero
+                            varEquipement.Anneaux1(1) = idUnique
 
                         Case "4"
 
-                            varEquipement.Anneaux2 = numero
+                            varEquipement.Anneaux2(0) = numero
+                            varEquipement.Anneaux2(1) = idUnique
 
                         Case Else
 
@@ -275,11 +286,13 @@
 
                                     If Split(separate(i), " : ")(1) = "2" Then
 
-                                        varEquipement.Anneaux1 = numero
+                                        varEquipement.Anneaux1(0) = numero
+                                        varEquipement.Anneaux1(1) = idUnique
 
                                     Else
 
-                                        varEquipement.Anneaux2 = numero
+                                        varEquipement.Anneaux2(0) = numero
+                                        varEquipement.Anneaux2(1) = idUnique
 
                                     End If
 
@@ -298,27 +311,33 @@
 
                         Case "9"
 
-                            varEquipement.Dofus1 = numero
+                            varEquipement.Dofus1(0) = numero
+                            varEquipement.Dofus1(1) = idUnique
 
                         Case "10"
 
-                            varEquipement.Dofus2 = numero
+                            varEquipement.Dofus2(0) = numero
+                            varEquipement.Dofus2(1) = idUnique
 
                         Case "11"
 
-                            varEquipement.Dofus3 = numero
+                            varEquipement.Dofus3(0) = numero
+                            varEquipement.Dofus3(1) = idUnique
 
                         Case "12"
 
-                            varEquipement.Dofus4 = numero
+                            varEquipement.Dofus4(0) = numero
+                            varEquipement.Dofus4(1) = idUnique
 
                         Case "13"
 
-                            varEquipement.Dofus5 = numero
+                            varEquipement.Dofus5(0) = numero
+                            varEquipement.Dofus5(1) = idUnique
 
                         Case "14"
 
-                            varEquipement.Dofus6 = numero
+                            varEquipement.Dofus6(0) = numero
+                            varEquipement.Dofus6(1) = idUnique
 
                         Case Else
 
@@ -334,27 +353,33 @@
 
                                         Case "9"
 
-                                            varEquipement.Dofus1 = numero
+                                            varEquipement.Dofus1(0) = numero
+                                            varEquipement.Dofus1(1) = idUnique
 
                                         Case "10"
 
-                                            varEquipement.Dofus2 = numero
+                                            varEquipement.Dofus2(0) = numero
+                                            varEquipement.Dofus2(1) = idUnique
 
                                         Case "11"
 
-                                            varEquipement.Dofus3 = numero
+                                            varEquipement.Dofus3(0) = numero
+                                            varEquipement.Dofus3(1) = idUnique
 
                                         Case "12"
 
-                                            varEquipement.Dofus4 = numero
+                                            varEquipement.Dofus4(0) = numero
+                                            varEquipement.Dofus4(1) = idUnique
 
                                         Case "13"
 
-                                            varEquipement.Dofus5 = numero
+                                            varEquipement.Dofus5(0) = numero
+                                            varEquipement.Dofus5(1) = idUnique
 
                                         Case "14"
 
-                                            varEquipement.Dofus6 = numero
+                                            varEquipement.Dofus6(0) = numero
+                                            varEquipement.Dofus6(1) = idUnique
 
                                     End Select
 

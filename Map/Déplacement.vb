@@ -1,6 +1,6 @@
 ﻿Module Déplacement
 
-    Public Sub SeDeplace(ByVal index As Integer, ByVal direction As String, Optional ByVal send As String = "")
+    Public Sub SeDeplace(ByVal index As Integer, ByVal direction As String)
 
         With Comptes(index)
 

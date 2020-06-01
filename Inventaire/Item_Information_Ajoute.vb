@@ -44,6 +44,8 @@
 
                                 .Cells(4).Value &= "Equipement : " & Convert.ToInt64(separateItem(3), 16)
 
+                                EquipementChange(index, separateItem(3), DicoItems(Convert.ToInt64(separateItem(1), 16)).Catégorie, "", Convert.ToInt64(separateItem(0), 16))
+
                             ElseIf DicoItems(Convert.ToInt64(separateItem(1), 16)).Catégorie = "24" Then
 
                                 .DefaultCellStyle.BackColor = Color.Orange
@@ -68,6 +70,8 @@
 
                 dgv.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
                 dgv.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True
+
+                .BloqueItem.Set()
 
             End If
 
@@ -164,6 +168,8 @@
 
             dgv.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
             dgv.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True
+
+            .BloqueItem.Set()
 
         End With
 
