@@ -25,3 +25,4 @@ C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot Open Source.vbpro
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot Open Source.exe
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot Open Source.xml
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot Open Source.pdb
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Release\LinaBot Open Source.vbprojAssemblyReference.cache

@@ -279,7 +279,7 @@ Module Familier
             End If
 
             EcritureMessage(index, "[Reconnexion]", "Reconnexion > " & DateAdd("s", Reconnexion \ 1000, meilleurDate), Color.Green)
-            Task.Delay(Reconnexion).Wait()
+            Return Reconnexion
 
         End With
 
