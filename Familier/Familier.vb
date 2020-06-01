@@ -2,15 +2,7 @@
 
 Module Familier
 
-    '7) J'équipe les familiers dans l'ordre
-    'remettre pdv
-    '8) Je vérifie la corpulence et réagit en fonction
-    '-8.1) Maigrichon = je donne X ressource comme repas manquant
-    '-8.2) Obése = Je nourrit pas le familier.
-    '-8.3) Normal = Je nourrit le familier d'un repas, si up, je redonne un repas.
-    '9) Je retire le familier et je fais le suivant.
-    '10) Je vérifie tous les familiers puis je je prend celui qui a le temps le plous court avant leprochain repas, je dit au bot de se reco a 
-    ' ce moment là, laisser aussi le choix à l'utilisateur du temps de reco.
+'Non fini, à refaire + modif, version alpha
 
     Public Sub FamilierDépose(ByVal index As Integer)
 
