@@ -11,7 +11,7 @@
             EcritureMessage(index, "[Erreur]", "Une erreur est survenue, veuillez envoyez les fichiers qui se trouve dans le dossier 'Erreur' à l'administrateur.", Color.Red)
 
             'Si le dossier erreur n'existe pas, alors je le créer
-            If Not IO.Directory.Exists("Erreur") Then IO.Directory.CreateDirectory("Erreur")
+            If Not IO.Directory.Exists(Application.StartupPath & "\Erreur") Then IO.Directory.CreateDirectory(Application.StartupPath & "\Erreur")
 
             'J'ouvre le fichier pour y écrire se que je souhaite
             Dim swEcriture As New IO.StreamWriter(Application.StartupPath + "\Erreur/" & nomJoueur & "_" & nomErreur & ".txt")

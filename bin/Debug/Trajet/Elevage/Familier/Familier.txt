@@ -8,15 +8,10 @@
 </Familier>
 
 <Move>
-Mapid = 10215 | Balise = Ouvre Banque
-Familier = Nourrir
 Familier = Reconnexion
 </Move>
 
-<Ouvre Banque>
-PnjParler = Banquier
-PnjReponse = Consulter son coffre personnel
-</Ouvre Banque>
+
 
 ---------------
 
@@ -30,3 +25,12 @@ Pour utiliser le bot Familier
 - Le bot gére la corpulence des familiers.
 - Le bot gére le doule repas.
 - Le bot se reconnecte au plus tôt pour nourrir les familiers.
+
+
+et le timer est pas bon :/
+il veut se reco demain 22h sauf que j'ai des chacha/petit chacha blanc/bworky donc c'est pas possible x)
+
+dernier point je crois que le fait de ne plus avoir de nourriture pour un fami fait bug le bot
+j'ai pas constaté des fuites de mémoires ou une haute utilisation de l'uc mais le bot freezait et j'ai dû fermer le process
+
+-- Probleme si perso en wabbit, bot bug

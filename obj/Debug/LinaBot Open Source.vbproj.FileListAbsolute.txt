@@ -25,3 +25,4 @@ C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\LinaBot Open Source.exe.man
 C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\LinaBot Open Source.application
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.exe.manifest
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.application
+C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.vbprojAssemblyReference.cache

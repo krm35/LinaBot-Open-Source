@@ -472,9 +472,8 @@ Public Class UserControlPersonnage
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
-        'Task.Run(Sub() FamilierGestion(Index))
-        Comptes(Index).Socket.Envoyer(TextBox1.Text)
+        Task.Run(Sub() FamilierReconnexion(Index))
+        '  Comptes(Index).Socket.Envoyer(TextBox1.Text)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

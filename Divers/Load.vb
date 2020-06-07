@@ -6,16 +6,14 @@
 
         'J'ouvre et je lis le fichier.
         Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Data/Serveur.txt")
-        Dim ligne() As String = Split(swLecture.ReadToEnd, vbCrLf)
 
-        'Puis je ferme le fichier.
-        swLecture.Close()
+        Do Until swLecture.EndOfStream
 
-        For i = 0 To ligne.Count - 1
+            Dim ligne As String = swLecture.ReadLine
 
-            If ligne(i) <> "" Then
+            If ligne <> "" Then
 
-                Dim separate() As String = Split(ligne(i).Replace(" ", ""), "|")
+                Dim separate() As String = Split(ligne.Replace(" ", ""), "|")
 
                 'Je vérifie d'abord que le dico ne contient pas déjà le serveur en question
                 If Not DicoServeur.ContainsKey(separate(0)) Then
@@ -37,7 +35,10 @@
 
             End If
 
-        Next
+        Loop
+
+        'Puis je ferme le fichier.
+        swLecture.Close()
 
     End Sub
 
@@ -45,16 +46,14 @@
 
         'J'ouvre et je lis le fichier.
         Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Data/Personnage.txt")
-        Dim ligne() As String = Split(swLecture.ReadToEnd, vbCrLf)
 
-        'Puis je ferme le fichier.
-        swLecture.Close()
+        Do Until swLecture.EndOfStream
 
-        For i = 0 To ligne.Count - 1
+            Dim ligne As String = swLecture.ReadLine
 
-            If ligne(i) <> "" Then
+            If ligne <> "" Then
 
-                Dim separate() As String = Split(ligne(i), "|")
+                Dim separate() As String = Split(ligne, "|")
 
                 If Not DicoPersonnage.ContainsKey(separate(0)) Then
 
@@ -74,7 +73,10 @@
 
             End If
 
-        Next
+        Loop
+
+        'Puis je ferme le fichier.
+        swLecture.Close()
 
     End Sub
 
@@ -82,16 +84,14 @@
 
         'J'ouvre et je lis le fichier.
         Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Data/Objets.txt")
-        Dim ligne() As String = Split(swLecture.ReadToEnd, vbCrLf)
 
-        'Puis je ferme le fichier.
-        swLecture.Close()
+        Do Until swLecture.EndOfStream
 
-        For i = 0 To ligne.Count - 1
+            Dim ligne As String = swLecture.ReadLine
 
-            If ligne(i) <> "" Then
+            If ligne <> "" Then
 
-                Dim separate As String() = Split(ligne(i), "|")
+                Dim separate As String() = Split(ligne, "|")
 
                 If Not DicoItems.ContainsKey(separate(0)) Then
 
@@ -112,7 +112,10 @@
 
             End If
 
-        Next
+        Loop
+
+        'Puis je ferme le fichier.
+        swLecture.Close()
 
     End Sub
 
@@ -283,16 +286,14 @@
 
         'J'ouvre et je lis le fichier.
         Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Data/Mobs.txt")
-        Dim ligne() As String = Split(swLecture.ReadToEnd, vbCrLf)
 
-        'Puis je ferme le fichier.
-        swLecture.Close()
+        Do Until swLecture.EndOfStream
 
-        For i = 0 To ligne.Count - 1
+            Dim ligne As String = swLecture.ReadLine
 
-            If ligne(i) <> "" Then
+            If ligne <> "" Then
 
-                Dim separate As String() = Split(ligne(i), "|") '31|Larve Bleue|Level:2:Résistance:1:5:5:-9:-9:5:3|Next level
+                Dim separate As String() = Split(ligne, "|") '31|Larve Bleue|Level:2:Résistance:1:5:5:-9:-9:5:3|Next level
 
                 Dim idMobs As Integer = separate(0)
                 Dim nameMobs As String = separate(1)
@@ -338,7 +339,10 @@
 
             End If
 
-        Next
+        Loop
+
+        'Puis je ferme le fichier.
+        swLecture.Close()
 
     End Sub
 
@@ -348,16 +352,14 @@
 
         'J'ouvre et je lis le fichier.
         Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Data/PNJ.txt")
-        Dim ligne() As String = Split(swLecture.ReadToEnd, vbCrLf)
 
-        'Puis je ferme le fichier.
-        swLecture.Close()
+        Do Until swLecture.EndOfStream
 
-        For i = 0 To ligne.Count - 1
+            Dim ligne As String = swLecture.ReadLine
 
-            If ligne(i) <> "" Then
+            If ligne <> "" Then
 
-                Dim separate() As String = Split(ligne(i), "|")
+                Dim separate() As String = Split(ligne, "|")
 
                 If Not DicoPNJ.ContainsKey(separate(0)) Then
 
@@ -367,7 +369,10 @@
 
             End If
 
-        Next
+        Loop
+
+        'Puis je ferme le fichier.
+        swLecture.Close()
 
     End Sub
 
@@ -375,18 +380,16 @@
 
         'J'ouvre et je lis le fichier.
         Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Data/Maison.txt")
-        Dim ligne() As String = Split(swLecture.ReadToEnd, vbCrLf)
-
-        'Puis je ferme le fichier.
-        swLecture.Close()
 
         DicoMaison.Clear()
 
-        For i = 0 To ligne.Count - 1
+        Do Until swLecture.EndOfStream
 
-            If ligne(i) <> "" Then
+            Dim ligne As String = swLecture.ReadLine
 
-                Dim separate As String() = Split(ligne(i), " | ")
+            If ligne <> "" Then
+
+                Dim separate As String() = Split(ligne, " | ")
 
                 Dim hP As String = Split(separate(0), " : ")(1)
                 Dim CellulePorte As String = Split(separate(1), " : ")(1)
@@ -413,7 +416,10 @@
 
             End If
 
-        Next
+        Loop
+
+        'Puis je ferme le fichier.
+        swLecture.Close()
 
     End Sub
 
@@ -488,21 +494,18 @@
 
     End Sub
 
-
     Public Sub LoadFamilier()
 
         'J'ouvre et je lis le fichier.
         Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Data/Familier.txt")
-        Dim ligne() As String = Split(swLecture.ReadToEnd, vbCrLf)
 
-        'Puis je ferme le fichier.
-        swLecture.Close()
+        Do Until swLecture.EndOfStream
 
-        For i = 0 To ligne.Count - 1
+            Dim ligne As String = swLecture.ReadLine
 
-            If ligne(i) <> "" Then
+            If ligne <> "" Then
 
-                Dim separate As String() = Split(ligne(i), "|")
+                Dim separate As String() = Split(ligne, "|")
 
                 Dim varFamilier As New sFamilier
 
@@ -542,7 +545,10 @@
 
             End If
 
-        Next
+        Loop
+
+        swLecture.Close()
 
     End Sub
+
 End Module

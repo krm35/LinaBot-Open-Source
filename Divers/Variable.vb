@@ -58,10 +58,10 @@
 
     Structure sItems
 
-        Dim ID As Integer
+        Dim ID As String
         Dim NomItem As String
-        Dim Catégorie As Integer
-        Dim Pods As Integer
+        Dim Catégorie As String
+        Dim Pods As String
 
     End Structure
 

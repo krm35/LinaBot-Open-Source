@@ -129,7 +129,9 @@ Module Familier
 
                     Dim dateNourrir As Date = dateFamilier.AddHours(DicoFamilier(Pair.Cells(0).Value).Values(0).IntervaleRepasMin)
 
-                    If dateFamilier > dateNourrir Then
+                    '  PROBLEME ICI SUR LES DATES LE BOT NOURRIT PAS CAR PAS LA BONNE DATE
+
+                    If dateNourrir < Date.Now Then
 
                         Select Case corpulence.ToLower
 
@@ -240,7 +242,6 @@ Module Familier
         With Comptes(index)
 
             Dim Reconnexion As Integer = 262800000 ' 73 heures
-            Dim meilleurDate As Date = Date.Now
 
             For Each Pair As DataGridViewRow In CopyDatagridView(index, .FrmUser.DataGridViewInventaire).Rows
 
@@ -250,17 +251,23 @@ Module Familier
 
                     Dim maDate As Date = dateFamilier.AddHours(DicoFamilier(Pair.Cells(0).Value).Values(0).IntervaleRepasMin)
 
-                    If dateFamilier < maDate Then
+                    Dim résultat As Integer ' = Math.Abs(DateDiff(DateInterval.Second, maDate, Date.Now) * 1000)
 
-                        Dim résultat As Integer = Math.Abs(DateDiff(DateInterval.Second, maDate, CDate(dateFamilier)) * 1000)
+                    If maDate > Date.Now Then
+
+                        résultat = Math.Abs(DateDiff(DateInterval.Second, Date.Now, maDate) * 1000)
 
                         If résultat < Reconnexion Then
 
                             Reconnexion = résultat
 
-                            meilleurDate = dateFamilier
-
                         End If
+
+                    Else
+
+                        Reconnexion = 0
+
+                        Exit For
 
                     End If
 
@@ -278,7 +285,7 @@ Module Familier
 
             End If
 
-            EcritureMessage(index, "[Reconnexion]", "Reconnexion > " & DateAdd("s", Reconnexion \ 1000, meilleurDate), Color.Green)
+            EcritureMessage(index, "[Reconnexion]", "Reconnexion > " & DateAdd("s", Reconnexion \ 1000, Date.Now), Color.Green)
             Return Reconnexion
 
         End With

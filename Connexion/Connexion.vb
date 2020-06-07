@@ -636,7 +636,15 @@ Module Connexion
 
             End Select
 
-            .Socket.Connexion_Game(False)
+            If .Connecté Then
+
+                .Socket.Connexion_Game(False)
+
+            Else
+
+                .Socket_Authentification.Connexion_Game(False)
+
+            End If
 
         End With
 

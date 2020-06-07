@@ -290,7 +290,7 @@ Module Trajet_Information
 
             Task.Delay(tempsReconnexion).Wait()
 
-            .Socket.Connexion_Game(True)
+            .CreateSocketAuthentification(DicoServeur("Authentification").IP, DicoServeur("Authentification").Port)
 
             Task.Delay(30000).Wait()
 
