@@ -37,7 +37,7 @@ Sub Main()
 
     Map("10302") : Direction("376")
 
-    If Integer = Pods("Actuelle") < 70 Then
+    If Integer = Pods("Actuelle") < 80 Then
 
         If Boolean = MetierExist("Paysan") = True Then
 
@@ -47,7 +47,7 @@ Sub Main()
 
     End If
 
-    If Integer = Pods("Actuelle") > 70 Then
+    If Integer = Pods("Actuelle") > 80 Then
 
         Call BanqueAstrub()
 
