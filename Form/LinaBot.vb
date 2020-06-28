@@ -22,6 +22,8 @@
 
     Private Sub LinaBot_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        LoadScript()
+
         LoadServeur()
 
         LoadPersonnage()

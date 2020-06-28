@@ -314,3 +314,5 @@ hP : 384 | Porte : 404 | Map : [X,Y] | Mapid : 0 | Nom : Maison
 hP : 386 | Porte : 461 | Map : [X,Y] | Mapid : 0 | Nom : Maison
 hP : 330 | Porte : 149 | Map : [X,Y] | Mapid : 0 | Nom : Maison
 hP : 761 | Porte : 0 | Map : [2,-6] | Mapid : 9451 | Nom : Maison
+hP : 677 | Porte : 0 | Map : [2,-19] | Mapid : 7379 | Nom : Maison
+hP : 678 | Porte : 0 | Map : [2,-19] | Mapid : 7379 | Nom : Maison

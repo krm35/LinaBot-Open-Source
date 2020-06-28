@@ -6,6 +6,8 @@ Partial Class Player
     Public TabPage As New TabPage
     Public FrmUser As New UserControlPersonnage
 
+
+
     'Les Sockets
     Public Socket_Authentification, Socket As All_CallBack
     Public Send As String
@@ -51,6 +53,7 @@ Partial Class Player
 
     'Map
     Public MapID As Integer
+    Public MapPosition As String
 
     Public MapLargeur As Integer
     Public MapHauteur As Integer
@@ -82,6 +85,7 @@ Partial Class Player
 
     'Pnj
     Public EnDialogue As Boolean
+    Public PnjAcheterVendre As Boolean
     Public ListePnjReponseDisponible As New List(Of Integer)
     Public DialogueReponse As Integer
     Public BloqueDialogue As ManualResetEvent = New ManualResetEvent(False)
@@ -107,6 +111,11 @@ Partial Class Player
 
     'Echange
     Public EnEchange As Boolean
+    Public EnDemandeEchange As Boolean
+    Public EchangeIdNomLanceur(1) As String
+    Public EchangeValiderLuiMoi(1) As Boolean
+    Public EchangeKamasMoi, EchangeKamasLui As Integer
+    Public BloqueEchange As ManualResetEvent = New ManualResetEvent(False)
 
     'Inventaire
     Public MonEquipement As New sEquipement
@@ -115,8 +124,7 @@ Partial Class Player
     'Banque
     Public EnBanque As Boolean
 
-    'Trajet
-    Public DicoTrajet As New Dictionary(Of String, List(Of String))
+
 
 #Region "Structure"
 

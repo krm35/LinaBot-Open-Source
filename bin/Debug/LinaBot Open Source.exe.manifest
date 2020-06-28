@@ -43,14 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LinaBot Open Source.exe" size="1770464">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="KeraLua.dll" size="29184">
+      <assemblyIdentity name="KeraLua" version="1.0.29.0" publicKeyToken="6A194C04B9C89217" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>rX7aX0aKXWoQnRuDQu9J8EmUtnFplwAIgC3UKePtJ84=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LinaBot Open Source.exe" size="1791456">
       <assemblyIdentity name="LinaBot Open Source" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CMUJW0H0evnkN8QJSDrV1rAzTNjBL1mDq2MIPYg6FCg=</dsig:DigestValue>
+        <dsig:DigestValue>mhkbZcuNUv/suj03A0n4wOgBzC0i+dnnR5KZ6PO5fck=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -63,6 +75,18 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>SU6HakIO6Kaacv4/EX3aJFF+O7QE3s4ZACLIn7Knxg0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NLua.dll" size="84992">
+      <assemblyIdentity name="NLua" version="1.4.32.0" publicKeyToken="6A194C04B9C89217" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>2oXdf9oS9qxdulfXicepTwXHACCkl0I7FBIeqsz5s5g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

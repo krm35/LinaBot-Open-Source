@@ -54,15 +54,23 @@
 
             'Je lis le fichier.
             Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Compte/Accounts.txt")
-            Dim ligne As String = swLecture.ReadToEnd
+
+            Dim ligneFinal As String = ""
+
+            Do Until swLecture.EndOfStream
+
+                Dim Ligne As String = swLecture.ReadLine
+
+                If Ligne <> "" Then
+
+                    ligneFinal &= Ligne & vbCrLf
+
+                End If
+
+            Loop
 
             'Puis je ferme le fichier.
             swLecture.Close()
-
-            'J'ouvre le fichier pour y écrire se que je souhaite
-            Dim swEcriture As New IO.StreamWriter(Application.StartupPath + "\Compte/Accounts.txt")
-
-            swEcriture.WriteLine(ligne)
 
             Dim monCompte As String
 
@@ -76,7 +84,12 @@
             monCompte &= "Couleur 2 : " & If(IsNumeric(ButtonCouleur2.Name), ButtonCouleur1.Name, "-1") & " | "
             monCompte &= "Couleur 3 : " & If(IsNumeric(ButtonCouleur3.Name), ButtonCouleur1.Name, "-1")
 
-            swEcriture.Write(monCompte)
+            ligneFinal &= monCompte
+
+            'J'ouvre le fichier pour y écrire se que je souhaite
+            Dim swEcriture As New IO.StreamWriter(Application.StartupPath + "\Compte/Accounts.txt")
+
+            swEcriture.Write(ligneFinal)
 
             'Puis je le ferme.
             swEcriture.Close()

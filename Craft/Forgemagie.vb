@@ -10,4 +10,5 @@ Module Forgemagie
     Public Sub ForgemagieMajCaractéristique(ByVal index As Integer, ByVal caracteristique As String)
 
     End Sub
+
 End Module

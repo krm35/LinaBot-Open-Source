@@ -20,7 +20,8 @@
 
         With Comptes(index)
 
-            ItemDepose(index, idNameObjet, quantité, caracteristique)
+            Dim newitemdepose As New Item_Depose
+            newitemdepose.ItemDepose(index, idNameObjet, quantité, caracteristique)
 
             'Je vérifie que l'item se trouve bien dans la datagridview
             For Each Pair As DataGridViewRow In CopyDatagridView(index, .FrmUser.DataGridViewMoi).Rows

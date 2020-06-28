@@ -28,9 +28,9 @@
             .Socket.Envoyer("GI")
 
             .EnDeplacement = False
-            .BloqueDeplacement.Set()
             .Send = ""
             .StopDeplacement = False
+            .BloqueDeplacement.Set()
 
         End With
 
@@ -68,6 +68,7 @@
                 Dim preparedKey As String = prepareKey(clef)
                 .MapHandler = uncompressMap(decypherData(mapData(1), preparedKey, Convert.ToInt64(checksum(preparedKey), 16) * 2))
                 .FrmUser.LabelMap.Text = ListOfMap(idMap)
+                .MapPosition = ListOfMap(idMap)
                 .FrmUser.ToolTip1.SetToolTip(.FrmUser.LabelMap, idMap)
                 Dim count As Integer = .MapHandler.Count - 1
                 Dim num As Integer = 0
@@ -104,7 +105,7 @@
 
             Catch ex As Exception
 
-                ErreurFichier(Index, .NomDuPersonnage, "S_Load_Map", ex.Message)
+                ErreurFichier(Index, .NomDuPersonnage, "Map_Information_LoadMapInGame", ex.Message)
 
             End Try
 

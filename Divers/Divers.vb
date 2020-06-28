@@ -136,7 +136,7 @@
             End If
             i += nbLettreCode
         End While
-        Return msgFinal.Replace("%27", "'").Replace("%C3%A9", "é").Replace("%2C", ",").Replace("%3F", "?").Replace("%C3%A8", "é")
+        Return msgFinal.Replace("%27", "'").Replace("%C3%A9", "é").Replace("%2C", ",").Replace("%3F", "?").Replace("%C3%A8", "é").Replace("%29", "]").Replace("%28", "[")
     End Function 'Provient de Maxoubot.
 
 #Region "Cryptage/Décryptage"
@@ -240,7 +240,7 @@
 
     End Function
 
-    Public Function RenvoieInformation(ByVal information As String, ByVal Chercher As String) As String
+    Public Function ReturnSearch(ByVal information As String, ByVal Chercher As String) As String
 
         Dim separateInformation As String() = Split(information, vbCrLf)
 
@@ -255,6 +255,26 @@
             End If
 
         Next
+
+        Return ""
+
+    End Function
+
+    Public Function ReturnLabelText(ByVal index As Integer, ByVal leLabel As Label) As String
+
+        With Comptes(index)
+
+            If .FrmUser.InvokeRequired Then
+
+                Return .FrmUser.Invoke(New dlgFDivers(Function() ReturnLabelText(index, leLabel)))
+
+            Else
+
+                Return leLabel.Text
+
+            End If
+
+        End With
 
         Return ""
 
@@ -344,5 +364,38 @@
 
     End Function
 
+    Public Function ReturnProgressBar(ByVal index As Integer, ByVal leProgressBar As ProgressBar, ByVal choix As String) As String
+
+        With Comptes(index)
+
+            If .FrmUser.InvokeRequired Then
+
+                Return .FrmUser.Invoke(New dlgFDivers(Function() ReturnProgressBar(index, leProgressBar, choix)))
+
+            Else
+
+                Select Case choix.ToLower
+
+                    Case "maximum"
+
+                        Return leProgressBar.Maximum
+
+                    Case "minimum"
+
+                        Return leProgressBar.Minimum
+
+                    Case "actuelle"
+
+                        Return leProgressBar.Value
+
+                End Select
+
+            End If
+
+        End With
+
+        Return "80"
+
+    End Function
 
 End Module

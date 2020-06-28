@@ -40,11 +40,13 @@
 
                     dgv.Rows.RemoveAt(Pair.Index)
 
-                    Return
+                    Exit For
 
                 End If
 
             Next
+
+            .BloqueItem.Set()
 
         End With
 
@@ -72,10 +74,12 @@
             Next
 
             .BloqueItem.Set()
+            .BloqueEchange.Set()
 
         End With
 
     End Sub
+
 
 
 End Module

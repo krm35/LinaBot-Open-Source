@@ -13,7 +13,8 @@ Module Familier
                 If DicoItems(Pair.Cells(0).Value).Catégorie <> 18 AndAlso
                     Pair.DefaultCellStyle.BackColor <> Color.Lime AndAlso Pair.DefaultCellStyle.BackColor <> Color.Orange Then
 
-                    ItemDepose(index, Pair.Cells(0).Value, Pair.Cells(3).Value, "Nothing")
+                    Dim newitemdepose As New Item_Depose
+                    newitemdepose.ItemDepose(index, Pair.Cells(0).Value, Pair.Cells(3).Value, "Nothing")
 
                     'Je vérifie s'il à atteint la capacité max.
                 ElseIf DicoItems(Pair.Cells(0).Value).Catégorie = 18 Then

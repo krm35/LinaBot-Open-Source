@@ -1,8 +1,8 @@
-﻿Module Equipement
+﻿Class Equipement
 
     ' refonte à faire
 
-    Public Sub ItemEquipe(ByVal index As Integer, ByVal item As String, Optional ByVal caractéristique As String = "")
+    Public Sub ItemEquipe(ByVal index As Integer, ByVal item As String, Optional ByVal caractéristique As String = "Nothing")
 
         With Comptes(index)
 
@@ -10,7 +10,7 @@
 
                 If Pair.Cells(0).Value.ToString = item OrElse Pair.Cells(2).Value.ToString.ToUpper = item.ToUpper Then
 
-                    If caractéristique = Nothing OrElse ComparateurCaractéristiqueObjets(caractéristique, Pair.Cells(4).Value) Then
+                    If caractéristique.ToLower = "nothing" OrElse ComparateurCaractéristiqueObjets(caractéristique, Pair.Cells(4).Value) Then
 
                         If Pair.DefaultCellStyle.BackColor <> Color.Lime AndAlso Pair.DefaultCellStyle.BackColor <> Color.Orange Then
 
@@ -191,7 +191,7 @@
 
     End Sub
 
-    Public Function EquipementEquiper(ByVal index As Integer, ByVal item As String, ByVal caracteristique As String) As Boolean
+    Public Function EquipementEquiper(ByVal index As Integer, ByVal item As String, Optional ByVal caracteristique As String = "nothing") As Boolean
 
         With Comptes(index)
 
@@ -223,4 +223,4 @@
 
     End Function
 
-End Module
+End Class

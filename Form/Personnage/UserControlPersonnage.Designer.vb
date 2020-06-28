@@ -86,6 +86,10 @@ Partial Class UserControlPersonnage
         Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim ListViewItem45 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Vitalité", "0", "0", "0", "0", "0"}, 10)
         Dim ListViewItem46 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Sagesse", "0", "0", "0", "0", "0"}, 7)
         Dim ListViewItem47 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Force", "0", "0", "0", "0", "0"}, 1)
@@ -116,37 +120,12 @@ Partial Class UserControlPersonnage
         Dim ListViewItem72 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"%Rés Feu", "0", "0", "0", "0", "0"}, 21)
         Dim ListViewItem73 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"%Rés Eau", "0", "0", "0", "0", "0"}, 25)
         Dim ListViewItem74 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"%Rés Air", "0", "0", "0", "0", "0"}, 18)
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TimerStatut = New System.Windows.Forms.Timer(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPageTchat = New System.Windows.Forms.TabPage()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage_Tchat = New System.Windows.Forms.TabPage()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.PictureBox11 = New System.Windows.Forms.PictureBox()
-        Me.LabelGroupeChef = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.TextBoxTchatJoueur = New System.Windows.Forms.TextBox()
-        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
-        Me.LabelMap = New System.Windows.Forms.Label()
-        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
-        Me.ProgressBarPods = New System.Windows.Forms.ProgressBar()
-        Me.RichTextBoxSocket = New System.Windows.Forms.RichTextBox()
-        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
-        Me.ProgressBarEnergie = New System.Windows.Forms.ProgressBar()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.ProgressBarVitalite = New System.Windows.Forms.ProgressBar()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.ProgressBarExperience = New System.Windows.Forms.ProgressBar()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.LabelKamas = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.LabelAbonnement = New System.Windows.Forms.Label()
-        Me.LabelStatut = New System.Windows.Forms.Label()
-        Me.ButtonConnexion = New System.Windows.Forms.Button()
         Me.CheckBox_Canal_Communs_1 = New System.Windows.Forms.CheckBox()
         Me.CheckBox_Canal_Commerce_6 = New System.Windows.Forms.CheckBox()
         Me.CheckBox_Canal_Recrutement_5 = New System.Windows.Forms.CheckBox()
@@ -161,6 +140,9 @@ Partial Class UserControlPersonnage
         Me.TabPage_TchatOption = New System.Windows.Forms.TabPage()
         Me.ImageListUser = New System.Windows.Forms.ImageList(Me.components)
         Me.TabPageSocket = New System.Windows.Forms.TabPage()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.RichTextBoxSocket = New System.Windows.Forms.RichTextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.TabPageCaractéristique = New System.Windows.Forms.TabPage()
         Me.DataGridView_BonusPanoplie = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -287,6 +269,19 @@ Partial Class UserControlPersonnage
         Me.Column24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPageCraft = New System.Windows.Forms.TabPage()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.DataGridViewLui = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn53 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn54 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn55 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn56 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn57 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewMoi = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn58 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn59 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn60 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn61 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn62 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ListView_Forgemagie = New System.Windows.Forms.ListView()
         Me.ColumnHeader194 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader195 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -294,19 +289,7 @@ Partial Class UserControlPersonnage
         Me.ColumnHeader197 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader198 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.DataGridViewMoi = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn58 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn59 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn60 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn61 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn62 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewLui = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn53 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn54 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn55 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn56 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn57 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.TabPageTrajet = New System.Windows.Forms.TabPage()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TabPageAmi = New System.Windows.Forms.TabPage()
         Me.TabControlAmiEnnemi = New System.Windows.Forms.TabControl()
@@ -321,6 +304,24 @@ Partial Class UserControlPersonnage
         Me.ColumnHeader240 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader241 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage17 = New System.Windows.Forms.TabPage()
+        Me.PictureBox11 = New System.Windows.Forms.PictureBox()
+        Me.LabelGroupeChef = New System.Windows.Forms.Label()
+        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
+        Me.LabelMap = New System.Windows.Forms.Label()
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
+        Me.ProgressBarPods = New System.Windows.Forms.ProgressBar()
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
+        Me.ProgressBarEnergie = New System.Windows.Forms.ProgressBar()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.ProgressBarVitalite = New System.Windows.Forms.ProgressBar()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.ProgressBarExperience = New System.Windows.Forms.ProgressBar()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.LabelKamas = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.LabelAbonnement = New System.Windows.Forms.Label()
+        Me.LabelStatut = New System.Windows.Forms.Label()
+        Me.ButtonConnexion = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TimerRegeneration = New System.Windows.Forms.Timer(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -328,14 +329,7 @@ Partial Class UserControlPersonnage
         Me.TabPageTchat.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage_Tchat.SuspendLayout()
-        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPageSocket.SuspendLayout()
         Me.TabPageCaractéristique.SuspendLayout()
         CType(Me.DataGridView_BonusPanoplie, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -363,12 +357,21 @@ Partial Class UserControlPersonnage
         CType(Me.DataGridViewDragodindeEtable, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewDragodindeEnclo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPageCraft.SuspendLayout()
-        CType(Me.DataGridViewMoi, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         CType(Me.DataGridViewLui, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage8.SuspendLayout()
+        CType(Me.DataGridViewMoi, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPageTrajet.SuspendLayout()
         Me.TabPageAmi.SuspendLayout()
         Me.TabControlAmiEnnemi.SuspendLayout()
         Me.TabPage16.SuspendLayout()
+        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TimerStatut
@@ -378,6 +381,7 @@ Partial Class UserControlPersonnage
         '
         'TabControl1
         '
+        Me.TabControl1.Alignment = System.Windows.Forms.TabAlignment.Left
         Me.TabControl1.Controls.Add(Me.TabPageTchat)
         Me.TabControl1.Controls.Add(Me.TabPageSocket)
         Me.TabControl1.Controls.Add(Me.TabPageCaractéristique)
@@ -387,14 +391,14 @@ Partial Class UserControlPersonnage
         Me.TabControl1.Controls.Add(Me.TabPageMetier)
         Me.TabControl1.Controls.Add(Me.TabPageDragodinde)
         Me.TabControl1.Controls.Add(Me.TabPageCraft)
-        Me.TabControl1.Controls.Add(Me.TabPage8)
+        Me.TabControl1.Controls.Add(Me.TabPageTrajet)
         Me.TabControl1.Controls.Add(Me.TabPageAmi)
         Me.TabControl1.ImageList = Me.ImageListUser
         Me.TabControl1.Location = New System.Drawing.Point(3, 3)
         Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1865, 851)
+        Me.TabControl1.Size = New System.Drawing.Size(1014, 651)
         Me.TabControl1.TabIndex = 0
         '
         'TabPageTchat
@@ -403,12 +407,11 @@ Partial Class UserControlPersonnage
         Me.TabPageTchat.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.TabPageTchat.Controls.Add(Me.TabControl2)
         Me.TabPageTchat.ImageIndex = 0
-        Me.TabPageTchat.Location = New System.Drawing.Point(4, 47)
+        Me.TabPageTchat.Location = New System.Drawing.Point(47, 4)
         Me.TabPageTchat.Name = "TabPageTchat"
         Me.TabPageTchat.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageTchat.Size = New System.Drawing.Size(1857, 800)
+        Me.TabPageTchat.Size = New System.Drawing.Size(963, 643)
         Me.TabPageTchat.TabIndex = 0
-        Me.TabPageTchat.Text = "Tchat"
         '
         'TabControl2
         '
@@ -418,35 +421,14 @@ Partial Class UserControlPersonnage
         Me.TabControl2.Location = New System.Drawing.Point(6, 6)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(1845, 788)
+        Me.TabControl2.Size = New System.Drawing.Size(949, 630)
         Me.TabControl2.TabIndex = 4
         '
         'TabPage_Tchat
         '
         Me.TabPage_Tchat.AutoScroll = True
         Me.TabPage_Tchat.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.TabPage_Tchat.Controls.Add(Me.TextBox1)
-        Me.TabPage_Tchat.Controls.Add(Me.PictureBox11)
-        Me.TabPage_Tchat.Controls.Add(Me.LabelGroupeChef)
-        Me.TabPage_Tchat.Controls.Add(Me.Button2)
         Me.TabPage_Tchat.Controls.Add(Me.TextBoxTchatJoueur)
-        Me.TabPage_Tchat.Controls.Add(Me.PictureBox10)
-        Me.TabPage_Tchat.Controls.Add(Me.LabelMap)
-        Me.TabPage_Tchat.Controls.Add(Me.PictureBox9)
-        Me.TabPage_Tchat.Controls.Add(Me.ProgressBarPods)
-        Me.TabPage_Tchat.Controls.Add(Me.RichTextBoxSocket)
-        Me.TabPage_Tchat.Controls.Add(Me.PictureBox8)
-        Me.TabPage_Tchat.Controls.Add(Me.ProgressBarEnergie)
-        Me.TabPage_Tchat.Controls.Add(Me.PictureBox5)
-        Me.TabPage_Tchat.Controls.Add(Me.ProgressBarVitalite)
-        Me.TabPage_Tchat.Controls.Add(Me.PictureBox4)
-        Me.TabPage_Tchat.Controls.Add(Me.ProgressBarExperience)
-        Me.TabPage_Tchat.Controls.Add(Me.PictureBox3)
-        Me.TabPage_Tchat.Controls.Add(Me.LabelKamas)
-        Me.TabPage_Tchat.Controls.Add(Me.PictureBox1)
-        Me.TabPage_Tchat.Controls.Add(Me.LabelAbonnement)
-        Me.TabPage_Tchat.Controls.Add(Me.LabelStatut)
-        Me.TabPage_Tchat.Controls.Add(Me.ButtonConnexion)
         Me.TabPage_Tchat.Controls.Add(Me.CheckBox_Canal_Communs_1)
         Me.TabPage_Tchat.Controls.Add(Me.CheckBox_Canal_Commerce_6)
         Me.TabPage_Tchat.Controls.Add(Me.CheckBox_Canal_Recrutement_5)
@@ -462,227 +444,21 @@ Partial Class UserControlPersonnage
         Me.TabPage_Tchat.Location = New System.Drawing.Point(4, 47)
         Me.TabPage_Tchat.Name = "TabPage_Tchat"
         Me.TabPage_Tchat.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage_Tchat.Size = New System.Drawing.Size(1837, 737)
+        Me.TabPage_Tchat.Size = New System.Drawing.Size(941, 579)
         Me.TabPage_Tchat.TabIndex = 0
         Me.TabPage_Tchat.Text = "Tchat"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(1652, 478)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 374
-        '
-        'PictureBox11
-        '
-        Me.PictureBox11.Image = CType(resources.GetObject("PictureBox11.Image"), System.Drawing.Image)
-        Me.PictureBox11.Location = New System.Drawing.Point(1620, 173)
-        Me.PictureBox11.Name = "PictureBox11"
-        Me.PictureBox11.Size = New System.Drawing.Size(42, 33)
-        Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox11.TabIndex = 373
-        Me.PictureBox11.TabStop = False
-        '
-        'LabelGroupeChef
-        '
-        Me.LabelGroupeChef.AutoSize = True
-        Me.LabelGroupeChef.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelGroupeChef.ForeColor = System.Drawing.Color.White
-        Me.LabelGroupeChef.Location = New System.Drawing.Point(1668, 177)
-        Me.LabelGroupeChef.Name = "LabelGroupeChef"
-        Me.LabelGroupeChef.Size = New System.Drawing.Size(49, 24)
-        Me.LabelGroupeChef.TabIndex = 372
-        Me.LabelGroupeChef.Text = "Chef"
-        Me.LabelGroupeChef.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(1656, 443)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 371
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'TextBoxTchatJoueur
         '
         Me.TextBoxTchatJoueur.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextBoxTchatJoueur.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxTchatJoueur.ForeColor = System.Drawing.Color.White
-        Me.TextBoxTchatJoueur.Location = New System.Drawing.Point(162, 708)
+        Me.TextBoxTchatJoueur.Location = New System.Drawing.Point(162, 552)
         Me.TextBoxTchatJoueur.MaxLength = 199
         Me.TextBoxTchatJoueur.Name = "TextBoxTchatJoueur"
         Me.TextBoxTchatJoueur.Size = New System.Drawing.Size(86, 22)
         Me.TextBoxTchatJoueur.TabIndex = 370
         Me.TextBoxTchatJoueur.Text = "Nom Joueur"
-        '
-        'PictureBox10
-        '
-        Me.PictureBox10.Image = CType(resources.GetObject("PictureBox10.Image"), System.Drawing.Image)
-        Me.PictureBox10.Location = New System.Drawing.Point(1620, 134)
-        Me.PictureBox10.Name = "PictureBox10"
-        Me.PictureBox10.Size = New System.Drawing.Size(42, 33)
-        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox10.TabIndex = 369
-        Me.PictureBox10.TabStop = False
-        '
-        'LabelMap
-        '
-        Me.LabelMap.AutoSize = True
-        Me.LabelMap.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelMap.ForeColor = System.Drawing.Color.White
-        Me.LabelMap.Location = New System.Drawing.Point(1668, 137)
-        Me.LabelMap.Name = "LabelMap"
-        Me.LabelMap.Size = New System.Drawing.Size(77, 24)
-        Me.LabelMap.TabIndex = 368
-        Me.LabelMap.Text = "[XX,YY]"
-        Me.LabelMap.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PictureBox9
-        '
-        Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
-        Me.PictureBox9.Location = New System.Drawing.Point(1620, 373)
-        Me.PictureBox9.Name = "PictureBox9"
-        Me.PictureBox9.Size = New System.Drawing.Size(42, 33)
-        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox9.TabIndex = 367
-        Me.PictureBox9.TabStop = False
-        '
-        'ProgressBarPods
-        '
-        Me.ProgressBarPods.Location = New System.Drawing.Point(1668, 373)
-        Me.ProgressBarPods.Name = "ProgressBarPods"
-        Me.ProgressBarPods.Size = New System.Drawing.Size(163, 33)
-        Me.ProgressBarPods.TabIndex = 366
-        '
-        'RichTextBoxSocket
-        '
-        Me.RichTextBoxSocket.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RichTextBoxSocket.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.RichTextBoxSocket.Location = New System.Drawing.Point(6, 346)
-        Me.RichTextBoxSocket.Name = "RichTextBoxSocket"
-        Me.RichTextBoxSocket.Size = New System.Drawing.Size(1608, 356)
-        Me.RichTextBoxSocket.TabIndex = 364
-        Me.RichTextBoxSocket.Text = ""
-        '
-        'PictureBox8
-        '
-        Me.PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), System.Drawing.Image)
-        Me.PictureBox8.Location = New System.Drawing.Point(1620, 334)
-        Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(42, 33)
-        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox8.TabIndex = 363
-        Me.PictureBox8.TabStop = False
-        '
-        'ProgressBarEnergie
-        '
-        Me.ProgressBarEnergie.Location = New System.Drawing.Point(1668, 334)
-        Me.ProgressBarEnergie.Name = "ProgressBarEnergie"
-        Me.ProgressBarEnergie.Size = New System.Drawing.Size(163, 33)
-        Me.ProgressBarEnergie.TabIndex = 362
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(1620, 256)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(42, 33)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox5.TabIndex = 361
-        Me.PictureBox5.TabStop = False
-        '
-        'ProgressBarVitalite
-        '
-        Me.ProgressBarVitalite.Location = New System.Drawing.Point(1668, 256)
-        Me.ProgressBarVitalite.Name = "ProgressBarVitalite"
-        Me.ProgressBarVitalite.Size = New System.Drawing.Size(163, 33)
-        Me.ProgressBarVitalite.TabIndex = 360
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(1620, 295)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(42, 33)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox4.TabIndex = 359
-        Me.PictureBox4.TabStop = False
-        '
-        'ProgressBarExperience
-        '
-        Me.ProgressBarExperience.Location = New System.Drawing.Point(1668, 295)
-        Me.ProgressBarExperience.Name = "ProgressBarExperience"
-        Me.ProgressBarExperience.Size = New System.Drawing.Size(163, 33)
-        Me.ProgressBarExperience.TabIndex = 358
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(1620, 95)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(42, 33)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 357
-        Me.PictureBox3.TabStop = False
-        '
-        'LabelKamas
-        '
-        Me.LabelKamas.AutoSize = True
-        Me.LabelKamas.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelKamas.ForeColor = System.Drawing.Color.White
-        Me.LabelKamas.Location = New System.Drawing.Point(1668, 99)
-        Me.LabelKamas.Name = "LabelKamas"
-        Me.LabelKamas.Size = New System.Drawing.Size(20, 24)
-        Me.LabelKamas.TabIndex = 356
-        Me.LabelKamas.Text = "0"
-        Me.LabelKamas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(1620, 56)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(42, 33)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 355
-        Me.PictureBox1.TabStop = False
-        '
-        'LabelAbonnement
-        '
-        Me.LabelAbonnement.AutoSize = True
-        Me.LabelAbonnement.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelAbonnement.ForeColor = System.Drawing.Color.White
-        Me.LabelAbonnement.Location = New System.Drawing.Point(1668, 67)
-        Me.LabelAbonnement.Name = "LabelAbonnement"
-        Me.LabelAbonnement.Size = New System.Drawing.Size(151, 16)
-        Me.LabelAbonnement.TabIndex = 354
-        Me.LabelAbonnement.Text = "XX/YY/XXYY xxhyymxys"
-        Me.LabelAbonnement.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LabelStatut
-        '
-        Me.LabelStatut.AutoSize = True
-        Me.LabelStatut.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelStatut.ForeColor = System.Drawing.Color.Red
-        Me.LabelStatut.Location = New System.Drawing.Point(1682, 34)
-        Me.LabelStatut.Name = "LabelStatut"
-        Me.LabelStatut.Size = New System.Drawing.Size(81, 16)
-        Me.LabelStatut.TabIndex = 353
-        Me.LabelStatut.Text = "Déconnecté"
-        Me.LabelStatut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'ButtonConnexion
-        '
-        Me.ButtonConnexion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.ButtonConnexion.ForeColor = System.Drawing.Color.White
-        Me.ButtonConnexion.Location = New System.Drawing.Point(1620, 6)
-        Me.ButtonConnexion.Name = "ButtonConnexion"
-        Me.ButtonConnexion.Size = New System.Drawing.Size(211, 23)
-        Me.ButtonConnexion.TabIndex = 352
-        Me.ButtonConnexion.Text = "Connexion"
-        Me.ButtonConnexion.UseVisualStyleBackColor = True
         '
         'CheckBox_Canal_Communs_1
         '
@@ -690,7 +466,7 @@ Partial Class UserControlPersonnage
         Me.CheckBox_Canal_Communs_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CheckBox_Canal_Communs_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox_Canal_Communs_1.ForeColor = System.Drawing.Color.White
-        Me.CheckBox_Canal_Communs_1.Location = New System.Drawing.Point(1642, 546)
+        Me.CheckBox_Canal_Communs_1.Location = New System.Drawing.Point(171, 522)
         Me.CheckBox_Canal_Communs_1.Name = "CheckBox_Canal_Communs_1"
         Me.CheckBox_Canal_Communs_1.Size = New System.Drawing.Size(89, 24)
         Me.CheckBox_Canal_Communs_1.TabIndex = 351
@@ -703,7 +479,7 @@ Partial Class UserControlPersonnage
         Me.CheckBox_Canal_Commerce_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CheckBox_Canal_Commerce_6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox_Canal_Commerce_6.ForeColor = System.Drawing.Color.Sienna
-        Me.CheckBox_Canal_Commerce_6.Location = New System.Drawing.Point(1642, 696)
+        Me.CheckBox_Canal_Commerce_6.Location = New System.Drawing.Point(802, 522)
         Me.CheckBox_Canal_Commerce_6.Name = "CheckBox_Canal_Commerce_6"
         Me.CheckBox_Canal_Commerce_6.Size = New System.Drawing.Size(102, 24)
         Me.CheckBox_Canal_Commerce_6.TabIndex = 350
@@ -716,7 +492,7 @@ Partial Class UserControlPersonnage
         Me.CheckBox_Canal_Recrutement_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CheckBox_Canal_Recrutement_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox_Canal_Recrutement_5.ForeColor = System.Drawing.Color.Gray
-        Me.CheckBox_Canal_Recrutement_5.Location = New System.Drawing.Point(1642, 666)
+        Me.CheckBox_Canal_Recrutement_5.Location = New System.Drawing.Point(656, 522)
         Me.CheckBox_Canal_Recrutement_5.Name = "CheckBox_Canal_Recrutement_5"
         Me.CheckBox_Canal_Recrutement_5.Size = New System.Drawing.Size(118, 24)
         Me.CheckBox_Canal_Recrutement_5.TabIndex = 349
@@ -729,7 +505,7 @@ Partial Class UserControlPersonnage
         Me.CheckBox_Canal_Alignement_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CheckBox_Canal_Alignement_4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox_Canal_Alignement_4.ForeColor = System.Drawing.Color.Orange
-        Me.CheckBox_Canal_Alignement_4.Location = New System.Drawing.Point(1642, 636)
+        Me.CheckBox_Canal_Alignement_4.Location = New System.Drawing.Point(519, 522)
         Me.CheckBox_Canal_Alignement_4.Name = "CheckBox_Canal_Alignement_4"
         Me.CheckBox_Canal_Alignement_4.Size = New System.Drawing.Size(105, 24)
         Me.CheckBox_Canal_Alignement_4.TabIndex = 348
@@ -742,7 +518,7 @@ Partial Class UserControlPersonnage
         Me.CheckBox_Canal_Guilde_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CheckBox_Canal_Guilde_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox_Canal_Guilde_3.ForeColor = System.Drawing.Color.Violet
-        Me.CheckBox_Canal_Guilde_3.Location = New System.Drawing.Point(1642, 606)
+        Me.CheckBox_Canal_Guilde_3.Location = New System.Drawing.Point(411, 522)
         Me.CheckBox_Canal_Guilde_3.Name = "CheckBox_Canal_Guilde_3"
         Me.CheckBox_Canal_Guilde_3.Size = New System.Drawing.Size(71, 24)
         Me.CheckBox_Canal_Guilde_3.TabIndex = 347
@@ -755,7 +531,7 @@ Partial Class UserControlPersonnage
         Me.CheckBox_Canal_Groupe_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CheckBox_Canal_Groupe_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox_Canal_Groupe_2.ForeColor = System.Drawing.Color.Cyan
-        Me.CheckBox_Canal_Groupe_2.Location = New System.Drawing.Point(1642, 576)
+        Me.CheckBox_Canal_Groupe_2.Location = New System.Drawing.Point(291, 522)
         Me.CheckBox_Canal_Groupe_2.Name = "CheckBox_Canal_Groupe_2"
         Me.CheckBox_Canal_Groupe_2.Size = New System.Drawing.Size(79, 24)
         Me.CheckBox_Canal_Groupe_2.TabIndex = 346
@@ -768,7 +544,7 @@ Partial Class UserControlPersonnage
         Me.CheckBox_Canal_Information_0.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CheckBox_Canal_Information_0.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox_Canal_Information_0.ForeColor = System.Drawing.Color.Lime
-        Me.CheckBox_Canal_Information_0.Location = New System.Drawing.Point(1642, 516)
+        Me.CheckBox_Canal_Information_0.Location = New System.Drawing.Point(29, 522)
         Me.CheckBox_Canal_Information_0.Name = "CheckBox_Canal_Information_0"
         Me.CheckBox_Canal_Information_0.Size = New System.Drawing.Size(106, 24)
         Me.CheckBox_Canal_Information_0.TabIndex = 345
@@ -782,7 +558,7 @@ Partial Class UserControlPersonnage
         Me.ComboBoxTchat.ForeColor = System.Drawing.Color.White
         Me.ComboBoxTchat.FormattingEnabled = True
         Me.ComboBoxTchat.Items.AddRange(New Object() {"Commun", "Message privée", "Groupe", "Equipe", "Guilde", "Alignement", "Recrutement", "Commerce"})
-        Me.ComboBoxTchat.Location = New System.Drawing.Point(6, 708)
+        Me.ComboBoxTchat.Location = New System.Drawing.Point(6, 552)
         Me.ComboBoxTchat.Name = "ComboBoxTchat"
         Me.ComboBoxTchat.Size = New System.Drawing.Size(150, 21)
         Me.ComboBoxTchat.TabIndex = 344
@@ -792,7 +568,7 @@ Partial Class UserControlPersonnage
         Me.Button_Tchat_Envoyer.BackgroundImage = CType(resources.GetObject("Button_Tchat_Envoyer.BackgroundImage"), System.Drawing.Image)
         Me.Button_Tchat_Envoyer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Button_Tchat_Envoyer.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button_Tchat_Envoyer.Location = New System.Drawing.Point(1589, 706)
+        Me.Button_Tchat_Envoyer.Location = New System.Drawing.Point(910, 549)
         Me.Button_Tchat_Envoyer.Name = "Button_Tchat_Envoyer"
         Me.Button_Tchat_Envoyer.Size = New System.Drawing.Size(25, 25)
         Me.Button_Tchat_Envoyer.TabIndex = 7
@@ -803,10 +579,10 @@ Partial Class UserControlPersonnage
         Me.TextBoxTchat.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextBoxTchat.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxTchat.ForeColor = System.Drawing.Color.White
-        Me.TextBoxTchat.Location = New System.Drawing.Point(254, 708)
+        Me.TextBoxTchat.Location = New System.Drawing.Point(254, 552)
         Me.TextBoxTchat.MaxLength = 199
         Me.TextBoxTchat.Name = "TextBoxTchat"
-        Me.TextBoxTchat.Size = New System.Drawing.Size(1329, 22)
+        Me.TextBoxTchat.Size = New System.Drawing.Size(650, 22)
         Me.TextBoxTchat.TabIndex = 4
         Me.TextBoxTchat.Text = "Votre message ici."
         Me.TextBoxTchat.WordWrap = False
@@ -817,7 +593,7 @@ Partial Class UserControlPersonnage
         Me.RichTextBoxTchat.ForeColor = System.Drawing.Color.White
         Me.RichTextBoxTchat.Location = New System.Drawing.Point(6, 6)
         Me.RichTextBoxTchat.Name = "RichTextBoxTchat"
-        Me.RichTextBoxTchat.Size = New System.Drawing.Size(1608, 334)
+        Me.RichTextBoxTchat.Size = New System.Drawing.Size(929, 510)
         Me.RichTextBoxTchat.TabIndex = 3
         Me.RichTextBoxTchat.Text = ""
         '
@@ -829,7 +605,7 @@ Partial Class UserControlPersonnage
         Me.TabPage_TchatOption.Location = New System.Drawing.Point(4, 47)
         Me.TabPage_TchatOption.Name = "TabPage_TchatOption"
         Me.TabPage_TchatOption.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage_TchatOption.Size = New System.Drawing.Size(1837, 737)
+        Me.TabPage_TchatOption.Size = New System.Drawing.Size(941, 579)
         Me.TabPage_TchatOption.TabIndex = 1
         Me.TabPage_TchatOption.Text = "Option"
         '
@@ -883,18 +659,46 @@ Partial Class UserControlPersonnage
         Me.ImageListUser.Images.SetKeyName(43, "Marteau.png")
         Me.ImageListUser.Images.SetKeyName(44, "1290.png")
         Me.ImageListUser.Images.SetKeyName(45, "bworky.png")
+        Me.ImageListUser.Images.SetKeyName(46, "Parchemin.png")
         '
         'TabPageSocket
         '
         Me.TabPageSocket.AutoScroll = True
         Me.TabPageSocket.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.TabPageSocket.Controls.Add(Me.TextBox1)
+        Me.TabPageSocket.Controls.Add(Me.RichTextBoxSocket)
+        Me.TabPageSocket.Controls.Add(Me.Button2)
         Me.TabPageSocket.ImageIndex = 1
-        Me.TabPageSocket.Location = New System.Drawing.Point(4, 47)
+        Me.TabPageSocket.Location = New System.Drawing.Point(47, 4)
         Me.TabPageSocket.Name = "TabPageSocket"
         Me.TabPageSocket.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageSocket.Size = New System.Drawing.Size(1857, 800)
+        Me.TabPageSocket.Size = New System.Drawing.Size(963, 643)
         Me.TabPageSocket.TabIndex = 1
-        Me.TabPageSocket.Text = "Socket"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(87, 615)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(868, 20)
+        Me.TextBox1.TabIndex = 374
+        '
+        'RichTextBoxSocket
+        '
+        Me.RichTextBoxSocket.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.RichTextBoxSocket.Location = New System.Drawing.Point(6, 6)
+        Me.RichTextBoxSocket.Name = "RichTextBoxSocket"
+        Me.RichTextBoxSocket.Size = New System.Drawing.Size(949, 601)
+        Me.RichTextBoxSocket.TabIndex = 365
+        Me.RichTextBoxSocket.Text = ""
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(6, 613)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 371
+        Me.Button2.Text = "Send"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'TabPageCaractéristique
         '
@@ -907,12 +711,11 @@ Partial Class UserControlPersonnage
         Me.TabPageCaractéristique.Controls.Add(Me.PictureBox2)
         Me.TabPageCaractéristique.Controls.Add(Me.LabelNiveau)
         Me.TabPageCaractéristique.ImageIndex = 3
-        Me.TabPageCaractéristique.Location = New System.Drawing.Point(4, 47)
+        Me.TabPageCaractéristique.Location = New System.Drawing.Point(47, 4)
         Me.TabPageCaractéristique.Name = "TabPageCaractéristique"
         Me.TabPageCaractéristique.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageCaractéristique.Size = New System.Drawing.Size(1857, 800)
+        Me.TabPageCaractéristique.Size = New System.Drawing.Size(963, 643)
         Me.TabPageCaractéristique.TabIndex = 2
-        Me.TabPageCaractéristique.Text = "Caractéristique"
         '
         'DataGridView_BonusPanoplie
         '
@@ -939,7 +742,7 @@ Partial Class UserControlPersonnage
         Me.DataGridView_BonusPanoplie.MultiSelect = False
         Me.DataGridView_BonusPanoplie.Name = "DataGridView_BonusPanoplie"
         Me.DataGridView_BonusPanoplie.RowHeadersWidth = 4
-        Me.DataGridView_BonusPanoplie.Size = New System.Drawing.Size(353, 788)
+        Me.DataGridView_BonusPanoplie.Size = New System.Drawing.Size(0, 630)
         Me.DataGridView_BonusPanoplie.TabIndex = 364
         '
         'DataGridViewTextBoxColumn9
@@ -1019,7 +822,7 @@ Partial Class UserControlPersonnage
         Me.ListViewCaractéristique.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3, ListViewItem4, ListViewItem5, ListViewItem6, ListViewItem7, ListViewItem8, ListViewItem9, ListViewItem10, ListViewItem11, ListViewItem12, ListViewItem13, ListViewItem14, ListViewItem15, ListViewItem16, ListViewItem17, ListViewItem18, ListViewItem19, ListViewItem20, ListViewItem21, ListViewItem22, ListViewItem23, ListViewItem24, ListViewItem25, ListViewItem26, ListViewItem27, ListViewItem28, ListViewItem29, ListViewItem30, ListViewItem31, ListViewItem32, ListViewItem33, ListViewItem34, ListViewItem35, ListViewItem36, ListViewItem37, ListViewItem38, ListViewItem39, ListViewItem40, ListViewItem41, ListViewItem42, ListViewItem43, ListViewItem44})
         Me.ListViewCaractéristique.Location = New System.Drawing.Point(6, 6)
         Me.ListViewCaractéristique.Name = "ListViewCaractéristique"
-        Me.ListViewCaractéristique.Size = New System.Drawing.Size(424, 788)
+        Me.ListViewCaractéristique.Size = New System.Drawing.Size(441, 630)
         Me.ListViewCaractéristique.SmallImageList = Me.ImageList1
         Me.ListViewCaractéristique.TabIndex = 360
         Me.ListViewCaractéristique.UseCompatibleStateImageBehavior = False
@@ -1091,7 +894,7 @@ Partial Class UserControlPersonnage
         'PictureBox6
         '
         Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(795, 45)
+        Me.PictureBox6.Location = New System.Drawing.Point(453, 45)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(35, 33)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -1103,7 +906,7 @@ Partial Class UserControlPersonnage
         Me.LabelCaracteristiqueCapital.AutoSize = True
         Me.LabelCaracteristiqueCapital.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelCaracteristiqueCapital.ForeColor = System.Drawing.Color.White
-        Me.LabelCaracteristiqueCapital.Location = New System.Drawing.Point(836, 54)
+        Me.LabelCaracteristiqueCapital.Location = New System.Drawing.Point(494, 54)
         Me.LabelCaracteristiqueCapital.Name = "LabelCaracteristiqueCapital"
         Me.LabelCaracteristiqueCapital.Size = New System.Drawing.Size(66, 16)
         Me.LabelCaracteristiqueCapital.TabIndex = 358
@@ -1113,7 +916,7 @@ Partial Class UserControlPersonnage
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(795, 6)
+        Me.PictureBox2.Location = New System.Drawing.Point(453, 6)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(35, 33)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -1125,7 +928,7 @@ Partial Class UserControlPersonnage
         Me.LabelNiveau.AutoSize = True
         Me.LabelNiveau.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelNiveau.ForeColor = System.Drawing.Color.White
-        Me.LabelNiveau.Location = New System.Drawing.Point(836, 15)
+        Me.LabelNiveau.Location = New System.Drawing.Point(494, 15)
         Me.LabelNiveau.Name = "LabelNiveau"
         Me.LabelNiveau.Size = New System.Drawing.Size(67, 16)
         Me.LabelNiveau.TabIndex = 356
@@ -1138,12 +941,11 @@ Partial Class UserControlPersonnage
         Me.TabPageInventaire.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.TabPageInventaire.Controls.Add(Me.TabControl3)
         Me.TabPageInventaire.ImageIndex = 4
-        Me.TabPageInventaire.Location = New System.Drawing.Point(4, 47)
+        Me.TabPageInventaire.Location = New System.Drawing.Point(47, 4)
         Me.TabPageInventaire.Name = "TabPageInventaire"
         Me.TabPageInventaire.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageInventaire.Size = New System.Drawing.Size(1857, 800)
+        Me.TabPageInventaire.Size = New System.Drawing.Size(963, 643)
         Me.TabPageInventaire.TabIndex = 3
-        Me.TabPageInventaire.Text = "Inventaire"
         '
         'TabControl3
         '
@@ -1156,7 +958,7 @@ Partial Class UserControlPersonnage
         Me.TabControl3.Location = New System.Drawing.Point(6, 6)
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(1845, 788)
+        Me.TabControl3.Size = New System.Drawing.Size(949, 630)
         Me.TabControl3.TabIndex = 363
         '
         'TabPage1
@@ -1168,7 +970,7 @@ Partial Class UserControlPersonnage
         Me.TabPage1.Location = New System.Drawing.Point(4, 47)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1837, 737)
+        Me.TabPage1.Size = New System.Drawing.Size(941, 579)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Inventaire"
         '
@@ -1177,9 +979,6 @@ Partial Class UserControlPersonnage
         Me.DataGridViewInventaire.AllowUserToAddRows = False
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewInventaire.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGridViewInventaire.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewInventaire.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridViewInventaire.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -1198,7 +997,7 @@ Partial Class UserControlPersonnage
         Me.DataGridViewInventaire.MultiSelect = False
         Me.DataGridViewInventaire.Name = "DataGridViewInventaire"
         Me.DataGridViewInventaire.RowHeadersWidth = 4
-        Me.DataGridViewInventaire.Size = New System.Drawing.Size(1825, 725)
+        Me.DataGridViewInventaire.Size = New System.Drawing.Size(929, 567)
         Me.DataGridViewInventaire.TabIndex = 362
         '
         'Column2
@@ -1283,7 +1082,7 @@ Partial Class UserControlPersonnage
         Me.TabPage2.Location = New System.Drawing.Point(4, 47)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1837, 737)
+        Me.TabPage2.Size = New System.Drawing.Size(941, 579)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Option"
         '
@@ -1293,12 +1092,11 @@ Partial Class UserControlPersonnage
         Me.TabPageSort.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.TabPageSort.Controls.Add(Me.TabControl4)
         Me.TabPageSort.ImageIndex = 5
-        Me.TabPageSort.Location = New System.Drawing.Point(4, 47)
+        Me.TabPageSort.Location = New System.Drawing.Point(47, 4)
         Me.TabPageSort.Name = "TabPageSort"
         Me.TabPageSort.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageSort.Size = New System.Drawing.Size(1857, 800)
+        Me.TabPageSort.Size = New System.Drawing.Size(963, 643)
         Me.TabPageSort.TabIndex = 4
-        Me.TabPageSort.Text = "Sort"
         '
         'TabControl4
         '
@@ -1311,7 +1109,7 @@ Partial Class UserControlPersonnage
         Me.TabControl4.Location = New System.Drawing.Point(6, 6)
         Me.TabControl4.Name = "TabControl4"
         Me.TabControl4.SelectedIndex = 0
-        Me.TabControl4.Size = New System.Drawing.Size(1845, 788)
+        Me.TabControl4.Size = New System.Drawing.Size(949, 630)
         Me.TabControl4.TabIndex = 364
         '
         'TabPage3
@@ -1325,7 +1123,7 @@ Partial Class UserControlPersonnage
         Me.TabPage3.Location = New System.Drawing.Point(4, 47)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(1837, 737)
+        Me.TabPage3.Size = New System.Drawing.Size(941, 579)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Sort"
         '
@@ -1334,9 +1132,6 @@ Partial Class UserControlPersonnage
         Me.DataGridViewSort.AllowUserToAddRows = False
         DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewSort.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridViewSort.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewSort.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridViewSort.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -1354,7 +1149,7 @@ Partial Class UserControlPersonnage
         Me.DataGridViewSort.MultiSelect = False
         Me.DataGridViewSort.Name = "DataGridViewSort"
         Me.DataGridViewSort.RowHeadersWidth = 4
-        Me.DataGridViewSort.Size = New System.Drawing.Size(1700, 725)
+        Me.DataGridViewSort.Size = New System.Drawing.Size(929, 528)
         Me.DataGridViewSort.TabIndex = 362
         '
         'DataGridViewTextBoxColumn1
@@ -1393,7 +1188,7 @@ Partial Class UserControlPersonnage
         'PictureBox7
         '
         Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
-        Me.PictureBox7.Location = New System.Drawing.Point(1754, 6)
+        Me.PictureBox7.Location = New System.Drawing.Point(6, 540)
         Me.PictureBox7.Name = "PictureBox7"
         Me.PictureBox7.Size = New System.Drawing.Size(35, 33)
         Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -1405,7 +1200,7 @@ Partial Class UserControlPersonnage
         Me.LabelSortCapital.AutoSize = True
         Me.LabelSortCapital.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelSortCapital.ForeColor = System.Drawing.Color.White
-        Me.LabelSortCapital.Location = New System.Drawing.Point(1712, 42)
+        Me.LabelSortCapital.Location = New System.Drawing.Point(47, 550)
         Me.LabelSortCapital.Name = "LabelSortCapital"
         Me.LabelSortCapital.Size = New System.Drawing.Size(66, 16)
         Me.LabelSortCapital.TabIndex = 360
@@ -1420,7 +1215,7 @@ Partial Class UserControlPersonnage
         Me.TabPage4.Location = New System.Drawing.Point(4, 47)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(1837, 737)
+        Me.TabPage4.Size = New System.Drawing.Size(941, 579)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "Option"
         '
@@ -1430,12 +1225,11 @@ Partial Class UserControlPersonnage
         Me.TabPageMap.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.TabPageMap.Controls.Add(Me.TabControl5)
         Me.TabPageMap.ImageIndex = 6
-        Me.TabPageMap.Location = New System.Drawing.Point(4, 47)
+        Me.TabPageMap.Location = New System.Drawing.Point(47, 4)
         Me.TabPageMap.Name = "TabPageMap"
         Me.TabPageMap.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageMap.Size = New System.Drawing.Size(1857, 800)
+        Me.TabPageMap.Size = New System.Drawing.Size(963, 643)
         Me.TabPageMap.TabIndex = 5
-        Me.TabPageMap.Text = "Map"
         '
         'TabControl5
         '
@@ -1449,7 +1243,7 @@ Partial Class UserControlPersonnage
         Me.TabControl5.Location = New System.Drawing.Point(6, 6)
         Me.TabControl5.Name = "TabControl5"
         Me.TabControl5.SelectedIndex = 0
-        Me.TabControl5.Size = New System.Drawing.Size(1845, 788)
+        Me.TabControl5.Size = New System.Drawing.Size(949, 630)
         Me.TabControl5.TabIndex = 365
         '
         'TabPage6
@@ -1462,7 +1256,7 @@ Partial Class UserControlPersonnage
         Me.TabPage6.Location = New System.Drawing.Point(4, 47)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(1837, 737)
+        Me.TabPage6.Size = New System.Drawing.Size(941, 579)
         Me.TabPage6.TabIndex = 0
         Me.TabPage6.Text = "Map"
         '
@@ -1471,9 +1265,6 @@ Partial Class UserControlPersonnage
         Me.DataGridViewMapSol.AllowUserToAddRows = False
         DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewMapSol.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
-        Me.DataGridViewMapSol.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewMapSol.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridViewMapSol.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
         DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -1487,11 +1278,11 @@ Partial Class UserControlPersonnage
         Me.DataGridViewMapSol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewMapSol.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn49, Me.DataGridViewTextBoxColumn50, Me.DataGridViewTextBoxColumn51, Me.DataGridViewTextBoxColumn52})
         Me.DataGridViewMapSol.GridColor = System.Drawing.Color.Black
-        Me.DataGridViewMapSol.Location = New System.Drawing.Point(6, 593)
+        Me.DataGridViewMapSol.Location = New System.Drawing.Point(6, 465)
         Me.DataGridViewMapSol.MultiSelect = False
         Me.DataGridViewMapSol.Name = "DataGridViewMapSol"
         Me.DataGridViewMapSol.RowHeadersWidth = 4
-        Me.DataGridViewMapSol.Size = New System.Drawing.Size(1825, 138)
+        Me.DataGridViewMapSol.Size = New System.Drawing.Size(929, 108)
         Me.DataGridViewMapSol.TabIndex = 363
         '
         'DataGridViewTextBoxColumn49
@@ -1523,9 +1314,6 @@ Partial Class UserControlPersonnage
         Me.DataGridViewMap.AllowUserToAddRows = False
         DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewMap.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
-        Me.DataGridViewMap.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewMap.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridViewMap.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
         DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -1543,7 +1331,7 @@ Partial Class UserControlPersonnage
         Me.DataGridViewMap.MultiSelect = False
         Me.DataGridViewMap.Name = "DataGridViewMap"
         Me.DataGridViewMap.RowHeadersWidth = 4
-        Me.DataGridViewMap.Size = New System.Drawing.Size(1825, 581)
+        Me.DataGridViewMap.Size = New System.Drawing.Size(929, 453)
         Me.DataGridViewMap.TabIndex = 362
         '
         'DataGridViewTextBoxColumn6
@@ -1579,7 +1367,7 @@ Partial Class UserControlPersonnage
         Me.TabPage5.Location = New System.Drawing.Point(4, 47)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(1837, 737)
+        Me.TabPage5.Size = New System.Drawing.Size(941, 579)
         Me.TabPage5.TabIndex = 2
         Me.TabPage5.Text = "Divers"
         '
@@ -1588,9 +1376,6 @@ Partial Class UserControlPersonnage
         Me.DataGridViewDivers.AllowUserToAddRows = False
         DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewDivers.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle11
-        Me.DataGridViewDivers.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewDivers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridViewDivers.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
         DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -1608,7 +1393,7 @@ Partial Class UserControlPersonnage
         Me.DataGridViewDivers.MultiSelect = False
         Me.DataGridViewDivers.Name = "DataGridViewDivers"
         Me.DataGridViewDivers.RowHeadersWidth = 4
-        Me.DataGridViewDivers.Size = New System.Drawing.Size(1825, 725)
+        Me.DataGridViewDivers.Size = New System.Drawing.Size(929, 567)
         Me.DataGridViewDivers.TabIndex = 362
         '
         'DataGridViewTextBoxColumn14
@@ -1646,7 +1431,7 @@ Partial Class UserControlPersonnage
         Me.TabPage7.Location = New System.Drawing.Point(4, 47)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(1837, 737)
+        Me.TabPage7.Size = New System.Drawing.Size(941, 579)
         Me.TabPage7.TabIndex = 1
         Me.TabPage7.Text = "Option"
         '
@@ -1656,22 +1441,18 @@ Partial Class UserControlPersonnage
         Me.TabPageMetier.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.TabPageMetier.Controls.Add(Me.FlowLayoutPanelMetier)
         Me.TabPageMetier.ImageIndex = 8
-        Me.TabPageMetier.Location = New System.Drawing.Point(4, 47)
+        Me.TabPageMetier.Location = New System.Drawing.Point(47, 4)
         Me.TabPageMetier.Name = "TabPageMetier"
         Me.TabPageMetier.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageMetier.Size = New System.Drawing.Size(1857, 800)
+        Me.TabPageMetier.Size = New System.Drawing.Size(963, 643)
         Me.TabPageMetier.TabIndex = 6
-        Me.TabPageMetier.Text = "Métier"
         '
         'FlowLayoutPanelMetier
         '
-        Me.FlowLayoutPanelMetier.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FlowLayoutPanelMetier.AutoScroll = True
         Me.FlowLayoutPanelMetier.Location = New System.Drawing.Point(6, 6)
         Me.FlowLayoutPanelMetier.Name = "FlowLayoutPanelMetier"
-        Me.FlowLayoutPanelMetier.Size = New System.Drawing.Size(1845, 788)
+        Me.FlowLayoutPanelMetier.Size = New System.Drawing.Size(949, 630)
         Me.FlowLayoutPanelMetier.TabIndex = 0
         '
         'TabPageDragodinde
@@ -1682,21 +1463,17 @@ Partial Class UserControlPersonnage
         Me.TabPageDragodinde.Controls.Add(Me.DataGridViewDragodindeEtable)
         Me.TabPageDragodinde.Controls.Add(Me.DataGridViewDragodindeEnclo)
         Me.TabPageDragodinde.ImageIndex = 42
-        Me.TabPageDragodinde.Location = New System.Drawing.Point(4, 47)
+        Me.TabPageDragodinde.Location = New System.Drawing.Point(47, 4)
         Me.TabPageDragodinde.Name = "TabPageDragodinde"
         Me.TabPageDragodinde.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageDragodinde.Size = New System.Drawing.Size(1857, 800)
+        Me.TabPageDragodinde.Size = New System.Drawing.Size(963, 643)
         Me.TabPageDragodinde.TabIndex = 7
-        Me.TabPageDragodinde.Text = "Dragodinde"
         '
         'DataGridViewDragodindeEquipé
         '
         Me.DataGridViewDragodindeEquipé.AllowUserToAddRows = False
         DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewDragodindeEquipé.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
-        Me.DataGridViewDragodindeEquipé.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewDragodindeEquipé.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridViewDragodindeEquipé.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
         DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -1711,11 +1488,11 @@ Partial Class UserControlPersonnage
         Me.DataGridViewDragodindeEquipé.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn32, Me.Column27, Me.DataGridViewTextBoxColumn33, Me.DataGridViewTextBoxColumn34, Me.DataGridViewTextBoxColumn35, Me.DataGridViewTextBoxColumn36, Me.DataGridViewTextBoxColumn37, Me.DataGridViewTextBoxColumn38, Me.DataGridViewTextBoxColumn39, Me.DataGridViewTextBoxColumn40, Me.DataGridViewTextBoxColumn41, Me.DataGridViewTextBoxColumn42, Me.DataGridViewTextBoxColumn43, Me.DataGridViewTextBoxColumn44, Me.DataGridViewTextBoxColumn45, Me.DataGridViewTextBoxColumn46, Me.DataGridViewTextBoxColumn47, Me.DataGridViewTextBoxColumn48})
         Me.DataGridViewDragodindeEquipé.ContextMenuStrip = Me.ContextMenuStripInventaire
         Me.DataGridViewDragodindeEquipé.GridColor = System.Drawing.Color.Black
-        Me.DataGridViewDragodindeEquipé.Location = New System.Drawing.Point(6, 673)
+        Me.DataGridViewDragodindeEquipé.Location = New System.Drawing.Point(6, 511)
         Me.DataGridViewDragodindeEquipé.MultiSelect = False
         Me.DataGridViewDragodindeEquipé.Name = "DataGridViewDragodindeEquipé"
         Me.DataGridViewDragodindeEquipé.RowHeadersWidth = 4
-        Me.DataGridViewDragodindeEquipé.Size = New System.Drawing.Size(1845, 121)
+        Me.DataGridViewDragodindeEquipé.Size = New System.Drawing.Size(949, 125)
         Me.DataGridViewDragodindeEquipé.TabIndex = 365
         '
         'DataGridViewTextBoxColumn32
@@ -1830,9 +1607,6 @@ Partial Class UserControlPersonnage
         Me.DataGridViewDragodindeEtable.AllowUserToAddRows = False
         DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewDragodindeEtable.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle15
-        Me.DataGridViewDragodindeEtable.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewDragodindeEtable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridViewDragodindeEtable.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
         DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -1847,11 +1621,11 @@ Partial Class UserControlPersonnage
         Me.DataGridViewDragodindeEtable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.Column26, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28, Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn31})
         Me.DataGridViewDragodindeEtable.ContextMenuStrip = Me.ContextMenuStripInventaire
         Me.DataGridViewDragodindeEtable.GridColor = System.Drawing.Color.Black
-        Me.DataGridViewDragodindeEtable.Location = New System.Drawing.Point(7, 340)
+        Me.DataGridViewDragodindeEtable.Location = New System.Drawing.Point(6, 269)
         Me.DataGridViewDragodindeEtable.MultiSelect = False
         Me.DataGridViewDragodindeEtable.Name = "DataGridViewDragodindeEtable"
         Me.DataGridViewDragodindeEtable.RowHeadersWidth = 4
-        Me.DataGridViewDragodindeEtable.Size = New System.Drawing.Size(1845, 327)
+        Me.DataGridViewDragodindeEtable.Size = New System.Drawing.Size(949, 236)
         Me.DataGridViewDragodindeEtable.TabIndex = 364
         '
         'DataGridViewTextBoxColumn12
@@ -1966,9 +1740,6 @@ Partial Class UserControlPersonnage
         Me.DataGridViewDragodindeEnclo.AllowUserToAddRows = False
         DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewDragodindeEnclo.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle17
-        Me.DataGridViewDragodindeEnclo.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridViewDragodindeEnclo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridViewDragodindeEnclo.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
         DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -1987,7 +1758,7 @@ Partial Class UserControlPersonnage
         Me.DataGridViewDragodindeEnclo.MultiSelect = False
         Me.DataGridViewDragodindeEnclo.Name = "DataGridViewDragodindeEnclo"
         Me.DataGridViewDragodindeEnclo.RowHeadersWidth = 4
-        Me.DataGridViewDragodindeEnclo.Size = New System.Drawing.Size(1845, 327)
+        Me.DataGridViewDragodindeEnclo.Size = New System.Drawing.Size(949, 257)
         Me.DataGridViewDragodindeEnclo.TabIndex = 363
         '
         'Column8
@@ -2101,75 +1872,32 @@ Partial Class UserControlPersonnage
         '
         Me.TabPageCraft.AutoScroll = True
         Me.TabPageCraft.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.TabPageCraft.Controls.Add(Me.ListView_Forgemagie)
-        Me.TabPageCraft.Controls.Add(Me.DataGridViewMoi)
-        Me.TabPageCraft.Controls.Add(Me.DataGridViewLui)
+        Me.TabPageCraft.Controls.Add(Me.Panel1)
         Me.TabPageCraft.ImageIndex = 43
-        Me.TabPageCraft.Location = New System.Drawing.Point(4, 47)
+        Me.TabPageCraft.Location = New System.Drawing.Point(47, 4)
         Me.TabPageCraft.Name = "TabPageCraft"
         Me.TabPageCraft.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageCraft.Size = New System.Drawing.Size(1857, 800)
+        Me.TabPageCraft.Size = New System.Drawing.Size(963, 643)
         Me.TabPageCraft.TabIndex = 8
-        Me.TabPageCraft.Text = "Craft"
         '
-        'ListView_Forgemagie
+        'Panel1
         '
-        Me.ListView_Forgemagie.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ListView_Forgemagie.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader194, Me.ColumnHeader195, Me.ColumnHeader196, Me.ColumnHeader197, Me.ColumnHeader198, Me.ColumnHeader1})
-        Me.ListView_Forgemagie.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListView_Forgemagie.ForeColor = System.Drawing.Color.White
-        Me.ListView_Forgemagie.FullRowSelect = True
-        Me.ListView_Forgemagie.GridLines = True
-        Me.ListView_Forgemagie.HideSelection = False
-        Me.ListView_Forgemagie.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem45, ListViewItem46, ListViewItem47, ListViewItem48, ListViewItem49, ListViewItem50, ListViewItem51, ListViewItem52, ListViewItem53, ListViewItem54, ListViewItem55, ListViewItem56, ListViewItem57, ListViewItem58, ListViewItem59, ListViewItem60, ListViewItem61, ListViewItem62, ListViewItem63, ListViewItem64, ListViewItem65, ListViewItem66, ListViewItem67, ListViewItem68, ListViewItem69, ListViewItem70, ListViewItem71, ListViewItem72, ListViewItem73, ListViewItem74})
-        Me.ListView_Forgemagie.Location = New System.Drawing.Point(732, 6)
-        Me.ListView_Forgemagie.Name = "ListView_Forgemagie"
-        Me.ListView_Forgemagie.Size = New System.Drawing.Size(393, 788)
-        Me.ListView_Forgemagie.SmallImageList = Me.ImageList1
-        Me.ListView_Forgemagie.TabIndex = 392
-        Me.ListView_Forgemagie.UseCompatibleStateImageBehavior = False
-        Me.ListView_Forgemagie.View = System.Windows.Forms.View.Details
+        Me.Panel1.AutoScroll = True
+        Me.Panel1.Controls.Add(Me.DataGridViewLui)
+        Me.Panel1.Controls.Add(Me.DataGridViewMoi)
+        Me.Panel1.Controls.Add(Me.ListView_Forgemagie)
+        Me.Panel1.Location = New System.Drawing.Point(6, 6)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(949, 630)
+        Me.Panel1.TabIndex = 393
         '
-        'ColumnHeader194
+        'DataGridViewLui
         '
-        Me.ColumnHeader194.Text = "Caractéristiques"
-        Me.ColumnHeader194.Width = 161
-        '
-        'ColumnHeader195
-        '
-        Me.ColumnHeader195.Text = "Min"
-        Me.ColumnHeader195.Width = 41
-        '
-        'ColumnHeader196
-        '
-        Me.ColumnHeader196.Text = "Actuel"
-        Me.ColumnHeader196.Width = 57
-        '
-        'ColumnHeader197
-        '
-        Me.ColumnHeader197.Text = "Max"
-        Me.ColumnHeader197.Width = 41
-        '
-        'ColumnHeader198
-        '
-        Me.ColumnHeader198.Text = "%"
-        Me.ColumnHeader198.Width = 37
-        '
-        'ColumnHeader1
-        '
-        Me.ColumnHeader1.Text = "Rune"
-        Me.ColumnHeader1.Width = 51
-        '
-        'DataGridViewMoi
-        '
-        Me.DataGridViewMoi.AllowUserToAddRows = False
+        Me.DataGridViewLui.AllowUserToAddRows = False
         DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewMoi.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle19
-        Me.DataGridViewMoi.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridViewMoi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.DataGridViewMoi.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.DataGridViewLui.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle19
+        Me.DataGridViewLui.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DataGridViewLui.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
         DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle20.Font = New System.Drawing.Font("Segoe UI", 10.0!)
@@ -2177,78 +1905,16 @@ Partial Class UserControlPersonnage
         DataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewMoi.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle20
-        Me.DataGridViewMoi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewMoi.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn58, Me.DataGridViewTextBoxColumn59, Me.DataGridViewTextBoxColumn60, Me.DataGridViewTextBoxColumn61, Me.DataGridViewTextBoxColumn62})
-        Me.DataGridViewMoi.ContextMenuStrip = Me.ContextMenuStripInventaire
-        Me.DataGridViewMoi.GridColor = System.Drawing.Color.Black
-        Me.DataGridViewMoi.Location = New System.Drawing.Point(1131, 6)
-        Me.DataGridViewMoi.MultiSelect = False
-        Me.DataGridViewMoi.Name = "DataGridViewMoi"
-        Me.DataGridViewMoi.RowHeadersWidth = 4
-        Me.DataGridViewMoi.Size = New System.Drawing.Size(720, 788)
-        Me.DataGridViewMoi.TabIndex = 364
-        '
-        'DataGridViewTextBoxColumn58
-        '
-        Me.DataGridViewTextBoxColumn58.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn58.HeaderText = "ID Objet"
-        Me.DataGridViewTextBoxColumn58.Name = "DataGridViewTextBoxColumn58"
-        Me.DataGridViewTextBoxColumn58.Width = 86
-        '
-        'DataGridViewTextBoxColumn59
-        '
-        Me.DataGridViewTextBoxColumn59.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn59.HeaderText = "ID Unique"
-        Me.DataGridViewTextBoxColumn59.Name = "DataGridViewTextBoxColumn59"
-        Me.DataGridViewTextBoxColumn59.Width = 96
-        '
-        'DataGridViewTextBoxColumn60
-        '
-        Me.DataGridViewTextBoxColumn60.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn60.HeaderText = "Nom"
-        Me.DataGridViewTextBoxColumn60.Name = "DataGridViewTextBoxColumn60"
-        '
-        'DataGridViewTextBoxColumn61
-        '
-        Me.DataGridViewTextBoxColumn61.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn61.HeaderText = "Quantité"
-        Me.DataGridViewTextBoxColumn61.Name = "DataGridViewTextBoxColumn61"
-        Me.DataGridViewTextBoxColumn61.Width = 88
-        '
-        'DataGridViewTextBoxColumn62
-        '
-        Me.DataGridViewTextBoxColumn62.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn62.HeaderText = "Information"
-        Me.DataGridViewTextBoxColumn62.Name = "DataGridViewTextBoxColumn62"
-        '
-        'DataGridViewLui
-        '
-        Me.DataGridViewLui.AllowUserToAddRows = False
-        DataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewLui.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle21
-        Me.DataGridViewLui.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridViewLui.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.DataGridViewLui.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
-        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle22.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        DataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewLui.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle22
+        Me.DataGridViewLui.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle20
         Me.DataGridViewLui.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewLui.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn53, Me.DataGridViewTextBoxColumn54, Me.DataGridViewTextBoxColumn55, Me.DataGridViewTextBoxColumn56, Me.DataGridViewTextBoxColumn57})
         Me.DataGridViewLui.ContextMenuStrip = Me.ContextMenuStripInventaire
         Me.DataGridViewLui.GridColor = System.Drawing.Color.Black
-        Me.DataGridViewLui.Location = New System.Drawing.Point(6, 6)
+        Me.DataGridViewLui.Location = New System.Drawing.Point(3, 3)
         Me.DataGridViewLui.MultiSelect = False
         Me.DataGridViewLui.Name = "DataGridViewLui"
         Me.DataGridViewLui.RowHeadersWidth = 4
-        Me.DataGridViewLui.Size = New System.Drawing.Size(720, 788)
+        Me.DataGridViewLui.Size = New System.Drawing.Size(435, 607)
         Me.DataGridViewLui.TabIndex = 363
         '
         'DataGridViewTextBoxColumn53
@@ -2284,21 +1950,128 @@ Partial Class UserControlPersonnage
         Me.DataGridViewTextBoxColumn57.HeaderText = "Information"
         Me.DataGridViewTextBoxColumn57.Name = "DataGridViewTextBoxColumn57"
         '
-        'TabPage8
+        'DataGridViewMoi
         '
-        Me.TabPage8.AutoScroll = True
-        Me.TabPage8.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.TabPage8.Controls.Add(Me.Button1)
-        Me.TabPage8.Location = New System.Drawing.Point(4, 47)
-        Me.TabPage8.Name = "TabPage8"
-        Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(1857, 800)
-        Me.TabPage8.TabIndex = 9
-        Me.TabPage8.Text = "TabPage8"
+        Me.DataGridViewMoi.AllowUserToAddRows = False
+        DataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewMoi.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle21
+        Me.DataGridViewMoi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DataGridViewMoi.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle22.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        DataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewMoi.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle22
+        Me.DataGridViewMoi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewMoi.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn58, Me.DataGridViewTextBoxColumn59, Me.DataGridViewTextBoxColumn60, Me.DataGridViewTextBoxColumn61, Me.DataGridViewTextBoxColumn62})
+        Me.DataGridViewMoi.ContextMenuStrip = Me.ContextMenuStripInventaire
+        Me.DataGridViewMoi.GridColor = System.Drawing.Color.Black
+        Me.DataGridViewMoi.Location = New System.Drawing.Point(877, 3)
+        Me.DataGridViewMoi.MultiSelect = False
+        Me.DataGridViewMoi.Name = "DataGridViewMoi"
+        Me.DataGridViewMoi.RowHeadersWidth = 4
+        Me.DataGridViewMoi.Size = New System.Drawing.Size(436, 607)
+        Me.DataGridViewMoi.TabIndex = 364
+        '
+        'DataGridViewTextBoxColumn58
+        '
+        Me.DataGridViewTextBoxColumn58.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn58.HeaderText = "ID Objet"
+        Me.DataGridViewTextBoxColumn58.Name = "DataGridViewTextBoxColumn58"
+        Me.DataGridViewTextBoxColumn58.Width = 86
+        '
+        'DataGridViewTextBoxColumn59
+        '
+        Me.DataGridViewTextBoxColumn59.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn59.HeaderText = "ID Unique"
+        Me.DataGridViewTextBoxColumn59.Name = "DataGridViewTextBoxColumn59"
+        Me.DataGridViewTextBoxColumn59.Width = 96
+        '
+        'DataGridViewTextBoxColumn60
+        '
+        Me.DataGridViewTextBoxColumn60.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn60.HeaderText = "Nom"
+        Me.DataGridViewTextBoxColumn60.Name = "DataGridViewTextBoxColumn60"
+        '
+        'DataGridViewTextBoxColumn61
+        '
+        Me.DataGridViewTextBoxColumn61.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn61.HeaderText = "Quantité"
+        Me.DataGridViewTextBoxColumn61.Name = "DataGridViewTextBoxColumn61"
+        Me.DataGridViewTextBoxColumn61.Width = 88
+        '
+        'DataGridViewTextBoxColumn62
+        '
+        Me.DataGridViewTextBoxColumn62.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn62.HeaderText = "Information"
+        Me.DataGridViewTextBoxColumn62.Name = "DataGridViewTextBoxColumn62"
+        '
+        'ListView_Forgemagie
+        '
+        Me.ListView_Forgemagie.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.ListView_Forgemagie.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader194, Me.ColumnHeader195, Me.ColumnHeader196, Me.ColumnHeader197, Me.ColumnHeader198, Me.ColumnHeader1})
+        Me.ListView_Forgemagie.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListView_Forgemagie.ForeColor = System.Drawing.Color.White
+        Me.ListView_Forgemagie.FullRowSelect = True
+        Me.ListView_Forgemagie.GridLines = True
+        Me.ListView_Forgemagie.HideSelection = False
+        Me.ListView_Forgemagie.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem45, ListViewItem46, ListViewItem47, ListViewItem48, ListViewItem49, ListViewItem50, ListViewItem51, ListViewItem52, ListViewItem53, ListViewItem54, ListViewItem55, ListViewItem56, ListViewItem57, ListViewItem58, ListViewItem59, ListViewItem60, ListViewItem61, ListViewItem62, ListViewItem63, ListViewItem64, ListViewItem65, ListViewItem66, ListViewItem67, ListViewItem68, ListViewItem69, ListViewItem70, ListViewItem71, ListViewItem72, ListViewItem73, ListViewItem74})
+        Me.ListView_Forgemagie.Location = New System.Drawing.Point(444, 3)
+        Me.ListView_Forgemagie.Name = "ListView_Forgemagie"
+        Me.ListView_Forgemagie.Size = New System.Drawing.Size(427, 607)
+        Me.ListView_Forgemagie.SmallImageList = Me.ImageList1
+        Me.ListView_Forgemagie.TabIndex = 392
+        Me.ListView_Forgemagie.UseCompatibleStateImageBehavior = False
+        Me.ListView_Forgemagie.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader194
+        '
+        Me.ColumnHeader194.Text = "Caractéristiques"
+        Me.ColumnHeader194.Width = 161
+        '
+        'ColumnHeader195
+        '
+        Me.ColumnHeader195.Text = "Min"
+        Me.ColumnHeader195.Width = 41
+        '
+        'ColumnHeader196
+        '
+        Me.ColumnHeader196.Text = "Actuel"
+        Me.ColumnHeader196.Width = 57
+        '
+        'ColumnHeader197
+        '
+        Me.ColumnHeader197.Text = "Max"
+        Me.ColumnHeader197.Width = 41
+        '
+        'ColumnHeader198
+        '
+        Me.ColumnHeader198.Text = "%"
+        Me.ColumnHeader198.Width = 37
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Rune"
+        Me.ColumnHeader1.Width = 51
+        '
+        'TabPageTrajet
+        '
+        Me.TabPageTrajet.AutoScroll = True
+        Me.TabPageTrajet.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.TabPageTrajet.Controls.Add(Me.Button1)
+        Me.TabPageTrajet.ImageIndex = 46
+        Me.TabPageTrajet.Location = New System.Drawing.Point(47, 4)
+        Me.TabPageTrajet.Name = "TabPageTrajet"
+        Me.TabPageTrajet.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageTrajet.Size = New System.Drawing.Size(963, 643)
+        Me.TabPageTrajet.TabIndex = 9
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(230, 65)
+        Me.Button1.Location = New System.Drawing.Point(25, 6)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(206, 60)
         Me.Button1.TabIndex = 0
@@ -2307,34 +2080,38 @@ Partial Class UserControlPersonnage
         '
         'TabPageAmi
         '
+        Me.TabPageAmi.AutoScroll = True
         Me.TabPageAmi.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.TabPageAmi.Controls.Add(Me.TabControlAmiEnnemi)
         Me.TabPageAmi.ImageIndex = 44
-        Me.TabPageAmi.Location = New System.Drawing.Point(4, 47)
+        Me.TabPageAmi.Location = New System.Drawing.Point(47, 4)
         Me.TabPageAmi.Name = "TabPageAmi"
         Me.TabPageAmi.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageAmi.Size = New System.Drawing.Size(1857, 800)
+        Me.TabPageAmi.Size = New System.Drawing.Size(963, 643)
         Me.TabPageAmi.TabIndex = 10
-        Me.TabPageAmi.Text = "Ami"
         '
         'TabControlAmiEnnemi
         '
+        Me.TabControlAmiEnnemi.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControlAmiEnnemi.Controls.Add(Me.TabPage16)
         Me.TabControlAmiEnnemi.Controls.Add(Me.TabPage17)
         Me.TabControlAmiEnnemi.Location = New System.Drawing.Point(6, 6)
         Me.TabControlAmiEnnemi.Name = "TabControlAmiEnnemi"
         Me.TabControlAmiEnnemi.SelectedIndex = 0
-        Me.TabControlAmiEnnemi.Size = New System.Drawing.Size(1845, 788)
+        Me.TabControlAmiEnnemi.Size = New System.Drawing.Size(949, 630)
         Me.TabControlAmiEnnemi.TabIndex = 364
         '
         'TabPage16
         '
+        Me.TabPage16.AutoScroll = True
         Me.TabPage16.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.TabPage16.Controls.Add(Me.ListViewAmi)
         Me.TabPage16.Location = New System.Drawing.Point(4, 22)
         Me.TabPage16.Name = "TabPage16"
         Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage16.Size = New System.Drawing.Size(1837, 762)
+        Me.TabPage16.Size = New System.Drawing.Size(941, 604)
         Me.TabPage16.TabIndex = 0
         Me.TabPage16.Text = "Ami"
         '
@@ -2348,7 +2125,7 @@ Partial Class UserControlPersonnage
         Me.ListViewAmi.HideSelection = False
         Me.ListViewAmi.Location = New System.Drawing.Point(6, 6)
         Me.ListViewAmi.Name = "ListViewAmi"
-        Me.ListViewAmi.Size = New System.Drawing.Size(1825, 750)
+        Me.ListViewAmi.Size = New System.Drawing.Size(929, 592)
         Me.ListViewAmi.TabIndex = 362
         Me.ListViewAmi.UseCompatibleStateImageBehavior = False
         Me.ListViewAmi.View = System.Windows.Forms.View.Details
@@ -2402,13 +2179,189 @@ Partial Class UserControlPersonnage
         '
         'TabPage17
         '
+        Me.TabPage17.AutoScroll = True
         Me.TabPage17.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.TabPage17.Location = New System.Drawing.Point(4, 22)
         Me.TabPage17.Name = "TabPage17"
         Me.TabPage17.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage17.Size = New System.Drawing.Size(1837, 762)
+        Me.TabPage17.Size = New System.Drawing.Size(941, 604)
         Me.TabPage17.TabIndex = 1
         Me.TabPage17.Text = "Ennemi"
+        '
+        'PictureBox11
+        '
+        Me.PictureBox11.Image = CType(resources.GetObject("PictureBox11.Image"), System.Drawing.Image)
+        Me.PictureBox11.Location = New System.Drawing.Point(1021, 335)
+        Me.PictureBox11.Name = "PictureBox11"
+        Me.PictureBox11.Size = New System.Drawing.Size(42, 33)
+        Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox11.TabIndex = 373
+        Me.PictureBox11.TabStop = False
+        '
+        'LabelGroupeChef
+        '
+        Me.LabelGroupeChef.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelGroupeChef.ForeColor = System.Drawing.Color.White
+        Me.LabelGroupeChef.Location = New System.Drawing.Point(1069, 340)
+        Me.LabelGroupeChef.Name = "LabelGroupeChef"
+        Me.LabelGroupeChef.Size = New System.Drawing.Size(163, 24)
+        Me.LabelGroupeChef.TabIndex = 372
+        Me.LabelGroupeChef.Text = "Chef"
+        Me.LabelGroupeChef.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PictureBox10
+        '
+        Me.PictureBox10.Image = CType(resources.GetObject("PictureBox10.Image"), System.Drawing.Image)
+        Me.PictureBox10.Location = New System.Drawing.Point(1021, 296)
+        Me.PictureBox10.Name = "PictureBox10"
+        Me.PictureBox10.Size = New System.Drawing.Size(42, 33)
+        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox10.TabIndex = 369
+        Me.PictureBox10.TabStop = False
+        '
+        'LabelMap
+        '
+        Me.LabelMap.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelMap.ForeColor = System.Drawing.Color.White
+        Me.LabelMap.Location = New System.Drawing.Point(1069, 299)
+        Me.LabelMap.Name = "LabelMap"
+        Me.LabelMap.Size = New System.Drawing.Size(163, 24)
+        Me.LabelMap.TabIndex = 368
+        Me.LabelMap.Text = "[XX,YY]"
+        Me.LabelMap.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PictureBox9
+        '
+        Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
+        Me.PictureBox9.Location = New System.Drawing.Point(1021, 179)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(42, 33)
+        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox9.TabIndex = 367
+        Me.PictureBox9.TabStop = False
+        '
+        'ProgressBarPods
+        '
+        Me.ProgressBarPods.Location = New System.Drawing.Point(1069, 179)
+        Me.ProgressBarPods.Name = "ProgressBarPods"
+        Me.ProgressBarPods.Size = New System.Drawing.Size(163, 33)
+        Me.ProgressBarPods.TabIndex = 366
+        '
+        'PictureBox8
+        '
+        Me.PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), System.Drawing.Image)
+        Me.PictureBox8.Location = New System.Drawing.Point(1021, 140)
+        Me.PictureBox8.Name = "PictureBox8"
+        Me.PictureBox8.Size = New System.Drawing.Size(42, 33)
+        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox8.TabIndex = 363
+        Me.PictureBox8.TabStop = False
+        '
+        'ProgressBarEnergie
+        '
+        Me.ProgressBarEnergie.Location = New System.Drawing.Point(1069, 140)
+        Me.ProgressBarEnergie.Name = "ProgressBarEnergie"
+        Me.ProgressBarEnergie.Size = New System.Drawing.Size(163, 33)
+        Me.ProgressBarEnergie.TabIndex = 362
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
+        Me.PictureBox5.Location = New System.Drawing.Point(1021, 62)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(42, 33)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox5.TabIndex = 361
+        Me.PictureBox5.TabStop = False
+        '
+        'ProgressBarVitalite
+        '
+        Me.ProgressBarVitalite.Location = New System.Drawing.Point(1069, 62)
+        Me.ProgressBarVitalite.Name = "ProgressBarVitalite"
+        Me.ProgressBarVitalite.Size = New System.Drawing.Size(163, 33)
+        Me.ProgressBarVitalite.TabIndex = 360
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
+        Me.PictureBox4.Location = New System.Drawing.Point(1021, 101)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(42, 33)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox4.TabIndex = 359
+        Me.PictureBox4.TabStop = False
+        '
+        'ProgressBarExperience
+        '
+        Me.ProgressBarExperience.Location = New System.Drawing.Point(1069, 101)
+        Me.ProgressBarExperience.Name = "ProgressBarExperience"
+        Me.ProgressBarExperience.Size = New System.Drawing.Size(163, 33)
+        Me.ProgressBarExperience.TabIndex = 358
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(1021, 257)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(42, 33)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 357
+        Me.PictureBox3.TabStop = False
+        '
+        'LabelKamas
+        '
+        Me.LabelKamas.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelKamas.ForeColor = System.Drawing.Color.White
+        Me.LabelKamas.Location = New System.Drawing.Point(1069, 262)
+        Me.LabelKamas.Name = "LabelKamas"
+        Me.LabelKamas.Size = New System.Drawing.Size(163, 24)
+        Me.LabelKamas.TabIndex = 356
+        Me.LabelKamas.Text = "0"
+        Me.LabelKamas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(1021, 218)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(42, 33)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 355
+        Me.PictureBox1.TabStop = False
+        '
+        'LabelAbonnement
+        '
+        Me.LabelAbonnement.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelAbonnement.ForeColor = System.Drawing.Color.White
+        Me.LabelAbonnement.Location = New System.Drawing.Point(1069, 221)
+        Me.LabelAbonnement.Name = "LabelAbonnement"
+        Me.LabelAbonnement.Size = New System.Drawing.Size(163, 26)
+        Me.LabelAbonnement.TabIndex = 354
+        Me.LabelAbonnement.Text = "XX/YY/XXYY xxhyymxys"
+        Me.LabelAbonnement.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LabelStatut
+        '
+        Me.LabelStatut.AutoSize = True
+        Me.LabelStatut.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelStatut.ForeColor = System.Drawing.Color.Red
+        Me.LabelStatut.Location = New System.Drawing.Point(1086, 38)
+        Me.LabelStatut.Name = "LabelStatut"
+        Me.LabelStatut.Size = New System.Drawing.Size(81, 16)
+        Me.LabelStatut.TabIndex = 353
+        Me.LabelStatut.Text = "Déconnecté"
+        Me.LabelStatut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ButtonConnexion
+        '
+        Me.ButtonConnexion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ButtonConnexion.ForeColor = System.Drawing.Color.White
+        Me.ButtonConnexion.Location = New System.Drawing.Point(1021, 3)
+        Me.ButtonConnexion.Name = "ButtonConnexion"
+        Me.ButtonConnexion.Size = New System.Drawing.Size(211, 32)
+        Me.ButtonConnexion.TabIndex = 352
+        Me.ButtonConnexion.Text = "Connexion"
+        Me.ButtonConnexion.UseVisualStyleBackColor = True
         '
         'ToolTip1
         '
@@ -2433,22 +2386,34 @@ Partial Class UserControlPersonnage
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Controls.Add(Me.PictureBox11)
+        Me.Controls.Add(Me.LabelGroupeChef)
         Me.Controls.Add(Me.TabControl1)
+        Me.Controls.Add(Me.ButtonConnexion)
+        Me.Controls.Add(Me.LabelStatut)
+        Me.Controls.Add(Me.LabelMap)
+        Me.Controls.Add(Me.PictureBox10)
+        Me.Controls.Add(Me.PictureBox5)
+        Me.Controls.Add(Me.ProgressBarExperience)
+        Me.Controls.Add(Me.LabelKamas)
+        Me.Controls.Add(Me.PictureBox3)
+        Me.Controls.Add(Me.PictureBox9)
+        Me.Controls.Add(Me.PictureBox4)
+        Me.Controls.Add(Me.LabelAbonnement)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.ProgressBarPods)
+        Me.Controls.Add(Me.ProgressBarVitalite)
+        Me.Controls.Add(Me.PictureBox8)
+        Me.Controls.Add(Me.ProgressBarEnergie)
         Me.Name = "UserControlPersonnage"
-        Me.Size = New System.Drawing.Size(1871, 857)
+        Me.Size = New System.Drawing.Size(1238, 660)
         Me.TabControl1.ResumeLayout(False)
         Me.TabPageTchat.ResumeLayout(False)
         Me.TabControl2.ResumeLayout(False)
         Me.TabPage_Tchat.ResumeLayout(False)
         Me.TabPage_Tchat.PerformLayout()
-        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPageSocket.ResumeLayout(False)
+        Me.TabPageSocket.PerformLayout()
         Me.TabPageCaractéristique.ResumeLayout(False)
         Me.TabPageCaractéristique.PerformLayout()
         CType(Me.DataGridView_BonusPanoplie, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2478,13 +2443,23 @@ Partial Class UserControlPersonnage
         CType(Me.DataGridViewDragodindeEtable, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewDragodindeEnclo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPageCraft.ResumeLayout(False)
-        CType(Me.DataGridViewMoi, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         CType(Me.DataGridViewLui, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage8.ResumeLayout(False)
+        CType(Me.DataGridViewMoi, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPageTrajet.ResumeLayout(False)
         Me.TabPageAmi.ResumeLayout(False)
         Me.TabControlAmiEnnemi.ResumeLayout(False)
         Me.TabPage16.ResumeLayout(False)
+        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -2546,7 +2521,6 @@ Partial Class UserControlPersonnage
     Friend WithEvents Caractéristique_Boost As ColumnHeader
     Friend WithEvents Caractéristique_Total As ColumnHeader
     Friend WithEvents ImageList1 As ImageList
-    Friend WithEvents RichTextBoxSocket As RichTextBox
     Friend WithEvents TimerRegeneration As Timer
     Friend WithEvents PictureBox9 As PictureBox
     Friend WithEvents ProgressBarPods As ProgressBar
@@ -2668,7 +2642,7 @@ Partial Class UserControlPersonnage
     Friend WithEvents ColumnHeader197 As ColumnHeader
     Friend WithEvents ColumnHeader198 As ColumnHeader
     Friend WithEvents ColumnHeader1 As ColumnHeader
-    Friend WithEvents TabPage8 As TabPage
+    Friend WithEvents TabPageTrajet As TabPage
     Friend WithEvents SupprimerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EquipéToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DéséquiperToolStripMenuItem As ToolStripMenuItem
@@ -2692,4 +2666,6 @@ Partial Class UserControlPersonnage
     Friend WithEvents ColumnHeader241 As ColumnHeader
     Friend WithEvents TabPage17 As TabPage
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents RichTextBoxSocket As RichTextBox
+    Friend WithEvents Panel1 As Panel
 End Class

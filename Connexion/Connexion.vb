@@ -107,38 +107,37 @@ Module Connexion
 
             'Je lis le fichier.
             Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Data/Serveur.txt")
-            Dim ligne As String = swLecture.ReadToEnd
 
-            'Puis je ferme le fichier.
-            swLecture.Close()
+            Dim ligneFinal As String = ""
 
-            'J'ouvre le fichier pour y écrire se que je souhaite
-            Dim swEcriture As New IO.StreamWriter(Application.StartupPath + "\Data/Serveur.txt")
-            Dim newLigne As String = ""
+            Do Until swLecture.EndOfStream
 
-            Dim separateLigne As String() = Split(ligne, vbCrLf)
+                Dim Ligne As String = swLecture.ReadLine
 
-            For i = 0 To separateLigne.Count - 1
+                If Ligne <> "" Then
 
-                If separateLigne(i) <> "" Then
-
-                    Dim separate As String() = Split(separateLigne(i), "|")
+                    Dim separate As String() = Split(Ligne, "|")
 
                     If separate(0) = serveur Then
 
-                        newLigne &= serveur & "|" & ip & "|" & port & "|" & DicoServeur(serveur).IdServeur & vbCrLf
+                        ligneFinal &= serveur & "|" & ip & "|" & port & "|" & DicoServeur(serveur).IdServeur & vbCrLf
 
                     Else
 
-                        newLigne &= separateLigne(i) & vbCrLf
+                        ligneFinal &= Ligne & vbCrLf
 
                     End If
 
                 End If
 
-            Next
+            Loop
 
-            swEcriture.WriteLine(newLigne)
+            'Puis je ferme le fichier.
+            swLecture.Close()
+
+            Dim swEcriture As New IO.StreamWriter(Application.StartupPath + "\Data/Serveur.txt")
+
+            swEcriture.Write(ligneFinal)
 
             swEcriture.Close()
 
@@ -166,7 +165,40 @@ Module Connexion
 
             'Je lis le fichier.
             Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Compte/Accounts.txt")
-            Dim ligne As String = swLecture.ReadToEnd
+
+            Dim ligneFinal As String = ""
+
+            Do Until swLecture.EndOfStream
+
+                Dim Ligne As String = swLecture.ReadLine
+
+                If Ligne <> "" Then
+
+                    Dim separate As String() = Split(Ligne, " | ")
+
+                    If separate(0) = "Nom de compte : " & .NomDeCompte AndAlso
+                       separate(1) = "Mot de passe: " & .MotDePasse AndAlso
+                       separate(2) = "Nom du personnage : Aléatoire" Then
+
+                        ligneFinal &= "Nom de compte : " & .NomDeCompte & " | " &
+                                      "Mot de passe: " & .MotDePasse & " | " &
+                                      "Nom du personnage : " & .NomDuPersonnage & " | " &
+                                      "Serveur : " & .Serveur & " | " &
+                                      "Id Classe : " & .Classe & " | " &
+                                      "Id Sexe : " & .Sexe & " | " &
+                                      "Couleur 1 : " & .Couleur1 & " | " &
+                                      "Couleur 2 : " & .Couleur2 & " | " &
+                                      "Couleur 3 : " & .Couleur3 & vbCrLf
+
+                    Else
+
+                        ligneFinal &= Ligne & vbCrLf
+
+                    End If
+
+                End If
+
+            Loop
 
             'Puis je ferme le fichier.
             swLecture.Close()
@@ -174,26 +206,7 @@ Module Connexion
             'J'ouvre le fichier pour y écrire se que je souhaite
             Dim swEcriture As New IO.StreamWriter(Application.StartupPath + "\Compte/Accounts.txt")
 
-            ligne = ligne.Replace("Nom de compte : " & .NomDeCompte & " | " &
-                                  "Mot de passe: " & .MotDePasse & " | " &
-                                  "Nom du personnage : Aléatoire" & " | " &
-                                  "Serveur : " & .Serveur & " | " &
-                                  "Id Classe : " & .Classe & " | " &
-                                  "Id Sexe : " & .Sexe & " | " &
-                                  "Couleur 1 : " & .Couleur1 & " | " &
-                                  "Couleur 2 : " & .Couleur2 & " | " &
-                                  "Couleur 3 : " & .Couleur3,
-                                    "Nom de compte : " & .NomDeCompte & " | " &
-                                    "Mot de passe: " & .MotDePasse & " | " &
-                                    "Nom du personnage : " & .NomDuPersonnage & " | " &
-                                    "Serveur : " & .Serveur & " | " &
-                                    "Id Classe : " & .Classe & " | " &
-                                    "Id Sexe : " & .Sexe & " | " &
-                                    "Couleur 1 : " & .Couleur1 & " | " &
-                                    "Couleur 2 : " & .Couleur2 & " | " &
-                                    "Couleur 3 : " & .Couleur3)
-
-            swEcriture.WriteLine(ligne)
+            swEcriture.Write(ligneFinal)
 
             swEcriture.Close()
 
@@ -569,23 +582,42 @@ Module Connexion
             ' AlEv Version
 
             'Mise à jour de la version automatiquement (celui du fichier)
-            Dim SW_Lecture As New IO.StreamReader(Application.StartupPath & "\Data/Serveur.txt")
-            Dim ligne As String = SW_Lecture.ReadToEnd
+            Dim swLecture As New IO.StreamReader(Application.StartupPath & "\Data/Serveur.txt")
 
-            'Puis je ferme le fichier.
-            SW_Lecture.Close()
+            Dim ligneFinal As String = ""
 
-            'Je remplace la version actuel par la nouvelle.
-            ligne = ligne.Replace(DicoServeur("Authentification").IdServeur, Mid(data, 5) & "e")
+            Do Until swLecture.EndOfStream
+
+                Dim ligne As String = swLecture.ReadLine
+
+                If ligne <> "" Then
+
+                    Dim separate As String() = Split(ligne, "|")
+
+                    If separate(0) = "Authentification" Then
+
+                        ligneFinal &= ligne.Replace(separate(3), Mid(data, 5) & "e") & vbCrLf
+
+                    Else
+
+                        ligneFinal &= ligne & vbCrLf
+
+                    End If
+
+                End If
+
+            Loop
+
+            swLecture.Close()
 
             'J'ouvre le fichier pour y écrire se que je souhaite
-            Dim Sw_Ecriture As New IO.StreamWriter(Application.StartupPath + "\Data/Serveur.txt")
+            Dim swEcriture As New IO.StreamWriter(Application.StartupPath + "\Data/Serveur.txt")
 
             'J'écris dedans avant de le fermer.
-            Sw_Ecriture.WriteLine(ligne)
+            swEcriture.WriteLine(ligneFinal)
 
             'Puis je le ferme.
-            Sw_Ecriture.Close()
+            swEcriture.Close()
 
             LoadServeur()
 

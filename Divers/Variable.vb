@@ -1,4 +1,5 @@
-﻿Module Variable
+﻿
+Module Variable
 
     ' refonte à faire / Non fini
 
@@ -32,7 +33,8 @@
 
     Public DicoFamilier As New Dictionary(Of Integer, Dictionary(Of String, sFamilier))
 
-    Public cases(2500) As String
+    Public LuaScript As New NLua.Lua
+
     Public ListOfMap(13000) As String
 
 

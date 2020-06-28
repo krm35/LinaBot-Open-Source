@@ -551,4 +551,65 @@
 
     End Sub
 
+
+    Public Sub LoadScript()
+
+        Dim newMap As New FunctionMap
+
+        LuaScript.RegisterFunction("Map", newMap, newMap.GetType.GetMethod("Map"))
+        LuaScript.RegisterFunction("Direction", newMap, newMap.GetType.GetMethod("SeDeplace"))
+
+        Dim newMetier As New Metier
+
+        LuaScript.RegisterFunction("MetierExist", newMetier, newMetier.GetType.GetMethod("MetierExist"))
+
+        Dim newEquipement As New Equipement
+
+        LuaScript.RegisterFunction("EquipementEquiper", newEquipement, newEquipement.GetType.GetMethod("EquipementEquiper"))
+        LuaScript.RegisterFunction("EquipeItem", newEquipement, newEquipement.GetType.GetMethod("ItemEquipe"))
+
+        Dim newPNJ As New PNJ
+
+        LuaScript.RegisterFunction("PnjParler", newPNJ, newPNJ.GetType.GetMethod("PnjParler"))
+        LuaScript.RegisterFunction("PnjExist", newPNJ, newPNJ.GetType.GetMethod("PnjExist"))
+        LuaScript.RegisterFunction("PnjReponse", newPNJ, newPNJ.GetType.GetMethod("PnjReponse"))
+        LuaScript.RegisterFunction("PnjQuitteDialogue", newPNJ, newPNJ.GetType.GetMethod("PnjQuitteDialogue"))
+        LuaScript.RegisterFunction("PnjAcheterVendre", newPNJ, newPNJ.GetType.GetMethod("PnjAcheterVendre"))
+        LuaScript.RegisterFunction("PnjAcheterVendreItem", newPNJ, newPNJ.GetType.GetMethod("PnjAcheterVendreItem"))
+        LuaScript.RegisterFunction("PnjAcheterVendreQuitte", newPNJ, newPNJ.GetType.GetMethod("PnjAcheterVendreQuitte"))
+
+        Dim newVariable As New VariableFunction
+
+        LuaScript.RegisterFunction("EnDialogue", newVariable, newVariable.GetType.GetMethod("EnDialogue"))
+        LuaScript.RegisterFunction("EnBanque", newVariable, newVariable.GetType.GetMethod("EnBanque"))
+
+        Dim newCaracteristique As New Caractéristique
+
+        LuaScript.RegisterFunction("Pods", newCaracteristique, newCaracteristique.GetType.GetMethod("Pods"))
+
+        Dim newRecolte As New Recolte
+
+        LuaScript.RegisterFunction("Recolte", newRecolte, newRecolte.GetType.GetMethod("RecolteRessource"))
+
+        Dim newDivers As New DiversFunction
+
+        LuaScript.RegisterFunction("PauseSeconde", newDivers, newDivers.GetType.GetMethod("PauseSeconde"))
+        LuaScript.RegisterFunction("PauseMinute", newDivers, newDivers.GetType.GetMethod("PauseMinute"))
+        LuaScript.RegisterFunction("PauseHeure", newDivers, newDivers.GetType.GetMethod("PauseHeure"))
+
+        Dim newItemDepose As New Item_Depose
+
+        LuaScript.RegisterFunction("ItemDepose", newItemDepose, newItemDepose.GetType.GetMethod("ItemDepose"))
+
+        Dim newBanque As New Banque
+
+        LuaScript.RegisterFunction("BanqueQuitte", newBanque, newBanque.GetType.GetMethod("BanqueQuitte"))
+
+        Dim newInteraction As New Interaction
+
+        LuaScript.RegisterFunction("Interaction", newInteraction, newInteraction.GetType.GetMethod("InteractionEnJeu"))
+
+    End Sub
+
+
 End Module

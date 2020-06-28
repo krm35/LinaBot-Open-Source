@@ -8,23 +8,20 @@ Public Class Charger_un_compte
 
         Try
 
-            'J'ouvre et je lis le fichier.
-            Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Compte/Accounts.txt")
-            Dim ligne() As String = Split(swLecture.ReadToEnd, vbCrLf)
-
-            'Puis je ferme le fichier.
-            swLecture.Close()
-
             'Je supprime tout se qui se trouve dans la listbox
             ListBoxCompte.Items.Clear()
 
-            'Puis je les mets dans la listbox
-            For i As Integer = 0 To ligne.Count - 1
+            'J'ouvre et je lis le fichier.
+            Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Compte/Accounts.txt")
 
-                If ligne(i) <> "" Then
+            Do Until swLecture.EndOfStream
+
+                Dim Ligne As String = swLecture.ReadLine
+
+                If Ligne <> "" Then
 
                     'Nom de compte : Linaculer | etc....
-                    Dim separate() As String = Split(ligne(i), " | ")
+                    Dim separate() As String = Split(Ligne, " | ")
 
                     Dim nomDeCompte As String = Split(separate(0), " : ")(1)
                     Dim nomDuPersonnage As String = Split(separate(2), " : ")(1)
@@ -33,7 +30,10 @@ Public Class Charger_un_compte
 
                 End If
 
-            Next
+            Loop
+
+            'Puis je ferme le fichier.
+            swLecture.Close()
 
         Catch ex As Exception
 
@@ -57,15 +57,14 @@ Public Class Charger_un_compte
 
         'Je lis le fichier pour obtenir les comptes.
         Dim swLecture As New IO.StreamReader(Application.StartupPath + "\Compte/Accounts.txt")
-        Dim ligne() As String = Split(swLecture.ReadToEnd, vbCrLf)
-        swLecture.Close()
 
-        For i = 0 To ligne.Count - 1
+        Do Until swLecture.EndOfStream
 
-            'Je vérifie que la ligne contient au moins un caractére
-            If ligne(i) <> "" Then
+            Dim Ligne As String = swLecture.ReadLine
 
-                Dim separate() As String = Split(ligne(i), " | ")
+            If Ligne <> "" Then
+
+                Dim separate() As String = Split(Ligne, " | ")
 
                 'Je regarde si l'une des sélections correspond à la ligne actuel.
                 If ListBoxCompte.SelectedItems.Contains(Split(separate(0), " : ")(1) & " (" & Split(separate(2), " : ")(1) & ")") Then 'Nom de compte + Nom du personnage
@@ -136,7 +135,9 @@ Public Class Charger_un_compte
 
             End If
 
-        Next
+        Loop
+
+        swLecture.Close()
 
         Close()
 

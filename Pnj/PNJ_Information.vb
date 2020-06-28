@@ -1,4 +1,5 @@
-﻿Module PNJ_Information
+﻿
+Module PNJ_Information
 
     Public Sub GaPnjDialogue(ByVal index As Integer, ByVal data As String)
 
@@ -65,6 +66,50 @@
             End If
 
             .BloqueDialogue.Set()
+
+        End With
+
+    End Sub
+
+    Public Sub GaPnjAcheterVendre(ByVal index As Integer, ByVal data As String)
+
+        With Comptes(index)
+
+            ' EL 577      ; 64#2#4#0#1d3+1 , 7d#1#0#0#0d0+1 | Item suivant
+            ' EL Id Objet ; Caractéristique                 | Item suivant
+
+            data = Mid(data, 3)
+
+            Dim separateData As String() = Split(data, "|")
+
+            For i = 0 To separateData.Count - 1
+
+                Dim separate As String() = Split(separateData(i), ";")
+
+                With .FrmUser.DataGridViewLui
+
+                    'Id Objet
+                    .Rows.Add(separate(0))
+
+                    With .Rows(.Rows.Count - 1)
+
+                        'Id Unique
+                        .Cells(1).Value = separate(0)
+
+                        'Nom
+                        .Cells(2).Value = DicoItems(separate(0)).NomItem
+
+                        'Quantité
+                        .Cells(3).Value = "1"
+
+                        'Information
+                        .Cells(4).Value = ItemCaractéristique(separate(1))
+
+                    End With
+
+                End With
+
+            Next
 
         End With
 

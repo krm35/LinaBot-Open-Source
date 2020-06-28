@@ -41,7 +41,7 @@
                     .Amulette = {"", ""}
                     .Anneaux1 = {"", ""}
                     .Anneaux2 = {"", ""}
-                    .Arme = {"", ""}
+                    .Arme = {"", "", ""}
                     .Botte = {"", ""}
                     .Cape = {"", ""}
                     .Ceinture = {"", ""}

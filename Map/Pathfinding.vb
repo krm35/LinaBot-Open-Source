@@ -1,8 +1,9 @@
 Public Class Pathfinding
 
     'TOUT A REFAIRE TEST EN COURS PRESQUE FINI
-    'Commencer à faire la version final.
+    'Commencer à faire la version final
 
+    Private cases(2500) As String
     Private openlist As New ArrayList
     Private closelist As New ArrayList
     Private Plist(1025) As Integer

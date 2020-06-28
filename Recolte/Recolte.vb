@@ -1,26 +1,34 @@
-﻿Imports System.Net.Sockets
-
-Module Recolte
+﻿
+Class Recolte
 
     'Code non fini, pouvant être amélioré, test en cours sur les récoltes + agro
 
-    Public Sub RecolteRessource(ByVal index As Integer, ByVal laRecolte As String, ByVal action As String)
+    Public Function RecolteRessource(ByVal index As Integer, ByVal idNomRecolte As String)
 
         With Comptes(index)
 
+            Dim separateRecolte As String() = Split(idNomRecolte, "|")
+            Dim lesRecoltes As New List(Of String)
+
+            For i = 0 To separateRecolte.Count - 1
+                lesRecoltes.Add(separateRecolte(i).ToLower)
+            Next
+
             While .EnRecolte = False
 
-                If .Pods >= .FrmGroupe.PodsGroupe Then Return
+                If .Pods >= .FrmGroupe.PodsGroupe Then Return False
 
-                Dim cellule As Integer = RecolteCherche(index, laRecolte)
+                Dim cellule As Integer = RecolteCherche(index, lesRecoltes)
 
                 If cellule > 0 Then
 
                     .InteractionCellId = cellule
 
-                    .Send = "GA500" & cellule & ";" & ReturnAction(laRecolte, action)
+                    .Send = "GA500" & cellule & ";" & ReturnAction(lesRecoltes, .MonEquipement.Arme(2))
 
-                    SeDeplace(index, cellule)
+                    Dim move As New FunctionMap
+
+                    move.SeDeplace(index, cellule)
 
                     Task.Delay(2000).Wait()
 
@@ -46,11 +54,13 @@ Module Recolte
 
             End While
 
+            Return True
+
         End With
 
-    End Sub
+    End Function
 
-    Private Function RecolteCherche(ByVal index As Integer, ByVal nomRecolte As String) As Integer
+    Private Function RecolteCherche(ByVal index As Integer, ByVal nomRecolte As List(Of String)) As Integer
 
         With Comptes(index)
 
@@ -62,7 +72,7 @@ Module Recolte
                 If Pair.Cells(1).Value <> .CaseActuelle Then
 
                     'Exemple : Faucher = Faucher ET l'ID correspond à celle voulu par l'utilisateur
-                    If nomRecolte.ToUpper = Pair.Cells(2).Value.ToString.ToUpper Then
+                    If nomRecolte.Contains(Pair.Cells(2).Value.ToString.ToLower) Then
 
                         If Pair.Cells(3).Value = "Disponible" Then
 
@@ -117,13 +127,25 @@ Module Recolte
 
     End Function
 
-    Private Function ReturnAction(ByVal nomRecolte As String, ByVal action As String) As Integer
+    Private Function ReturnAction(ByVal nomRecolte As List(Of String), ByVal arme As String) As Integer
 
         For Each Pair As KeyValuePair(Of Integer, sInterraction) In DicoDivers
 
-            If Pair.Value.Nom.ToString.ToUpper = nomRecolte.ToUpper Then
+            If nomRecolte.Contains(Pair.Value.Nom.ToString.ToLower) Then
 
-                Return Pair.Value.DicoInterraction(action)
+                If arme = 22 Then
+
+                    Return Pair.Value.DicoInterraction("Faucher")
+
+                ElseIf arme = 20 Then
+
+                    Return Pair.Value.DicoInterraction("Cueillir")
+
+                Else
+
+                    Return Pair.Value.DicoInterraction.Item(0)
+
+                End If
 
             End If
 
@@ -133,4 +155,4 @@ Module Recolte
 
     End Function
 
-End Module
+End Class

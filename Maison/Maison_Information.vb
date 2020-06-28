@@ -60,21 +60,40 @@
         With Comptes(index)
 
             'Mise à jour de la version automatiquement (celui du fichier)
-            Dim SW_Lecture As New IO.StreamReader(Application.StartupPath & "\Data/Maison.txt")
-            Dim ligne As String = SW_Lecture.ReadToEnd
+            Dim swLecture As New IO.StreamReader(Application.StartupPath & "\Data/Maison.txt")
+
+            Dim ligneFinal As String = ""
+
+            Do Until swLecture.EndOfStream
+
+                Dim Ligne As String = swLecture.ReadLine
+
+                If Ligne <> "" Then
+
+                    Dim separate As String() = Split(Ligne, " | ")
+
+                    If separate(0) = "hP : " & id Then
+
+                        ligneFinal &= "hP : " & id & " | Porte : " & DicoMaison(id).CellulePorte & " | Map : " & .FrmUser.LabelMap.Text & " | Mapid : " & .MapID & " | Nom : " & DicoMaison(id).Nom & vbCrLf
+
+                    Else
+
+                        ligneFinal &= Ligne & vbCrLf
+
+                    End If
+
+                End If
+
+            Loop
 
             'Puis je ferme le fichier.
-            SW_Lecture.Close()
-
-            'Je remplace la version actuel par la nouvelle.
-            ligne = ligne.Replace("hP : " & id & " | Porte : " & DicoMaison(id).CellulePorte & " | Map : " & DicoMaison(id).Map & " | Mapid : " & DicoMaison(id).MapId & " | Nom : " & DicoMaison(id).Nom,
-                                  "hP : " & id & " | Porte : " & DicoMaison(id).CellulePorte & " | Map : " & .FrmUser.LabelMap.Text & " | Mapid : " & .MapID & " | Nom : " & DicoMaison(id).Nom)
+            swLecture.Close()
 
             'J'ouvre le fichier pour y écrire se que je souhaite
             Dim Sw_Ecriture As New IO.StreamWriter(Application.StartupPath + "\Data/Maison.txt")
 
             'J'écris dedans avant de le fermer.
-            Sw_Ecriture.WriteLine(ligne)
+            Sw_Ecriture.Write(ligneFinal)
 
             'Puis je le ferme.
             Sw_Ecriture.Close()
@@ -90,20 +109,32 @@
         With Comptes(index)
 
             'Mise à jour de la version automatiquement (celui du fichier)
-            Dim SW_Lecture As New IO.StreamReader(Application.StartupPath & "\Data/Maison.txt")
-            Dim ligne As String = SW_Lecture.ReadToEnd
+            Dim swLecture As New IO.StreamReader(Application.StartupPath & "\Data/Maison.txt")
+
+            Dim ligneFinal As String = ""
+
+            Do Until swLecture.EndOfStream
+
+                Dim ligne As String = swLecture.ReadLine
+
+                If ligne <> "" Then
+
+                    ligneFinal &= ligne & vbCrLf
+
+                End If
+
+            Loop
 
             'Puis je ferme le fichier.
-            SW_Lecture.Close()
+            swLecture.Close()
 
-            'Je remplace la version actuel par la nouvelle.
-            ligne &= vbCrLf & "hP : " & id & " | Porte : 0 | Map : " & .FrmUser.LabelMap.Text & " | Mapid : " & .MapID & " | Nom : Maison"
+            ligneFinal &= "hP : " & id & " | Porte : 0 | Map : " & .FrmUser.LabelMap.Text & " | Mapid : " & .MapID & " | Nom : Maison"
 
             'J'ouvre le fichier pour y écrire se que je souhaite
             Dim Sw_Ecriture As New IO.StreamWriter(Application.StartupPath + "\Data/Maison.txt")
 
             'J'écris dedans avant de le fermer.
-            Sw_Ecriture.WriteLine(ligne)
+            Sw_Ecriture.Write(ligneFinal)
 
             'Puis je le ferme.
             Sw_Ecriture.Close()

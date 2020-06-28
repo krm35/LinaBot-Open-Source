@@ -1,6 +1,6 @@
-﻿Module Metier
+﻿Class Metier
 
-    Public Function MétierExiste(ByVal index As Integer, ByVal metier As String) As Boolean
+    Public Function MetierExist(ByVal index As Integer, ByVal metier As String) As Boolean
 
         With Comptes(index)
 
@@ -26,4 +26,4 @@
 
     End Function
 
-End Module
+End Class

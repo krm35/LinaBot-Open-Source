@@ -239,6 +239,7 @@
 
                     varEquipement.Arme(0) = numero
                     varEquipement.Arme(1) = idUnique
+                    varEquipement.Arme(2) = categorie
 
                 Case 18 'Familier 
 

@@ -1,4 +1,6 @@
 ﻿
+Imports System.Windows.Media.Animation
+
 Public Class Player
 
     'En dév
@@ -229,6 +231,39 @@ Public Class Player
                                         Case Else
 
                                             ErreurFichier(Index, NomDuPersonnage, "Af", e.Message)
+
+                                    End Select
+
+
+                                Case "g" 'Ag
+
+                                    Select Case e.Message(2)
+
+                                        Case " " ' Ag 
+
+                                            Select Case e.Message(3)
+
+                                                Case "1" ' Ag 1
+
+                                                    'Ag1|1234567  |Pousse+de+Tanfouguite|L%27existence+de+cette+plante+est+aussi+myst%C3%A9rieuse+et+improbable+que+son+nom.+A+la+fois+ici+et+ici%2C+mais+pas+maintenant%2C+heureusement+qu%27elle+n%27est+pas+ailleurs%2C+on+n%27y+comprendrait+plus+rien.+Amenez-la+au+temple+Xelor+d%27Amakna+%28coordonn%C3%A9es+3%2C1%29+%2C+seuls+des+illumin%C3%A9s+comme+eux+peuvent+tenter+d%27y+comprendre+quelque+chose.||13ce1     ~ 2596     ~ 1        ~   ~ 3d7#258#1#64    ; 
+                                                    'Ag1|ID Unique| Nom Item            |Description                                                                                                                                                                                                                                                                                                                                                               ||ID_Unique ~ ID Objet ~ Quantité ~ ? ~ Caractéristique ;? (id_unique à la fin indique le contenue visible quand on voit les personnages et qu'on atribut les cadeaux)
+
+                                                    Dim Separation() As String = Split(e.Message, "|")
+
+                                                    'Créer le sub pour ajouter le contenue à un personnage.
+
+                                                    'Je remplace les "+" par des espaces.
+                                                    EcritureMessage(Index, "(Dofus)", "Contenue : " & Separation(2).Replace("+", " ") & ". Description : " & AsciiDecoder(Separation(3).Replace("+", " ")), Color.Green)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Ag ", e.Message)
+
+                                            End Select
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Ag", e.Message)
 
                                     End Select
 
@@ -713,13 +748,19 @@ Public Class Player
 
                                                 Case "0" ' ECK0
 
-                                                    '  EnAcheterVendre = True
-                                                  '  BloquePnj.Set()
+                                                    'ECK0|-1
+
+                                                    PnjAcheterVendre = True
+                                                    BloqueDialogue.Set()
 
                                                 Case "1" ' ECK1
 
-                                                ' FrmUser.Label_Statut.Text = "En Echange (Joueur)"
-                                               ' FrmUser.Label_Statut.ForeColor = Color.Cyan
+                                                    EcritureMessage(Index, "(Bot)", "Vous êtes en échange.", Color.Green)
+
+                                                    EnDemandeEchange = False
+                                                    EnEchange = True
+
+                                                    BloqueEchange.Set()
 
                                                 Case "2" ' ECK2
 
@@ -1034,23 +1075,67 @@ Public Class Player
 
                                     End Select
 
-                                Case "L" ' EL
+                                Case "K" ' EK
 
                                     Select Case e.Message(2)
 
-                                        Case "O" ' ELO 
+                                        Case "0" ' EK0
 
-                                            If EnBanque Then
+                                            GaEchangeInvalider(Index, e.Message)
 
-                                                GaItemsAjoute(Index, e.Message.Replace("EL", "").Replace("O", ""), FrmUser.DataGridViewLui)
+                                        Case "1" ' EK1
 
-                                            End If
+                                            GaEchangeValider(Index, e.Message)
 
                                         Case Else
 
-                                            ErreurFichier(Index, NomDuPersonnage, "EL", e.Message)
+                                            ErreurFichier(Index, NomDuPersonnage, "EK", e.Message)
 
                                     End Select
+
+                                Case "L" ' EL
+
+                                    If e.Message <> "EL" Then
+
+                                        Select Case e.Message(2)
+
+                                            Case "O" ' ELO 
+
+                                                If EnBanque Then
+
+                                                    FrmUser.DataGridViewLui.Rows.Clear()
+
+                                                    GaItemsAjoute(Index, e.Message.Replace("EL", "").Replace("O", ""), FrmUser.DataGridViewLui)
+
+                                                End If
+
+                                            Case Else
+
+                                                If PnjAcheterVendre Then
+
+                                                    FrmUser.DataGridViewLui.Rows.Clear()
+
+                                                    GaPnjAcheterVendre(Index, e.Message)
+
+                                                Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "EL", e.Message)
+
+                                                End If
+
+                                        End Select
+
+                                    Else
+
+                                        If EnBanque Then
+
+                                            FrmUser.DataGridViewLui.Rows.Clear()
+
+                                            GaItemsAjoute(Index, e.Message.Replace("EL", "").Replace("O", ""), FrmUser.DataGridViewLui)
+
+                                        End If
+
+                                    End If
 
                                 Case "M" ' EM
 
@@ -1059,6 +1144,10 @@ Public Class Player
                                         Case "K" ' EMK
 
                                             Select Case e.Message(3)
+
+                                                Case "G" ' EMKG
+
+                                                    GaEchangeKamasPoserMoi(Index, e.Message)
 
                                                 Case "O" ' EMKO
 
@@ -1098,6 +1187,10 @@ Public Class Player
 
                                             Select Case e.Message(3)
 
+                                                Case "G" ' EmKG
+
+                                                    GaEchangeKamasPoserLui(Index, e.Message)
+
                                                 Case "O" ' EmKO
 
                                                     Select Case e.Message(4)
@@ -1105,6 +1198,10 @@ Public Class Player
                                                         Case "+" ' EmKO+
 
                                                             GaItemsAjouteLui(Index, e.Message, FrmUser.DataGridViewLui)
+
+                                                        Case "-" ' EmKO-
+
+                                                            GaItemsSupprimeLui(Index, e.Message, FrmUser.DataGridViewLui)
 
                                                         Case Else
 
@@ -1121,6 +1218,20 @@ Public Class Player
                                         Case Else
 
                                             ErreurFichier(Index, NomDuPersonnage, "E", e.Message)
+
+                                    End Select
+
+                                Case "R" ' ER
+
+                                    Select Case e.Message(2)
+
+                                        Case "K" ' ERK
+
+                                            GaEchangeDemandeRecu(Index, e.Message)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "ER", e.Message)
 
                                     End Select
 
@@ -1175,11 +1286,53 @@ Public Class Player
                                             BloqueInterraction.Set()
                                             EnBanque = False
 
+                                        ElseIf EnDemandeEchange OrElse EnEchange Then
+
+                                            If EnEchange Then
+
+                                                EcritureMessage(Index, "[Dofus]", "Echange annulé.", Color.Green)
+
+                                            End If
+
+                                            EnDemandeEchange = False
+                                            EnEchange = False
+                                            EchangeIdNomLanceur(0) = ""
+                                            EchangeIdNomLanceur(1) = ""
+                                            FrmUser.DataGridViewLui.Rows.Clear()
+                                            FrmUser.DataGridViewMoi.Rows.Clear()
+                                            BloqueEchange.Set()
+
+                                        ElseIf PnjAcheterVendre Then
+
+                                            PnjAcheterVendre = False
+                                            FrmUser.DataGridViewLui.Rows.Clear()
+                                            BloqueDialogue.Set()
+
                                         End If
 
                                     Else
 
-                                        ErreurFichier(Index, NomDuPersonnage, "EV", e.Message)
+                                        If e.Message = "EVa" Then
+
+                                            If EnEchange Then
+
+                                                EcritureMessage(Index, "[Dofus]", "Echange effectué.", Color.Green)
+
+                                                EnDemandeEchange = False
+                                                EnEchange = False
+                                                EchangeIdNomLanceur(0) = ""
+                                                EchangeIdNomLanceur(1) = ""
+                                                FrmUser.DataGridViewLui.Rows.Clear()
+                                                FrmUser.DataGridViewMoi.Rows.Clear()
+                                                BloqueEchange.Set()
+
+                                            End If
+
+                                        Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "EV", e.Message)
+
+                                        End If
 
                                     End If
 

@@ -26,3 +26,11 @@ C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\LinaBot Open Source.applica
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.exe.manifest
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.application
 C:\Users\jessy\Desktop\LinaBot Open Source\obj\Debug\LinaBot Open Source.vbprojAssemblyReference.cache
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\lua53.dll
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\liblua53.dylib
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\x86\lua53.dll
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\x64\lua53.dll
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\x64\liblua53.so
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\KeraLua.dll
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\NLua.dll
+C:\Users\jessy\Desktop\LinaBot Open Source\bin\Debug\KeraLua.xml

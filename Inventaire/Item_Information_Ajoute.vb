@@ -122,6 +122,8 @@
             dgv.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
             dgv.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True
 
+            .BloqueItem.Set()
+
         End With
 
     End Sub
@@ -161,8 +163,6 @@
                     End With
 
                 End With
-
-                Return
 
             End If
 

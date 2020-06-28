@@ -13,6 +13,7 @@ Public Class UserControlPersonnage
 
     Dim Index As Integer
     Dim NbrLigneTchat, NbrLigneSocket As Integer
+    Dim myResizer As New Resizer
 
 #End Region
 
@@ -55,6 +56,7 @@ Public Class UserControlPersonnage
     Private Sub UserControlPersonnage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ComboBoxTchat.SelectedIndex = 0
+        myResizer.FindAllControls(Me)
 
     End Sub
 
@@ -62,7 +64,7 @@ Public Class UserControlPersonnage
 
 #Region "RichTextBox"
 
-    Private Sub RichTextBoxSocket_TextChanged(sender As Object, e As EventArgs) Handles RichTextBoxSocket.TextChanged
+    Private Sub RichTextBoxSocket_TextChanged(sender As Object, e As EventArgs)
 
         If NbrLigneSocket > 1000 Then
 
@@ -164,7 +166,30 @@ Public Class UserControlPersonnage
 
             If .Connecté Then
 
-                If 0 = 1 Then
+                If .EnEchange Then
+
+                    LabelStatut.Text = "En Echange"
+                    LabelStatut.ForeColor = Color.Orange
+
+                ElseIf .EnDemandeEchange Then
+
+                    LabelStatut.Text = "En Demande : Echange"
+                    LabelStatut.ForeColor = Color.Orange
+
+                ElseIf .EnDeplacement Then
+
+                    LabelStatut.Text = "En Déplacement"
+                    LabelStatut.ForeColor = Color.Cyan
+
+                ElseIf .EnDialogue Then
+
+                    LabelStatut.Text = "En Dialogue"
+                    LabelStatut.ForeColor = Color.Orange
+
+                ElseIf .EnRecolte Then
+
+                    LabelStatut.Text = "En Récolte"
+                    LabelStatut.ForeColor = Color.Green
 
                 Else
 
@@ -357,8 +382,8 @@ Public Class UserControlPersonnage
         With Comptes(Index)
 
             If .Connecté Then
-
-                .Socket.Envoyer("OM" & DataGridViewInventaire.CurrentRow.Cells(1).Value & "|" & ReturnNuméroEquipement(Index, DicoItems(DataGridViewInventaire.CurrentRow.Cells(0).Value).Catégorie))
+                Dim retequip As New Equipement
+                .Socket.Envoyer("OM" & DataGridViewInventaire.CurrentRow.Cells(1).Value & "|" & retequip.ReturnNuméroEquipement(Index, DicoItems(DataGridViewInventaire.CurrentRow.Cells(0).Value).Catégorie))
 
             End If
 
@@ -472,12 +497,13 @@ Public Class UserControlPersonnage
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Task.Run(Sub() FamilierReconnexion(Index))
-        '  Comptes(Index).Socket.Envoyer(TextBox1.Text)
+        Comptes(Index).Socket.Envoyer(TextBox1.Text)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
         With Comptes(Index)
+
             If .FrmGroupe.ThreadTrajet IsNot Nothing AndAlso .FrmGroupe.ThreadTrajet.IsAlive Then .FrmGroupe.ThreadTrajet.Abort()
 
             Select Case Button1.Text
@@ -488,13 +514,15 @@ Public Class UserControlPersonnage
 
                     If Ouverture_Fichier.ShowDialog = 1 Then
 
-                        TrajetLoad(Index, Ouverture_Fichier.FileName)
+                        .FrmGroupe.ThreadTrajet = New Threading.Thread(Sub() TrajetLoad(Index, Ouverture_Fichier.FileName)) With {.IsBackground = True}
+                        .FrmGroupe.ThreadTrajet.Start()
 
                         Button1.Text = "Trajet chargé"
                         Button1.ForeColor = Color.Lime
 
                     Else
 
+                        If .FrmGroupe.ThreadTrajet IsNot Nothing AndAlso .FrmGroupe.ThreadTrajet.IsAlive Then .FrmGroupe.ThreadTrajet.Abort()
                         Button1.Text = "Charger un trajet"
                         Button1.ForeColor = Color.Red
 
@@ -502,6 +530,7 @@ Public Class UserControlPersonnage
 
                 Case Else
 
+                    If .FrmGroupe.ThreadTrajet IsNot Nothing AndAlso .FrmGroupe.ThreadTrajet.IsAlive Then .FrmGroupe.ThreadTrajet.Abort()
                     Button1.Text = "Charger un trajet"
                     Button1.ForeColor = Color.Red
 
@@ -509,4 +538,7 @@ Public Class UserControlPersonnage
         End With
     End Sub
 
+    Private Sub UserControlPersonnage_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        myResizer.ResizeAllControls(Me)
+    End Sub
 End Class
