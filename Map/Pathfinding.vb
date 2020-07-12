@@ -99,7 +99,8 @@ Public Class Pathfinding
             EviteChangeur = Not enCombat
             MapHandler = .MapHandler
             loadCell()
-
+            fight = .EnCombat
+            If fight Then nombreDePM = 3
             LoadSprites(nCellEnd)
 
             If fight Then

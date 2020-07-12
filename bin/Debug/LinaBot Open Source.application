@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="LinaBot Open Source.exe.manifest" size="7345">
+    <dependentAssembly dependencyType="install" codebase="LinaBot Open Source.exe.manifest" size="17618">
       <assemblyIdentity name="LinaBot Open Source.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>TyLiyi32rePfkM1yecVnbw0lWHYimj9IYYjahRsrAMs=</dsig:DigestValue>
+        <dsig:DigestValue>d9vN2/sU7S6L9wd4/vq4E1WEKJmruR0xSLzijw3rr0o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

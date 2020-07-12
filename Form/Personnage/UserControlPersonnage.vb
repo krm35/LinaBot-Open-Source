@@ -538,6 +538,10 @@ Public Class UserControlPersonnage
         End With
     End Sub
 
+    Private Sub TextBoxIa_TextChanged(sender As Object, e As EventArgs) Handles TextBoxIa.TextChanged
+        Comptes(Index).sortalancer = TextBoxIa.Text
+    End Sub
+
     Private Sub UserControlPersonnage_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         myResizer.ResizeAllControls(Me)
     End Sub

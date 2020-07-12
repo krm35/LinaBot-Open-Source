@@ -128,6 +128,14 @@
 
     Private Sub Ajouter_un_compte_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        ComboBoxChoixServeur.Items.Clear()
+
+        For Each pair As KeyValuePair(Of String, sServeur) In DicoServeur
+
+            ComboBoxChoixServeur.Items.Add(pair.Key)
+
+        Next
+
         ComboBoxChoixPersonnage.SelectedIndex = 0
         ComboBoxChoixServeur.SelectedIndex = 0
         ComboBoxChoixSexe.SelectedIndex = 0

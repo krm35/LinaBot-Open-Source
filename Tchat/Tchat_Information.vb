@@ -449,6 +449,34 @@
 
                             EcritureMessage(Index, "[Dofus]", "Pour utiliser le canal d'alignement vous devez développer vos ailes à 3 ou plus, ou encore avoir choisi une spécialisation par les quêtes d'alignement (niveau de quêtes à partir de 20)", Color.Red)
 
+                        Case "0104"
+
+                            EcritureMessage(Index, "[Dofus]", "Demande d'aide annulée...", Color.Green)
+
+                            If .DicoCombatLancer.ContainsKey(.IdUnique) Then
+
+                                Dim newCombatLancer As Player.sCombatLancer = .DicoCombatLancer(.IdUnique)
+
+                                newCombatLancer.Aide = False
+
+                                .DicoCombatLancer(.IdUnique) = newCombatLancer
+
+                            End If
+
+                        Case "0103"
+
+                            EcritureMessage(Index, "[Dofus]", "Demande d'aide signalée...", Color.Green)
+
+                            If .DicoCombatLancer.ContainsKey(.IdUnique) Then
+
+                                Dim newCombatLancer As Player.sCombatLancer = .DicoCombatLancer(.IdUnique)
+
+                                newCombatLancer.Aide = True
+
+                                .DicoCombatLancer(.IdUnique) = newCombatLancer
+
+                            End If
+
                         Case "189"
 
                             EcritureMessage(Index, "[Dofus]", "Bienvenue sur Dofus, dans le Monde des douze !" & vbCrLf &
@@ -484,15 +512,61 @@
 
                             EcritureMessage(Index, "[Dofus]", "Vous êtes trop chargé. Jetez quelques objets afin de pouvoir bouger.", Color.Red)
 
+                        Case "096"
+
+                            EcritureMessage(Index, "[Combat]", "L'équipe accepte de nouveau des personnages supplémentaires.", Color.Red)
+
+                            If .DicoCombatLancer.ContainsKey(.IdUnique) Then
+
+                                Dim newCombatLancer As Player.sCombatLancer = .DicoCombatLancer(.IdUnique)
+
+                                newCombatLancer.Cadenas = False
+
+                                .DicoCombatLancer(.IdUnique) = newCombatLancer
+
+                            End If
+
                         Case "095"
 
-                            '  ._Combat_Cadenas_Bloqué = True
                             EcritureMessage(Index, "[Combat]", "L'équipe n'accepte plus de personnages supplémentaires.", Color.Red)
+
+                            If .DicoCombatLancer.ContainsKey(.IdUnique) Then
+
+                                Dim newCombatLancer As Player.sCombatLancer = .DicoCombatLancer(.IdUnique)
+
+                                newCombatLancer.Cadenas = True
+
+                                .DicoCombatLancer(.IdUnique) = newCombatLancer
+
+                            End If
+
+                        Case "094"
+
+                            EcritureMessage(Index, "[Combat]", "L'équipe accepte les membres de tous les groupes.", Color.Red)
+
+                            If .DicoCombatLancer.ContainsKey(.IdUnique) Then
+
+                                Dim newCombatLancer As Player.sCombatLancer = .DicoCombatLancer(.IdUnique)
+
+                                newCombatLancer.Groupe = False
+
+                                .DicoCombatLancer(.IdUnique) = newCombatLancer
+
+                            End If
 
                         Case "093"
 
-                            '  ._Combat_Groupe_Bloqué = True
-                            EcritureMessage(Index, "[Combat]", "Léquipe n'accepte désormais que les membres du groupe du personnage principal.", Color.Red)
+                            EcritureMessage(Index, "[Combat]", "L'équipe n'accepte désormais que les membres du groupe du personnage principal.", Color.Red)
+
+                            If .DicoCombatLancer.ContainsKey(.IdUnique) Then
+
+                                Dim newCombatLancer As Player.sCombatLancer = .DicoCombatLancer(.IdUnique)
+
+                                newCombatLancer.Groupe = True
+
+                                .DicoCombatLancer(.IdUnique) = newCombatLancer
+
+                            End If
 
                         Case "073"
 
@@ -502,8 +576,31 @@
 
                         Case "040"
 
-                            '  ._Combat_Spectateur_Bloqué = True
-                            EcritureMessage(Index, "[Combat]", "Le mode 'Spectateur' est désactivé.", Color.Red)
+                            EcritureMessage(Index, "[Combat]", "Le mode 'spectateur' est désactivé.", Color.Red)
+
+                            If .DicoCombatLancer.ContainsKey(.IdUnique) Then
+
+                                Dim newCombatLancer As Player.sCombatLancer = .DicoCombatLancer(.IdUnique)
+
+                                newCombatLancer.Spectateur = False
+
+                                .DicoCombatLancer(.IdUnique) = newCombatLancer
+
+                            End If
+
+                        Case "039"
+
+                            EcritureMessage(Index, "[Combat]", "Le mode 'spectateur' est activé.", Color.Red)
+
+                            If .DicoCombatLancer.ContainsKey(.IdUnique) Then
+
+                                Dim newCombatLancer As Player.sCombatLancer = .DicoCombatLancer(.IdUnique)
+
+                                newCombatLancer.Spectateur = True
+
+                                .DicoCombatLancer(.IdUnique) = newCombatLancer
+
+                            End If
 
                         Case "037"
 

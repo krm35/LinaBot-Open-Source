@@ -1,13 +1,23 @@
-﻿Imports System.Web.UI
-
+﻿
 Module TrajetExecution
 
     Public Sub TrajetLecture(ByVal index As Integer, ByVal balise As String)
+        With Comptes(index)
+
+            While True
+                TrajetLecture1(index, balise)
+            End While
+        End With
+    End Sub
+
+    Public Sub TrajetLecture1(ByVal index As Integer, ByVal balise As String)
 
         With Comptes(index)
 
+            Dim SearchEndLine As String = ""
             Dim nextLine As Boolean = True
             Dim whileLine As Integer = 0
+            Dim SelectCase As String = ""
 
             For a = 0 To .FrmGroupe.DicoTrajet(balise).Count - 1
 
@@ -27,21 +37,49 @@ Module TrajetExecution
 
                                     nextLine = IfReturn(index, .Item(a))
 
+                                    If nextLine Then
+
+                                        SearchEndLine = "End If"
+
+                                    End If
+
                                 Case "ElseIf"
 
-                                    nextLine = IfReturn(index, .Item(a))
+                                    If SearchEndLine <> "End If" Then
+
+                                        nextLine = IfReturn(index, .Item(a))
+
+                                    End If
+
+                                    If nextLine Then
+
+                                        SearchEndLine = "End If"
+
+                                    End If
 
                                 Case "Else"
 
-                                    If nextLine Then nextLine = False
+                                    If SearchEndLine = "End If" Then
+
+                                        If nextLine Then nextLine = False
+
+                                    Else
+
+                                        SearchEndLine = "End If"
+                                        nextLine = True
+
+                                    End If
 
                                 Case "End"
+
+                                    SearchEndLine = ""
 
                                     Select Case separatePair(1)
 
                                         Case "If"
 
                                             nextLine = True
+
 
                                         Case "While"
 
@@ -57,6 +95,8 @@ Module TrajetExecution
                                             End If
 
                                         Case "Sub"
+
+                                        Case "Select"
 
                                     End Select
 
@@ -76,7 +116,48 @@ Module TrajetExecution
 
                                 Case "Call"
 
-                                    If nextLine Then TrajetLecture(index, separatePair(1))
+                                    If nextLine Then
+                                        TrajetLecture1(index, separatePair(1))
+                                    End If
+
+                                    'Select case
+                                Case "Select"
+
+                                    If SearchEndLine = "" Then SelectCase = SelectReturn(index, .Item(a))
+
+                                Case "Case"
+
+                                    Select Case separatePair(1)
+
+                                        Case "Else"
+
+                                            If SearchEndLine = "End Select" Then
+
+                                                If nextLine Then nextLine = False
+
+                                            Else
+
+                                                SearchEndLine = "End Select"
+                                                nextLine = True
+
+                                            End If
+
+                                        Case Else
+
+                                            If SearchEndLine <> "End Select" AndAlso SearchEndLine <> "End If" Then
+
+                                                nextLine = SelectCaseReturn(index, .Item(a), SelectCase)
+
+                                            End If
+
+                                            If nextLine Then
+
+                                                SearchEndLine = "End Select"
+
+                                            End If
+
+                                    End Select
+                                    '/Select case
 
                                 Case Else
 
@@ -96,7 +177,7 @@ Module TrajetExecution
 
                                             Case "MsgBox"
 
-                                                MsgBox(Split(separateAction(i), "Msgbox = ")(1).Replace("""", ""))
+                                                CallFunction(index, separateAction(i))
 
                                             Case "Direction"
 
@@ -144,6 +225,10 @@ Module TrajetExecution
 
                                                 CallFunction(index, separateAction(i))
 
+                                            Case "ItemExist"
+
+                                                CallFunction(index, separateAction(i))
+
                                         End Select
 
                                         If separatePair(0) <> "Map" Then
@@ -163,6 +248,7 @@ Module TrajetExecution
                 End With
 
             Next
+
 
         End With
 
@@ -263,7 +349,7 @@ Module TrajetExecution
 
                         Case "<"
 
-                            If CInt(resultat1) <= CInt(separateLigne(5)) Then
+                            If CInt(resultat1) < CInt(separateLigne(5)) Then
 
                                 Return True
 
@@ -275,7 +361,7 @@ Module TrajetExecution
 
                         Case ">"
 
-                            If CInt(resultat1) >= CInt(separateLigne(5)) Then
+                            If CInt(resultat1) > CInt(separateLigne(5)) Then
 
                                 Return True
 
@@ -321,6 +407,87 @@ Module TrajetExecution
 
     End Function
 
+#Region "Select Case"
+
+    Private Function SelectReturn(ByVal index As Integer, ByVal laLigne As String) As String
+
+        With Comptes(index)
+
+            Dim separateLigne As String() = Split(laLigne, " ")
+
+            Dim nomFunction As String = ReturnNomFunction(laLigne)
+            Dim ParametreFunction As String() = ReturnParametreFunction(index, laLigne)
+
+            Return LuaScript.GetFunction(nomFunction).Call(ParametreFunction).First
+
+        End With
+
+    End Function
+
+    Private Function SelectCaseReturn(ByVal index As Integer, ByVal laLigne As String, ByVal resultat As String) As Boolean
+
+        With Comptes(index)
+
+            Dim separate As String() = Split(laLigne, " ")
+
+            Select Case separate(1)
+
+                Case "Integer"
+
+                    Select Case separate(2)
+
+                        Case "<"
+
+                            If CInt(resultat) < CInt(separate(3)) Then
+
+                                Return True
+
+                            Else
+
+                                Return False
+
+                            End If
+
+                        Case ">"
+
+                            If CInt(resultat) > CInt(separate(3)) Then
+
+                                Return True
+
+                            Else
+
+                                Return False
+
+                            End If
+
+                        Case "="
+
+                            If CInt(resultat) = CInt(separate(3)) Then
+
+                                Return True
+
+                            Else
+
+                                Return False
+
+                            End If
+
+                    End Select
+
+                Case "Boolean"
+
+                Case "String"
+
+            End Select
+
+        End With
+
+    End Function
+
+#End Region
+
+#Region "Function"
+
     Private Function ReturnNomFunction(ByVal laligne As String) As String
 
         Dim separate As String()
@@ -332,10 +499,18 @@ Module TrajetExecution
 
         Else
 
-            separate = Split(laligne, "(")
+            If laligne.Contains("Select") Then
+
+                separate = Split(laligne, " ")
+                separate = Split(separate(2), "(")
+
+            Else
+
+                separate = Split(laligne, "(")
+
+            End If
 
         End If
-
 
         Return separate(0)
 
@@ -379,7 +554,7 @@ Module TrajetExecution
 
             Else
 
-                    separateFunctionParamétre = Nothing
+                separateFunctionParamétre = Nothing
 
             End If
 
@@ -401,5 +576,9 @@ Module TrajetExecution
         Return functionParamétre
 
     End Function
+
+#End Region
+
+
 
 End Module

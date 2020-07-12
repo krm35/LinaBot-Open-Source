@@ -40,8 +40,17 @@ Partial Class Player
     Public TchatItem As New Dictionary(Of String, String)
 
     'Combat
+    Public sortalancer As String
+
     Public CombatMapSpectateur As Boolean
     Public EnCombat As Boolean
+    Public CombatPhasePlacement As Boolean
+    Public DicoCombatListeCellule As New Dictionary(Of Integer, List(Of Integer))
+    Public DicoCombatLancer As New Dictionary(Of Integer, sCombatLancer)
+    Public BloqueCombat As ManualResetEvent = New ManualResetEvent(False)
+    Public CombatTour, CombatPause, CombatEquipe As Integer
+    Public ThreadIA As Thread
+    Public DicoCombatChallenge As New Dictionary(Of Integer, SChallenge)
 
     'Recolte
     Public RecolteNumero As Integer
@@ -164,6 +173,37 @@ Partial Class Player
         Dim Dofus4 As String()
         Dim Dofus5 As String()
         Dim Dofus6 As String()
+
+    End Structure
+
+    Structure sCombatLancer
+
+        Dim IdUnique As Integer
+        Dim Cellule As Integer
+        Dim Cadenas As Boolean
+        Dim Groupe As Boolean
+        Dim Spectateur As Boolean
+        Dim Aide As Boolean
+        Dim Info As Dictionary(Of Integer, SCombatLancerInfo)
+
+    End Structure
+
+    Structure SCombatLancerInfo
+
+        Dim IdUnique As Integer
+        Dim Nom As String
+        Dim Niveau As Integer
+
+    End Structure
+
+    Structure SChallenge
+
+        Dim Nom As String
+        Dim Raté As Boolean
+        Dim Xp As Integer
+        Dim XpGroupe As Integer
+        Dim Butin As Integer
+        Dim ButinGroupe As Integer
 
     End Structure
 

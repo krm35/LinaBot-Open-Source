@@ -152,7 +152,7 @@
 
     End Sub
 
-    Public Sub PnjAcheterVendreItem(ByVal index As Integer, ByVal item As String, ByVal quantité As Integer, ByVal caractéristique As String)
+    Public Sub PnjAcheterVendreItem(ByVal index As Integer, ByVal item As String, ByVal quantité As Integer, Optional ByVal caractéristique As String = "")
 
         With Comptes(index)
 
@@ -162,7 +162,7 @@
 
                     If Pair.Cells(0).Value = item OrElse Pair.Cells(2).Value.ToString.ToLower = item.ToLower Then
 
-                        If caractéristique.ToLower = "nothing" OrElse ComparateurCaractéristiqueObjets(Pair.Cells(4).Value, caractéristique) Then
+                        If caractéristique.ToLower = "" OrElse ComparateurCaractéristiqueObjets(Pair.Cells(4).Value, caractéristique) Then
 
                             .BloqueDialogue.Reset()
 

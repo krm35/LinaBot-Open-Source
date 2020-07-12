@@ -94,6 +94,8 @@ Public Class Player
     Private Sub ResetVariable()
 
         Connecté = False
+        EnRecolte = False
+        EnCombat = False
 
     End Sub
 
@@ -562,7 +564,7 @@ Public Class Player
                                     ' al|270;0|49;1|etc....
                                     ' Inconnu
 
-                                Case "m" ' Am
+                                Case "m", "M" ' Am
 
                                     ' Inconnu
                                     ' am12|0|1
@@ -593,10 +595,304 @@ Public Class Player
 
                                     'Inconnu
 
+                                Case "S"
+
+                                    Select Case e.Message(2)
+
+                                        Case "4" 'BS4
+
+                                            Socket.Envoyer("cS" & IdUnique & "|" & Mid(e.Message, 3, 1))
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "BS", e.Message)
+
+                                    End Select
+
                                 Case "T" ' BT
 
                                     ' Inconnu
                                     ' BT1584274548177
+
+                                Case "X" ' BX
+
+                                    Select Case e.Message(2)
+
+                                        Case ";" ' BX;
+
+                                            Select Case e.Message(3)
+
+                                                Case "1" ' BX;1
+
+                                                    Select Case e.Message(4)
+
+                                                        Case ";" ' BX;1;
+
+                                                            'BX;1;-1;aeDdfh
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "BX;1", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "BX;", e.Message)
+
+                                            End Select
+
+
+                                        Case "|" ' BX|
+
+                                            Select Case e.Message(3)
+
+                                                Case "+" 'BX|+Cellule;?;?;ID_Joueur;Nom_Personnage;Level;Classe;?;?,?,?,ID_Autre_Joueur;Couleur1;Couleur2;Couleur3;Cac,Coiffe,Cape,Familier,?;?;?;?;?;?;?;?;
+
+                                                Case "-" 'BX|-ID_Joueur
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "BX|", e.Message)
+
+                                            End Select
+
+                                        Case "0" ' BX0
+
+                                            Select Case e.Message(3)
+
+                                                Case ";"
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "5"
+
+                                                            Select Case e.Message(5)
+                                                                Case "0"
+                                                                    Select Case e.Message(6)
+                                                                        Case "1"
+                                                                            Select Case e.Message(7)
+                                                                                Case ";"
+                                                                                Case Else
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "BX0;501", e.Message)
+                                                                            End Select
+                                                                        Case Else
+                                                                            ErreurFichier(Index, NomDuPersonnage, "BX0;50", e.Message)
+                                                                    End Select
+                                                                Case Else
+                                                                    ErreurFichier(Index, NomDuPersonnage, "BX0;5", e.Message)
+                                                            End Select
+
+                                                        Case "1"
+
+                                                            Select Case e.Message(5)
+
+                                                                Case ";"
+
+                                                                    'BX0;1;ID_Joueur;Path
+                                                                    Socket.Envoyer("BZ" & IdUnique)
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "BX0;1", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "BX0;", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "BX0", e.Message)
+
+                                            End Select
+
+                                        Case "1"
+
+                                            Select Case e.Message(3)
+
+                                                Case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
+
+                                                    'BX1 ID_Joueur
+                                                    Socket.Envoyer("BZ" & IdUnique)
+
+                                                Case ";"
+
+                                                    Select Case e.Message(4)
+                                                        Case "5"
+                                                            Select Case e.Message(5)
+                                                                Case "0"
+                                                                    Select Case e.Message(6)
+                                                                        Case "1"
+                                                                            Select Case e.Message(7)
+                                                                                Case ";"
+                                                                                Case Else
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "BX1;501", e.Message)
+                                                                            End Select
+                                                                        Case Else
+                                                                            ErreurFichier(Index, NomDuPersonnage, "BX1;50", e.Message)
+                                                                    End Select
+                                                                Case Else
+                                                                    ErreurFichier(Index, NomDuPersonnage, "BX1;5", e.Message)
+                                                            End Select
+                                                        Case Else
+                                                            ErreurFichier(Index, NomDuPersonnage, "BX1;", e.Message)
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "BX1", e.Message)
+
+                                            End Select
+
+                                        Case "F" ' BXF
+
+                                            Select Case e.Message(3)
+
+                                                Case "|" ' BXF|
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "BXF", e.Message)
+
+                                            End Select
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "BX", e.Message)
+
+                                    End Select
+
+                                Case "Z" ' BZ
+
+                                    Select Case e.Message(2)
+
+                                        Case ";" ' BZ;
+
+                                            Select Case e.Message(3)
+
+                                                Case "1" ' BZ;1
+
+                                                    Select Case e.Message(4)
+
+                                                        Case ";" ' BZ;1;
+
+                                                            'BZ;1;-1;aeDdfh
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "BZ;1", e.Message)
+
+                                                    End Select
+
+                                                Case "9" 'BZ;903;ID_Joueur;t
+
+                                                    Socket.Envoyer("BZ" & Split(e.Message, ";")(2))
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "BZ;", e.Message)
+
+                                            End Select
+
+                                        Case "|"
+
+                                            Select Case e.Message(3)
+
+                                                Case "+" 'BZ|+Cellule;?;?;ID_Joueur;Nom_Personnage;Level;Classe;?;?,?,?,ID_Autre_Joueur;Couleur1;Couleur2;Couleur3;Cac,Coiffe,Cape,Familier,?;?;?;?;?;?;?;?;
+
+                                                Case "-" 'BZ|-ID_Joueur
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "BZ|", e.Message)
+
+                                            End Select
+
+                                        Case "0" 'BZ0;1;ID_Joueur;Path
+
+                                            Select Case Mid(e.Message, 4, 1)
+
+                                                Case ";" 'IA0;1;ID_Joueur;Path 
+
+                                                    Socket.Envoyer("BZ" & Split(e.Message, ";")(2))
+
+                                                Case "1" 'BZ0188;Nom_Personnage
+
+                                                    Socket.Envoyer("BZ" & IdUnique)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "BZ0", e.Message)
+
+                                            End Select
+
+                                        Case "1"
+
+                                            Select Case e.Message(3)
+                                                Case ";"
+                                                    Select Case e.Message(4)
+                                                        Case "5"
+                                                            Select Case e.Message(5)
+                                                                Case "0"
+                                                                    Select Case e.Message(6)
+                                                                        Case "1"
+                                                                            Select Case e.Message(7)
+                                                                                Case ";"
+                                                                                Case Else
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "BZ1;501", e.Message)
+                                                                            End Select
+                                                                        Case Else
+                                                                            ErreurFichier(Index, NomDuPersonnage, "BZ1;50", e.Message)
+                                                                    End Select
+                                                                Case Else
+                                                                    ErreurFichier(Index, NomDuPersonnage, "BZ1;5", e.Message)
+                                                            End Select
+                                                        Case Else
+                                                            ErreurFichier(Index, NomDuPersonnage, "BZ1;", e.Message)
+                                                    End Select
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "BZ1", e.Message)
+                                            End Select
+
+                                        Case "E" ' BZE
+
+                                            Select Case e.Message(3)
+
+                                                Case "|" ' BZE|
+
+                                                    'BZE|418;3;0
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "BZE", e.Message)
+
+                                            End Select
+
+                                        Case "F" ' BZF
+
+                                            Select Case e.Message(3)
+
+                                                Case "|" ' BZF|
+
+                                                    'BZF|418;3;0
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "BZF", e.Message)
+
+                                            End Select
+
+                                        Case "K" 'BZK|1|Nom_Personnage
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "BZ", e.Message)
+
+                                    End Select
 
                                 Case Else
 
@@ -737,6 +1033,235 @@ Public Class Player
                         Case "E"
 
                             Select Case e.Message(1)
+
+                                Case "A" ' EA
+
+                                    If EnCraft Then
+
+                                        EcritureMessage(Index, "[Craft]", "Craft Restant : " & Mid(e.Message, 3), Color.Orange)
+
+                                    End If
+
+                                Case "a" ' Ea
+
+                                    Select Case Mid(e.Message, 3)
+
+                                        Case "1" ' Ea1
+
+                                            EcritureMessage(Index, "[Craft]", "Tous les objets ont été fabriqués !", Color.YellowGreen)
+
+                                        Case "2" ' Ea2
+
+                                            EcritureMessage(Index, "[Craft]", "La fabrication d'objets a été interrompue.", Color.Red)
+
+                                        Case "4" ' Ea4
+
+                                            EcritureMessage(Index, "[Craft]", "Votre recette ne donnait rien, la fabrication d'objets a été interrompue.", Color.Red)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Ea", e.Message)
+
+                                    End Select
+
+                                Case "b" ' Eb
+
+                                    Select Case e.Message(2)
+
+                                        Case "|"
+
+                                            Select Case e.Message(3)
+
+                                                Case "+" 'Eb|+Cellule;?;?;ID_Joueur;Nom_Personnage;Level;Classe;?;?,?,?,ID_Autre_Joueur;Couleur1;Couleur2;Couleur3;Cac,Coiffe,Cape,Familier,?;?;?;?;?;?;?;?;
+
+                                                Case "-" 'Eb|-ID_Joueur
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Eb|", e.Message)
+
+                                            End Select
+
+                                        Case ";" ' Eb;
+
+                                            Select Case e.Message(3)
+
+                                                Case "1" ' Eb;1
+
+                                                    Select Case e.Message(4)
+
+                                                        Case ";" ' Eb;1;
+
+                                                            'Eb;1;-1;aftbga
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "Eb;1", e.Message)
+
+                                                    End Select
+
+                                                Case "2" ' Eb;2
+
+                                                    Select Case e.Message(4)
+
+                                                        Case ";" ' Eb;2;
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "Eb;2", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Eb;", e.Message)
+
+                                            End Select
+
+                                        Case "0" ' Eb0
+
+                                            Select Case e.Message(3)
+
+                                                Case ";" ' Eb0;
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "1" ' Eb0;1
+
+                                                            Select Case e.Message(5)
+
+                                                                Case ";" ' Eb0;1;
+
+                                                                    Socket.Envoyer("Eb" & CInt(Split(e.Message, ";")(2)) - 352)
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Eb0;1", e.Message)
+
+                                                            End Select
+
+                                                        Case "5" ' Eb0;5
+
+                                                            Select Case e.Message(5)
+                                                                Case "0" ' Eb0;50
+                                                                    Select Case e.Message(6)
+                                                                        Case "1" ' Eb0;501
+                                                                            Select Case e.Message(7)
+                                                                                Case ";" ' Eb0;501;
+                                                                                    'Eb0;501;1234567;88,11900
+                                                                                Case Else
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "Eb0;501", e.Message)
+                                                                            End Select
+                                                                        Case Else
+                                                                            ErreurFichier(Index, NomDuPersonnage, "Eb0;50", e.Message)
+                                                                    End Select
+                                                                Case Else
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Eb0;5", e.Message)
+                                                            End Select
+
+                                                        Case Else
+                                                            ErreurFichier(Index, NomDuPersonnage, "Eb0;", e.Message)
+                                                    End Select
+
+                                                Case "1" ' Eb01
+
+                                                    'Eb0188;Nom_Personnage
+                                                    Socket.Envoyer("Eb" & IdUnique)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Eb0", e.Message)
+
+                                            End Select
+
+                                        Case "1" ' Eb1
+
+                                            Select Case e.Message(3)
+
+                                                Case ";"
+                                                    Select Case e.Message(4)
+                                                        Case "5"
+                                                            Select Case e.Message(5)
+                                                                Case "0"
+                                                                    Select Case e.Message(6)
+                                                                        Case "1"
+                                                                            Select Case e.Message(7)
+                                                                                Case ";"
+                                                                                Case Else
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "Eb1;501", e.Message)
+                                                                            End Select
+                                                                        Case Else
+                                                                            ErreurFichier(Index, NomDuPersonnage, "Eb1;50", e.Message)
+                                                                    End Select
+                                                                Case Else
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Eb1;5", e.Message)
+                                                            End Select
+                                                        Case Else
+                                                            ErreurFichier(Index, NomDuPersonnage, "Eb1;", e.Message)
+                                                    End Select
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "Eb1", e.Message)
+                                            End Select
+
+                                        Case "6" ' Eb6
+
+                                            Select Case e.Message(3)
+
+                                                Case "5" ' Eb65
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "0" ' Eb650
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "|" ' Eb650|
+
+                                                                    'Eb650|6|11
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Eb650", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "Eb65", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Eb6", e.Message)
+
+                                            End Select
+
+                                        Case "7"
+
+                                            Select Case e.Message(3)
+
+                                                Case "4"
+
+                                                    'Eb74|Spilonzy;0;Asobo;8,9zldr,e,9ws8w
+
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "Eb1", e.Message)
+                                            End Select
+
+                                        Case "F" ' EbF
+
+                                            Select Case e.Message(3)
+                                                Case "|" ' EbF|
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "EbF", e.Message)
+                                            End Select
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Eb", e.Message)
+
+                                    End Select
 
                                 Case "C" 'faire les eck3 ETC.... pour la fm etc....
 
@@ -1049,6 +1574,11 @@ Public Class Player
 
                                                     EcritureMessage(Index, "[Dofus]", "La recette est bonne mais a échoué !", Color.Green)
 
+                                                Case "I"
+
+                                                    EcritureMessage(Index, "[Craft]", "Cette recette ne donne rien !", Color.Red)
+                                                    Socket.Envoyer("EMr")
+
                                                 Case Else
 
                                                     ErreurFichier(Index, NomDuPersonnage, "EcE", e.Message)
@@ -1075,6 +1605,116 @@ Public Class Player
 
                                     End Select
 
+                                Case "e" ' Ee
+
+                                    Select Case e.Message(2)
+
+                                        Case "+" ' Ee+
+
+                                         '   Dragodinde_Information_All(Mon_ID, e.Message, "Etable")
+
+                                        Case "-" ' Ee-
+
+                                                   ' Dragodinde_Retire(Mon_ID, Mid(e.Message, 4))
+
+                                        Case "~" ' Ee~
+
+                                           ' Dragodinde_Information_All(Mon_ID, e.Message, "Etable")
+
+                                        Case "E" ' EeE
+
+                                            EcritureMessage(Index, "[Dragodinde]", "Impossible de déposer la monture en etable", Color.Red)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Ee", e.Message)
+
+                                    End Select
+
+                                Case "f"
+
+                                    Select Case e.Message(2)
+
+                                        Case "+"
+
+                                         '   Dragodinde_Information_All(Mon_ID, e.Message, "Enclo")
+
+                                        Case "-"
+
+                                            ' Dragodinde_Retire(Mon_ID, Mid(e.Message, 4))
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Ef", e.Message)
+
+                                    End Select
+
+                                Case "H"
+
+                                    Select Case e.Message(2)
+
+                                        Case "l" 'EHlID_Objet|ID_Unique;Caractéristique;Prix*1;Prix*10;Prix*100|Next Item
+
+                                          '  HDV_Information_Item_Achat(Mon_ID, Split(Mid(e.Message, 4), "|"))
+
+                                        Case "L" 'EHL26|ID_Objet;ID_Objet;ID_Objet;ID_Objet; etc... 
+
+                                         '   HDV_Information_Catégorie(Mon_ID, Split(Split(e.Message, "|")(1), ";"))
+
+                                        Case "P" 'EHPID_Objet|Prix Moyen 
+
+                                          '  Separation = Split(e.Message, "|")
+
+                                         '   EcritureMessage(Mon_ID, "[Hôtel de vente]", "Item actuellement sélectionné : " & Liste_Des_Objets(Mid(Separation(0), 4)).GetValue(1), Color.Green)
+                                         '   EcritureMessage(Mon_ID, "[Hôtel de vente]", "Prix moyen constaté dans cet hôtel : " & Separation(1) & " kamas/u.", Color.Green)
+                                         '   HDV_Prix_Moyen = Separation(1)
+
+                                         '   Bloque_Thread.Set()
+
+                                        Case "m"
+
+                                            Select Case e.Message(3)
+
+                                                Case "+" 'EHm+207814|304||25|497|1400
+
+                                                  '  Ajoute_Item(Mon_ID, Split(e.Message, "|"), "[HDV - Achat]")
+
+                                                Case "-" 'EHm-207814
+
+                                                    '   Item_Supprime(Mon_ID, Mid(e.Message, 5))
+
+                                                Case Else
+
+                                                    '   Information_Inconnu(Mon_ID, "Unknow", e.Message)
+
+                                            End Select
+
+                                        Case "M" 'EHM-2588
+
+                                        Case "S"
+
+                                            Select Case e.Message(3)
+
+                                                Case "E" 'EHSE
+
+                                                    'TabUtilisateur.ListView_Hotel_De_Vente.Items.Clear()
+                                                    ' Bloque_Thread.Set()
+                                                  '  EcritureMessage(Mon_ID, "[Hotel de vente]", "L'objet recherché n'est pas en vente dans cet hôtel des ventes.", Color.Red)
+
+                                                Case "K" 'EHSK  y'a l'objet voulu
+
+                                                Case Else
+
+                                                    ' Information_Inconnu(Mon_ID, "Unknow", e.Message)
+
+                                            End Select
+
+                                        Case Else
+
+                                            '   Information_Inconnu(Mon_ID, "Unknow", e.Message)
+
+                                    End Select
+
                                 Case "K" ' EK
 
                                     Select Case e.Message(2)
@@ -1090,6 +1730,104 @@ Public Class Player
                                         Case Else
 
                                             ErreurFichier(Index, NomDuPersonnage, "EK", e.Message)
+
+                                    End Select
+
+                                Case "k" ' Ek
+
+                                    Select Case e.Message(2)
+
+                                        Case "|"
+
+                                            Select Case Mid(e.Message, 4, 1)
+
+                                                Case "+" 'Ek|+132;1;0;ID_Joueur;Linaculer;9;91^100;1;0,0,0,ID_Joueur;-1;-1;-1;551,3d0,3b9,,;0;;;;;0;;
+
+                                                Case "-" 'Ek|-ID_Joueur
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Ek|", e.Message)
+
+                                            End Select
+
+                                        Case "0" 'Ek0;1;ID_Joueur;aaKbbrcdIde2
+
+                                            Select Case Mid(e.Message, 4, 1)
+
+                                                Case ";" 'Ek0;1;ID_Joueur;aaKbbrcdIde2
+
+                                                    Socket.Envoyer("Ek" & CInt(Split(e.Message, ";")(2)) * 2)
+
+                                                Case "1" 'Ek0188;Linaculer
+
+                                                    Socket.Envoyer("Ek" & IdUnique)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Ek0", e.Message)
+
+                                            End Select
+
+                                        Case "1" ' Ek1
+
+                                            Select Case e.Message(3)
+                                                Case ";" ' Ek1;
+                                                    Select Case e.Message(4)
+                                                        Case "5" ' Ek1;5
+                                                            Select Case e.Message(5)
+                                                                Case "0" ' Ek1;50
+                                                                    Select Case e.Message(6)
+                                                                        Case "1" ' Ek1;501
+                                                                            Select Case e.Message(7)
+                                                                                Case ";" ' Ek1;501;
+                                                                                Case Else
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "Ek1;501", e.Message)
+                                                                            End Select
+                                                                        Case Else
+                                                                            ErreurFichier(Index, NomDuPersonnage, "Ek1;50", e.Message)
+                                                                    End Select
+                                                                Case Else
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Ek1;5", e.Message)
+                                                            End Select
+                                                        Case Else
+                                                            ErreurFichier(Index, NomDuPersonnage, "Ek1;", e.Message)
+                                                    End Select
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "Ek1", e.Message)
+                                            End Select
+
+                                        Case "6"
+
+                                            Socket.Envoyer("Ek" & IdUnique)
+
+                                        Case "F" ' EkF
+
+                                            Select Case e.Message(3)
+                                                Case "|" ' EkF|
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "EkF", e.Message)
+                                            End Select
+
+                                        Case "M" ' EkM
+
+                                            Select Case e.Message(3)
+
+                                                Case "|" ' EkM|
+
+                                                    'EkM|-1;0;40;6;2;108;;40|1234567;0;141;6;3;365;;151
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "EkM", e.Message)
+
+                                            End Select
+
+                                        Case "R" 'EkRID_Joueur
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Ek", e.Message)
 
                                     End Select
 
@@ -1335,6 +2073,138 @@ Public Class Player
                                         End If
 
                                     End If
+
+                                Case "v" ' Ev
+
+                                    Select Case e.Message(2)
+
+                                        Case "|"
+
+                                            Select Case e.Message(3)
+
+                                                Case "+" 'Ev|+132;1;0;ID_Joueur;Linaculer;9;91^100;1;0,0,0,ID_Joueur;-1;-1;-1;551,3d0,3b9,,;0;;;;;0;;
+
+                                                Case "-" 'Ev|-ID_Joueur
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Ev|", e.Message)
+
+                                            End Select
+
+                                        Case ";" 'Ev;1;-2;aeJfeu 
+
+                                            Socket.Envoyer("Ev" & IdUnique)
+
+                                        Case "0" ' Ev0
+
+                                            Socket.Envoyer("Ev" & (IdUnique + 1))
+
+                                        Case "1" ' Ev1
+
+                                            Select Case e.Message(3)
+
+                                                Case ";" 'Ev1;
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "5" ' Ev1;5
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "0" ' Ev1;50
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case "1" ' Ev1;501
+
+                                                                            Select Case e.Message(7)
+
+                                                                                Case ";" ' Ev1;501;
+
+                                                                                    'Ev1;501;1234567;328,9900
+
+                                                                                Case Else
+
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "Ev1;501", e.Message)
+
+                                                                            End Select
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "Ev1;50", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Ev1;5", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "Ev1;", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Ev1", e.Message)
+
+                                            End Select
+
+                                        Case "6" ' Ev6
+
+                                            Select Case e.Message(3)
+
+                                                Case "5" ' Ev65
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "0" ' Ev650
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "|" ' Ev650|
+
+                                                                    'Ev650|6|12
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Ev650", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "Ev65", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Ev6", e.Message)
+
+                                            End Select
+
+                                        Case "F" ' EvF
+
+                                            Select Case e.Message(3)
+
+                                                Case "|" ' EvF|
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "EvF", e.Message)
+
+                                            End Select
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Ev", e.Message)
+
+                                    End Select
 
                                 Case "W" ' EW
 
@@ -1600,7 +2470,6 @@ Public Class Player
 
                                             End Select
 
-
                                         Case ";" ' GA;
 
                                             Select Case e.Message(3)
@@ -1623,6 +2492,104 @@ Public Class Player
 
                                                     Select Case e.Message(4)
 
+                                                        Case "0" ' GA;10
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "0" ' GA;100
+
+                                                                    Select Case Mid(e.Message, 7, 1)
+
+                                                                        Case ";" ' GA;100;
+
+                                                                            GfRetirePdv(Index, e.Message)
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GA;100", e.Message)
+
+                                                                    End Select
+
+                                                                Case "2" ' GA;102
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case ";" ' GA;102;
+
+                                                                            GaCombatPaUtilisé(Index, e.Message)
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GA;102", e.Message)
+
+                                                                    End Select
+
+                                                                Case "3" ' GA;103
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case ";" ' GA;103;
+
+                                                                            GaMortJoueurMobs(Index, e.Message)
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GA;103", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "GA;10", e.Message)
+
+                                                            End Select
+
+                                                        Case "2" ' GA;12
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "9" ' GA;129
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case ";" ' GA;129;
+
+                                                                            GaCombatPmUtilisé(Index, e.Message)
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GA;129", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "GA;12", e.Message)
+
+                                                            End Select
+
+                                                        Case "3" ' GA,13
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "2" ' GA,132
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case ";" ' GA,132;
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GA;132", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "GA;13", e.Message)
+
+                                                            End Select
+
                                                         Case ";" ' GA;1;
 
                                                             GaMapMoveEntity(Index, e.Message)
@@ -1637,15 +2604,421 @@ Public Class Player
 
                                                     'Inconnu
 
+
+                                                Case "3" ' GA;3
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "0" ' GA;30
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "0" ' GA;300
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case ";" ' GA;300;
+
+                                                                            GaCombatCoupNormal(Index, e.Message)
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GA;300", e.Message)
+
+                                                                    End Select
+
+                                                                Case "1" ' GA;301
+
+                                                                    Select Case Mid(e.Message, 7, 1)
+
+                                                                        Case ";" ' GA;301;
+
+                                                                            ' GaCombatCoupCritique(Index, e.Message)
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GA;301", e.Message)
+
+                                                                    End Select
+
+                                                                Case "2" ' GA;302
+
+                                                                    Select Case Mid(e.Message, 7, 1)
+
+                                                                        Case ";" ' GA;302;
+
+                                                                            ' GaCombatEchecCritique(Index, e.Message)
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GA;302", e.Message)
+
+                                                                    End Select
+
+                                                                Case "8" ' GA;308
+
+                                                                    Select Case Mid(e.Message, 7, 1)
+
+                                                                        Case ";" ' GA;308;
+
+                                                                            ' GaCombatPaEsquivé(Index, e.Message)
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GA;308", e.Message)
+
+                                                                    End Select
+
+                                                                Case "9" ' GA;309
+
+                                                                    Select Case Mid(e.Message, 7, 1)
+
+                                                                        Case ";" ' GA;309;
+
+                                                                            ' GaCombatPmEsquivé(Index, e.Message)
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GA;309", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "GA;30", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "GA;3", e.Message)
+
+                                                    End Select
+
+                                                Case "9" ' GA;9
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "0" ' GA;90
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "5" ' GA;905
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case ";" ' GA;905;
+
+                                                                            GaLanceurEntrerCombat(Index, e.Message)
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GA;905", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "GA;90", e.Message)
+
+                                                            End Select
+
+                                                        Case "5" ' GA;95
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "0" ' GA;950
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case ";" ' GA;950;
+
+                                                                            CombatEtat(Index, e.Message)
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GA;950", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "GA;95", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "GA;9", e.Message)
+
+                                                    End Select
+
                                                 Case Else
 
                                                     ErreurFichier(Index, NomDuPersonnage, "GA;", e.Message)
 
                                             End Select
 
+                                        Case "F" ' GAF
+
+                                            Select Case e.Message(3)
+
+                                                Case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ' GAF 0123456789
+
+                                                    Task.Run(Sub() GaCombatAction(Index, e.Message))
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "GA", e.Message)
+
+                                            End Select
+
+                                        Case "S" ' GAS
+
+                                            'GAS 1234567
+                                            'GAS id unique
+                                            ' ?
+
                                         Case Else
 
                                             ErreurFichier(Index, NomDuPersonnage, "GA", e.Message)
+
+                                    End Select
+
+                                Case "a" ' Ga
+
+                                    Select Case e.Message(2)
+
+                                        Case "0" ' Ga0
+
+                                            Select Case e.Message(3)
+
+                                                Case ";" ' Ga0;
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "5" ' Ga0;5
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "0" ' Ga0;50
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case "1" ' Ga0;501
+
+                                                                            Select Case e.Message(7)
+
+                                                                                Case ";" ' Ga0;501;
+
+                                                                                    'Ga0;501;01234567;378,9400
+
+                                                                                Case Else
+
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "Ga0;501", e.Message)
+
+                                                                            End Select
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "Ga0;50", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Ga0;5", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "Ga0;", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Ga0", e.Message)
+
+                                            End Select
+
+                                        Case ";" ' Ga;
+
+                                            Select Case e.Message(3)
+
+                                                Case "1" ' Ga;1
+
+                                                    Select Case e.Message(4)
+
+                                                        Case ";" ' Ga;1;
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "Ga;1", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Ga;", e.Message)
+
+                                            End Select
+
+                                        Case "F" ' GaF
+
+                                            Select Case e.Message(3)
+                                                Case "|" ' GaF|
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "GaF", e.Message)
+                                            End Select
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Ga", e.Message)
+
+                                    End Select
+
+                                Case "B" ' GB
+
+                                    Select Case e.Message(2)
+
+                                        Case "|" ' GB|
+
+                                            Select Case e.Message(3)
+                                                Case "+" ' GB|+
+                                                Case "-" ' GB|-
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "GB|", e.Message)
+                                            End Select
+
+                                        Case ";" ' GB;
+
+                                            Select Case e.Message(3)
+                                                Case "1" ' GB;1
+                                                    Select Case e.Message(4)
+                                                        Case ";" ' GB;1;
+                                                        Case Else
+                                                            ErreurFichier(Index, NomDuPersonnage, "GB;1", e.Message)
+                                                    End Select
+
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "GB;", e.Message)
+                                            End Select
+
+                                        Case "0" ' GB0
+
+                                            Select Case e.Message(3)
+
+                                                Case ";" ' GB0;
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "1" ' GB0;1
+
+                                                            Select Case e.Message(5)
+
+                                                                Case ";" ' GB0;1;
+
+                                                                    'GB0;1;-1;afGdf8
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "GB0;1", e.Message)
+
+                                                            End Select
+
+                                                        Case "5" ' GB0;5
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "0" ' GB0;50
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case "1" ' GB0;501
+
+                                                                            Select Case e.Message(7)
+
+                                                                                Case ";" ' GB0;501;
+
+                                                                                Case Else
+
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "GB0;501", e.Message)
+
+                                                                            End Select
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GB0;50", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "GB0;5", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "GB0;", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "GB0", e.Message)
+
+                                            End Select
+
+                                        Case "1" ' GB1
+
+                                            Select Case e.Message(3)
+                                                Case ";" ' GB1;
+                                                    Select Case e.Message(4)
+                                                        Case "5" ' GB1;5
+                                                            Select Case e.Message(5)
+                                                                Case "0" ' GB1;50
+                                                                    Select Case e.Message(6)
+                                                                        Case "1" ' GB1;501
+                                                                            Select Case e.Message(7)
+                                                                                Case ";" ' GB1;501;
+                                                                                    'GB1;501;1234567;328,11900
+                                                                                Case Else
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "GB1;501", e.Message)
+                                                                            End Select
+                                                                        Case Else
+                                                                            ErreurFichier(Index, NomDuPersonnage, "GB1;50", e.Message)
+                                                                    End Select
+                                                                Case Else
+                                                                    ErreurFichier(Index, NomDuPersonnage, "GB1;5", e.Message)
+                                                            End Select
+                                                        Case Else
+                                                            ErreurFichier(Index, NomDuPersonnage, "GB1;", e.Message)
+                                                    End Select
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "GB1", e.Message)
+                                            End Select
+
+                                        Case "F" ' GBF
+
+                                            Select Case e.Message(3)
+
+                                                Case "|" ' GBF|
+
+                                                    'GBF|418;3;0
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "GBF", e.Message)
+
+                                            End Select
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "GB", e.Message)
 
                                     End Select
 
@@ -1693,6 +3066,24 @@ Public Class Player
 
                                     End Select
 
+                                Case "c" ' Gc
+
+                                    Select Case e.Message(2)
+
+                                        Case "+" ' Gc+
+
+                                            GaAjouteCombatMap(Index, e.Message)
+
+                                        Case "-" ' Gc-
+
+                                            GaSupprimeCombatMap(Index, e.Message)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Gc", e.Message)
+
+                                    End Select
+
                                 Case "D" ' GD
 
                                     If e.Message = "GD" Then
@@ -1702,6 +3093,24 @@ Public Class Player
                                     Else
 
                                         Select Case e.Message(2)
+
+                                            Case "C" ' GDC
+
+                                                ' GDC272;aaaaaaaaaa801;0| = ?
+
+                                            Case "E" ' GDE
+
+                                                Select Case e.Message(3)
+
+                                                    Case "|" ' GDE|
+
+                                                        'GDE|237;2
+
+                                                    Case Else
+
+                                                        ErreurFichier(Index, NomDuPersonnage, "GDE", e.Message)
+
+                                                End Select
 
                                             Case "F" ' GDF
 
@@ -1759,6 +3168,104 @@ Public Class Player
 
                                     End If
 
+                                Case "d" ' Gd
+
+                                    Select Case e.Message(2)
+
+                                        Case "K" ' GdK
+
+                                            Select Case e.Message(3)
+
+                                                Case "O" ' GdKO
+
+                                                    GaCombatChallengeRaté(Index, e.Message)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "GdK", e.Message)
+
+                                            End Select
+
+                                        Case "O" ' GdO
+
+                                            Select Case e.Message(3)
+
+                                                Case "K" ' GdOK
+
+                                                    GaCombatChallengeRéussi(Index, e.Message)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "GdO", e.Message)
+
+                                            End Select
+
+                                        Case "2" ' Gd2
+
+                                            GaCombatChallengeReçu(Index, e.Message)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Gd", e.Message)
+
+                                    End Select
+
+                                Case "E" ' GE
+
+                                    GaCombatFin(Index, e.Message)
+
+                                Case "I" ' GI
+
+                                    Select Case e.Message(2)
+
+                                        Case "C"
+
+                                            Select Case e.Message(3)
+
+                                                Case "|"
+
+                                                    CombatChangePlacement(Index, e.Message)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "GIC", e.Message)
+
+                                            End Select
+
+                                        Case "E" ' GIE
+
+                                            GaCombatBooste(Index, e.Message)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "GI", e.Message)
+
+                                    End Select
+
+                                Case "J" ' GJ
+
+                                    Select Case e.Message(2)
+
+                                        Case "K" ' GJK
+
+                                            Select Case e.Message(3)
+
+                                                Case "2" ' GJK2
+
+                                                    GaTempsPreparation(Index, e.Message)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "GJK", e.Message)
+
+                                            End Select
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "GJ", e.Message)
+
+                                    End Select
+
                                 Case "M" ' GM
 
                                     Select Case e.Message(2)
@@ -1790,6 +3297,100 @@ Public Class Player
                                             ErreurFichier(Index, NomDuPersonnage, "GM", e.Message)
 
                                     End Select
+
+                                Case "o" ' Go
+
+                                    Select Case e.Message(2)
+
+                                        Case "+" ' Go+
+
+                                            Select Case e.Message(3)
+
+                                                Case "A", "H", "S", "P" ' Go+ A H S P
+
+                                                    GaOptionCombat(Index, e.Message)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Go+", e.Message)
+
+                                            End Select
+
+                                        Case "-"
+
+                                            Select Case e.Message(3)
+
+                                                Case "A", "H", "S", "P" ' Go- A H S P
+
+                                                    GaOptionCombat(Index, e.Message)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Go-", e.Message)
+
+                                            End Select
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Go", e.Message)
+
+                                    End Select
+
+                                Case "P" ' GP
+
+                                    GaCellulePlacementEquipe(Index, e.Message)
+
+                                Case "T" ' GT
+
+                                    Select Case e.Message(2)
+
+                                        Case "F"
+
+                                        Case "L"
+
+                                            Select Case e.Message(3)
+
+                                                Case "|" ' GTL|
+
+                                                    GaCombatOrdre(Index, e.Message)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "GTL", e.Message)
+
+                                            End Select
+
+                                        Case "M" ' GTM
+
+                                            Select Case e.Message(3)
+
+                                                Case "|" ' GTM|
+
+                                                    GaCombatInformationTour(Index, e.Message)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "GTM", e.Message)
+
+                                            End Select
+
+                                        Case "R"
+
+                                            Socket.Envoyer("GT")
+
+                                        Case "S" ' GTS
+
+                                            GaCombatTourActuel(Index, e.Message)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "GT", e.Message)
+
+                                    End Select
+
+                                Case "t" ' Gt
+
+                                    GaAjouteEntiterCombat(Index, e.Message)
 
                                 Case Else
 
@@ -1874,6 +3475,205 @@ Public Class Player
                         Case "I"
 
                             Select Case e.Message(1)
+
+                                Case "A" ' IA
+
+                                    Select Case e.Message(2)
+
+                                        Case "0" ' IA0
+
+                                            Select Case e.Message(3)
+
+                                                Case ";" ' IA0;
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "1" ' IA0;1
+
+                                                            Select Case e.Message(5)
+
+                                                                Case ";" ' IA0;1;
+
+                                                                    Socket.Envoyer("IA" & Split(e.Message, ";")(2))
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "IA0;1", e.Message)
+
+                                                            End Select
+
+                                                        Case "5" ' IA0;5
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "0" ' IA0;50
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case "1" ' IA0;501
+
+                                                                            Select Case e.Message(7)
+
+                                                                                Case ";" ' IA0;501;
+
+                                                                                    'IA0;501;1234567;328,9900
+
+                                                                                Case Else
+
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "IA0;501", e.Message)
+
+                                                                            End Select
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "IA0;50", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "IA0;5", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "IA0;", e.Message)
+
+                                                    End Select
+
+                                                Case "1" 'IA0188;Linaculer
+
+                                                    Socket.Envoyer("IA" & IdUnique)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "IA0", e.Message)
+
+                                            End Select
+
+                                        Case "1" ' IA1
+
+                                            Select Case e.Message(3)
+
+                                                Case ";" ' IA1;
+
+                                                    Select Case e.Message(4)
+                                                        Case "5" ' IA1;5
+                                                            Select Case e.Message(5)
+                                                                Case "0" ' IA1;50
+                                                                    Select Case e.Message(6)
+                                                                        Case "1" ' IA1;501
+                                                                            Select Case e.Message(7)
+                                                                                Case ";" ' IA1;501;
+                                                                                Case Else
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "IA1;501", e.Message)
+                                                                            End Select
+                                                                        Case Else
+                                                                            ErreurFichier(Index, NomDuPersonnage, "IA1;50", e.Message)
+                                                                    End Select
+                                                                Case Else
+                                                                    ErreurFichier(Index, NomDuPersonnage, "IA1;5", e.Message)
+                                                            End Select
+                                                        Case Else
+                                                            ErreurFichier(Index, NomDuPersonnage, "IA1;", e.Message)
+                                                    End Select
+
+                                                Case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
+
+                                                    Socket.Envoyer("IA" & IdUnique)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "IA1", e.Message)
+
+                                            End Select
+
+                                        Case ";"
+
+                                            Select Case Mid(e.Message, 4, 1)
+
+                                                Case "1" 'IA;102;1234567;1234567,-3
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "IA;", e.Message)
+
+                                            End Select
+
+                                        Case "|" ' IA|
+
+                                            Select Case e.Message(3)
+
+                                                Case "+" ' IA|+
+
+                                                    'IA|+36;1;0;1234567;Linaculer;9;90^100;0;0,0,0,12345687;497fa;fb000d;f7000d;241,9aa,9a9,,;0;;;;;0;;
+
+                                                Case "-" ' IA|-
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "IA|", e.Message)
+
+                                            End Select
+
+                                        Case "E" ' IAE
+
+                                            Select Case e.Message(3)
+
+                                                Case "9" ' IAE9
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "5" ' IAE95
+
+                                                            Select Case e.Message(5)
+
+                                                                Case ";" ' IAE95;
+
+                                                                    'IAE95;1234567;1;;;;1;995
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "IAE95", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "IAE9", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "IAE", e.Message)
+
+                                            End Select
+
+                                        Case "F" ' IAF
+
+                                            Select Case e.Message(3)
+
+                                                Case "|" ' IAF|
+
+                                                    'IAF|418;3;0
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "IAF", e.Message)
+
+                                            End Select
+
+                                        Case "S" ' IAS
+
+                                            Socket.Envoyer("IA" & IdUnique)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "IA", e.Message)
+
+                                    End Select
 
                                 Case "C" ' IC
 
@@ -2128,6 +3928,28 @@ Public Class Player
 
                                     Select Case e.Message(2)
 
+                                        Case "E" ' OAE
+
+                                            Select Case e.Message(3)
+
+                                                Case "F"
+
+                                                    EcritureMessage(Index, "[Inventaire]", "Ton Inventaire est plein.", Color.Red)
+
+                                                Case "A"
+
+                                                    EcritureMessage(Index, "[Dofus]", "Déjà équipé !.", Color.Red)
+
+                                                Case "L"
+
+                                                    EcritureMessage(Index, "[Equipement]", "Ton niveau est trop faible pour equiper cet objet.", Color.Red)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "OAE", e.Message)
+
+                                            End Select
+
                                         Case "K" ' OAK
 
                                             Select Case e.Message(3)
@@ -2163,6 +3985,156 @@ Public Class Player
                                         Case Else
 
                                             ErreurFichier(Index, NomDuPersonnage, "OC", e.Message)
+
+                                    End Select
+
+                                Case "k" ' Ok
+
+                                    Select Case e.Message(2)
+
+                                        Case "F" ' OkF
+
+                                            Select Case e.Message(3)
+                                                Case "|" ' OkF|
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "OkF", e.Message)
+                                            End Select
+
+                                        Case "M" ' OkM
+
+                                            Select Case e.Message(3)
+
+                                                Case "|" ' OkM|
+
+                                                    'OkM|-1;0;27;6;2;45;;39|01234567;0;144;5;3;19;;151
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "OkM", e.Message)
+
+                                            End Select
+
+                                        Case "S"
+
+                                            Socket.Envoyer("Ok" & (IdUnique + 21))
+
+                                        Case "0" ' Ok0
+
+                                            Select Case e.Message(3)
+
+                                                Case ";" ' Ok0;
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "1" ' Ok0;1
+
+                                                            Select Case e.Message(5)
+
+                                                                Case ";" ' Ok0;1;
+
+                                                                    Socket.Envoyer("Ok" & Split(e.Message, ";")(2))
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Ok0;1", e.Message)
+
+                                                            End Select
+
+                                                        Case "5" ' Ok0;5
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "0" ' Ok0;50
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case "1" ' Ok0;501
+
+                                                                            Select Case e.Message(7)
+
+                                                                                Case ";" ' Ok0;501;
+
+                                                                                    'Ok0;501;1234567;239,11100
+
+                                                                                Case Else
+
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "Ok0;501", e.Message)
+
+                                                                            End Select
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "Ok0;50", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Ok0;5", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "Ok0;", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Ok0", e.Message)
+
+                                            End Select
+
+                                        Case "1"
+
+                                            Select Case e.Message(3)
+                                                Case ";"
+                                                    Select Case e.Message(4)
+                                                        Case "5"
+                                                            Select Case e.Message(5)
+                                                                Case "0"
+                                                                    Select Case e.Message(6)
+                                                                        Case "1"
+                                                                            Select Case e.Message(7)
+                                                                                Case ";"
+                                                                                Case Else
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "Ok1;501", e.Message)
+                                                                            End Select
+                                                                        Case Else
+                                                                            ErreurFichier(Index, NomDuPersonnage, "Ok1;50", e.Message)
+                                                                    End Select
+                                                                Case Else
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Ok1;5", e.Message)
+                                                            End Select
+                                                        Case Else
+                                                            ErreurFichier(Index, NomDuPersonnage, "Ok1;", e.Message)
+                                                    End Select
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "Ok1", e.Message)
+                                            End Select
+
+                                        Case "|"
+
+                                            Select Case e.Message(3)
+
+                                                Case "+" 'Ok|+48;1;0;ID_Joueur;Linaculer;9;90^100;0;0,0,0,ID_Joueur;-1;-1;-1;1b0c,3d0,3b9,1e17,;0;;;;;0;;
+
+                                                Case "-"
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Ok|", e.Message)
+
+                                            End Select
+
+                                        Case ";" 'Ok;1;-2;aeJdeX 
+
+                                            Socket.Envoyer("Ok" & IdUnique)
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Ok", e.Message)
 
                                     End Select
 
@@ -2217,6 +4189,277 @@ Public Class Player
                         Case "P"
 
                             Select Case e.Message(1)
+
+                                Case "a" ' Pa
+
+                                    Select Case e.Message(2)
+
+                                        Case ";" ' Pa;
+
+                                            Select Case e.Message(3)
+
+                                                Case "1" ' Pa;1
+
+                                                    Select Case e.Message(4)
+
+                                                        Case ";" ' Pa;1;
+
+                                                        Case "0" ' Pa;10
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "2" ' Pa;102
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case ";" ' Pa;102;
+
+                                                                            'Pa;102;-1;-1,-1
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "Pa;102", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Pa;10", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "Pa;1", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Pa;", e.Message)
+
+                                            End Select
+
+                                        Case "|"
+
+                                            Select Case e.Message(3)
+
+                                                Case "+" 'Pa|+306;1;0;ID_Joueur;Linaculer;9;91^100;1;0,0,0,ID_Joueur;-1;-1;-1;1b0c,3d0,3b9,,;0;;;;;0;;
+
+                                                Case "-" 'Pa|-ID_Joueur
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Pa|", e.Message)
+
+                                            End Select
+
+                                        Case "0"
+
+                                            Select Case e.Message(3)
+
+                                                Case ";" 'Sl0;1;ID_Joueur;ab8bcl
+
+                                                    Socket.Envoyer("Pa" & Split(e.Message, ";")(2))
+
+                                                Case "1" 'Pa0188;Linaculer
+
+                                                    Socket.Envoyer("Pa" & IdUnique)
+
+                                            End Select
+
+                                        Case "1" ' Pa1
+
+                                            Select Case e.Message(3)
+                                                Case ";" ' Pa1;
+                                                    Select Case e.Message(4)
+                                                        Case "5" ' Pa1;5
+                                                            Select Case e.Message(5)
+                                                                Case "0" ' Pa1;50
+                                                                    Select Case e.Message(6)
+                                                                        Case "1" ' Pa1;501
+                                                                            Select Case e.Message(7)
+                                                                                Case ";" ' Pa1;501;
+                                                                                Case Else
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "Pa1;501", e.Message)
+                                                                            End Select
+                                                                        Case Else
+                                                                            ErreurFichier(Index, NomDuPersonnage, "Pa1;50", e.Message)
+                                                                    End Select
+                                                                Case Else
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Pa1;5", e.Message)
+                                                            End Select
+                                                        Case Else
+                                                            ErreurFichier(Index, NomDuPersonnage, "Pa1;", e.Message)
+                                                    End Select
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "Pa1", e.Message)
+                                            End Select
+
+                                        Case "F" ' PaF
+
+                                            Select Case e.Message(3)
+
+                                                Case "|" ' PaF|
+
+                                                    'PaF|351;3;0
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "PaF", e.Message)
+
+                                            End Select
+
+                                        Case "M" ' PaM
+
+                                            Select Case e.Message(3)
+
+                                                Case "|" ' PaM|
+
+                                                    'PaM|-1;0;40;6;2;108;;40|1234567;0;141;6;3;365;;151
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "EkM", e.Message)
+
+                                            End Select
+
+                                        Case "S" 'PaSID_Joueur|29000 
+
+                                            Socket.Envoyer("Pa" & (IdUnique + 126)) 'ou 124 ou choix
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Pa", e.Message)
+
+                                    End Select
+
+                                Case "B" ' PB
+
+                                    Select Case e.Message(2)
+
+                                        Case "|" ' PB|
+
+                                            Select Case e.Message(3)
+                                                Case "+" ' PB|+
+                                                Case "-" ' PB|-
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "PB|", e.Message)
+                                            End Select
+
+                                        Case ";" 'PB;1;-1;adRhdD 
+
+                                            Socket.Envoyer("PB" & (IdUnique + 12)) 'ou 10
+
+                                        Case "0" ' PB0
+
+                                            Select Case e.Message(3)
+
+                                                Case ";" ' PB0;
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "1" ' PB0;1
+
+                                                            Select Case e.Message(5)
+
+                                                                Case ";" ' PB0;1;
+
+                                                                    'PB0;1;1234567;al0gi7fiOeiJfglgfMfeTgeihaE
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "PB0;1", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "PB0;", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "PB0", e.Message)
+
+                                            End Select
+
+                                        Case "1" ' PB1
+
+                                            Select Case e.Message(3)
+
+                                                Case ";" ' PB1;
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "5" ' PB1;5
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "0" ' PB1;50
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case "1" ' PB1;501
+
+                                                                            Select Case e.Message(7)
+
+                                                                                Case ";" ' PB1;501;
+
+                                                                                    'PB1;501;01234567;281,9600
+
+                                                                                Case Else
+
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "PB1;501", e.Message)
+
+                                                                            End Select
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "PB1;50", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "PB1;5", e.Message)
+
+                                                            End Select
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "PB1;", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "PB1", e.Message)
+
+                                            End Select
+
+                                        Case "8" ' PB8
+
+                                            Select Case e.Message(3)
+
+                                                Case "3"
+
+                                                    'PB83|Mr-phoqui;0
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "PB8", e.Message)
+
+                                            End Select
+
+                                        Case "F" 'PBFID_Joueur
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "PB", e.Message)
+
+                                    End Select
 
                                 Case "C" ' PC
 
@@ -2364,6 +4607,178 @@ Public Class Player
                         Case "S"
 
                             Select Case e.Message(1)
+
+                                Case "l" ' Sl
+
+                                    Select Case e.Message(2)
+
+                                        Case ";" ' Sl;
+
+                                            Select Case e.Message(3)
+
+                                                Case "1" ' Sl;1
+
+                                                    Select Case e.Message(4)
+
+                                                        Case ";" ' Sl;1;
+
+                                                            'Sl;1;-1;adobdD
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "Sl;0", e.Message)
+
+                                                    End Select
+
+                                                Case "2" ' Sl;2
+
+                                                    Select Case e.Message(4)
+
+                                                        Case ";" ' Sl;2;
+
+                                                            'Sl;2;1234567;
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "Sl;2", e.Message)
+
+                                                    End Select
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Sl;", e.Message)
+
+                                            End Select
+
+                                        Case "|" ' Sl|
+
+                                            Select Case e.Message(3)
+                                                Case "-" ' Sl|+
+                                                Case "+" ' Sl|-
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "Sl|", e.Message)
+                                            End Select
+
+                                        Case "0" ' Sl0
+
+                                            Select Case e.Message(3)
+
+                                                Case ";" ' Sl0;
+
+                                                    Select Case e.Message(4)
+
+                                                        Case "1" ' Sl0;1
+
+                                                            Select Case e.Message(5)
+
+                                                                Case ";" ' Sl0;1;
+
+                                                                    Socket.Envoyer("Sl" & CInt(Split(e.Message, ";")(2)) + 1)
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Sl0;1", e.Message)
+
+                                                            End Select
+
+                                                        Case "5"
+
+                                                            Select Case e.Message(5)
+
+                                                                Case "0" ' Sl0;50
+
+                                                                    Select Case e.Message(6)
+
+                                                                        Case "1" ' Sl0;501
+
+                                                                            Select Case e.Message(7)
+
+                                                                                Case ";" ' Sl0;501;
+
+                                                                                    'Sl0;501;1234567;239,11100
+
+                                                                                Case Else
+
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "Sl0;501", e.Message)
+
+                                                                            End Select
+
+                                                                        Case Else
+
+                                                                            ErreurFichier(Index, NomDuPersonnage, "Sl0;50", e.Message)
+
+                                                                    End Select
+
+                                                                Case Else
+
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Sl0;5", e.Message)
+
+                                                            End Select
+
+
+                                                        Case Else
+
+                                                            ErreurFichier(Index, NomDuPersonnage, "Sl0;", e.Message)
+
+                                                    End Select
+
+                                                Case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
+
+                                                    Socket.Envoyer("Sl" & IdUnique)
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "Sl0", e.Message)
+
+                                            End Select
+
+                                        Case "1" ' Sl1
+
+                                            Select Case e.Message(3)
+                                                Case ";"
+                                                    Select Case e.Message(4)
+                                                        Case "5"
+                                                            Select Case e.Message(5)
+                                                                Case "0"
+                                                                    Select Case e.Message(6)
+                                                                        Case "1"
+                                                                            Select Case e.Message(7)
+                                                                                Case ";"
+                                                                                Case Else
+                                                                                    ErreurFichier(Index, NomDuPersonnage, "Sl1;501", e.Message)
+                                                                            End Select
+                                                                        Case Else
+                                                                            ErreurFichier(Index, NomDuPersonnage, "Sl1;50", e.Message)
+                                                                    End Select
+                                                                Case Else
+                                                                    ErreurFichier(Index, NomDuPersonnage, "Sl1;5", e.Message)
+                                                            End Select
+                                                        Case Else
+                                                            ErreurFichier(Index, NomDuPersonnage, "Sl1;", e.Message)
+                                                    End Select
+                                                Case Else
+                                                    ErreurFichier(Index, NomDuPersonnage, "Sl1", e.Message)
+                                            End Select
+
+                                        Case "F" ' SlF
+
+                                            Select Case e.Message(3)
+
+                                                Case "|" ' SlF|
+
+                                                    'SlF|418;3;0
+
+                                                Case Else
+
+                                                    ErreurFichier(Index, NomDuPersonnage, "SlF", e.Message)
+
+                                            End Select
+
+                                        Case Else
+
+                                            ErreurFichier(Index, NomDuPersonnage, "Sl", e.Message)
+
+                                    End Select
 
                                 Case "L" ' SL
 
@@ -2527,6 +4942,10 @@ Public Class Player
                                         Case "0" ' ZS0
 
                                             'Inconnu
+
+                                        Case "1" ' ZS1
+
+                                            'Inconnu, j'étais Bontarien à ce moment là et dans une zone bontarienne
 
                                         Case Else
 

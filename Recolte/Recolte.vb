@@ -8,49 +8,48 @@ Class Recolte
         With Comptes(index)
 
             Dim separateRecolte As String() = Split(idNomRecolte, "|")
-            Dim lesRecoltes As New List(Of String)
-
-            For i = 0 To separateRecolte.Count - 1
-                lesRecoltes.Add(separateRecolte(i).ToLower)
-            Next
 
             While .EnRecolte = False
 
-                If .Pods >= .FrmGroupe.PodsGroupe Then Return False
+                For i = 0 To separateRecolte.Count - 1
 
-                Dim cellule As Integer = RecolteCherche(index, lesRecoltes)
+                    If .Pods >= .FrmGroupe.PodsGroupe Then Return False
 
-                If cellule > 0 Then
+                    Dim cellule As Integer = RecolteCherche(index, separateRecolte(i))
 
-                    .InteractionCellId = cellule
+                    If cellule > 0 Then
 
-                    .Send = "GA500" & cellule & ";" & ReturnAction(lesRecoltes, .MonEquipement.Arme(2))
+                        .InteractionCellId = cellule
 
-                    Dim move As New FunctionMap
+                        .Send = "GA500" & cellule & ";" & ReturnAction(separateRecolte(i), .MonEquipement.Arme(2))
 
-                    move.SeDeplace(index, cellule)
+                        Dim move As New FunctionMap
 
-                    Task.Delay(2000).Wait()
+                        move.SeDeplace(index, cellule)
 
-                    While .EnRecolte
+                        Task.Delay(2000).Wait()
 
-                        Task.Delay(1000).Wait()
+                        While .EnRecolte
 
-                    End While
+                            Task.Delay(1000).Wait()
 
-                    Task.Delay(1000).Wait()
-
-                    While .EnCombat
+                        End While
 
                         Task.Delay(1000).Wait()
 
-                    End While
+                        While .EnCombat
 
-                Else
+                            Task.Delay(1000).Wait()
 
-                    Exit While
+                        End While
 
-                End If
+                    Else
+
+                        Exit While
+
+                    End If
+
+                Next
 
             End While
 
@@ -60,7 +59,7 @@ Class Recolte
 
     End Function
 
-    Private Function RecolteCherche(ByVal index As Integer, ByVal nomRecolte As List(Of String)) As Integer
+    Private Function RecolteCherche(ByVal index As Integer, ByVal nomRecolte As String) As Integer
 
         With Comptes(index)
 
@@ -72,7 +71,7 @@ Class Recolte
                 If Pair.Cells(1).Value <> .CaseActuelle Then
 
                     'Exemple : Faucher = Faucher ET l'ID correspond à celle voulu par l'utilisateur
-                    If nomRecolte.Contains(Pair.Cells(2).Value.ToString.ToLower) Then
+                    If nomRecolte.ToLower = Pair.Cells(2).Value.ToString.ToLower Then
 
                         If Pair.Cells(3).Value = "Disponible" Then
 
@@ -127,11 +126,11 @@ Class Recolte
 
     End Function
 
-    Private Function ReturnAction(ByVal nomRecolte As List(Of String), ByVal arme As String) As Integer
+    Private Function ReturnAction(ByVal nomRecolte As String, ByVal arme As String) As Integer
 
         For Each Pair As KeyValuePair(Of Integer, sInterraction) In DicoDivers
 
-            If nomRecolte.Contains(Pair.Value.Nom.ToString.ToLower) Then
+            If nomRecolte.ToLower = Pair.Value.Nom.ToString.ToLower Then
 
                 If arme = 22 Then
 

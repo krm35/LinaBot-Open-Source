@@ -562,11 +562,16 @@
         Dim newMetier As New Metier
 
         LuaScript.RegisterFunction("MetierExist", newMetier, newMetier.GetType.GetMethod("MetierExist"))
+        LuaScript.RegisterFunction("MetierNiveau", newMetier, newMetier.GetType.GetMethod("MetierNiveau"))
 
         Dim newEquipement As New Equipement
 
         LuaScript.RegisterFunction("EquipementEquiper", newEquipement, newEquipement.GetType.GetMethod("EquipementEquiper"))
         LuaScript.RegisterFunction("EquipeItem", newEquipement, newEquipement.GetType.GetMethod("ItemEquipe"))
+
+        Dim newFunctionItem As New FunctionItem
+
+        LuaScript.RegisterFunction("ItemExist", newFunctionItem, newFunctionItem.GetType.GetMethod("ItemExist"))
 
         Dim newPNJ As New PNJ
 
@@ -582,6 +587,7 @@
 
         LuaScript.RegisterFunction("EnDialogue", newVariable, newVariable.GetType.GetMethod("EnDialogue"))
         LuaScript.RegisterFunction("EnBanque", newVariable, newVariable.GetType.GetMethod("EnBanque"))
+        LuaScript.RegisterFunction("PnjEnAchatVente", newVariable, newVariable.GetType.GetMethod("PnjEnAchatVente"))
 
         Dim newCaracteristique As New Caractéristique
 
@@ -608,6 +614,10 @@
         Dim newInteraction As New Interaction
 
         LuaScript.RegisterFunction("Interaction", newInteraction, newInteraction.GetType.GetMethod("InteractionEnJeu"))
+
+        Dim newCombat As New Combat
+
+        '  LuaScript.RegisterFunction("", newCombat, newCombat.GetType.GetMethod(""))
 
     End Sub
 

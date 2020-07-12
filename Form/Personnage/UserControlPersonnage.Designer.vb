@@ -304,6 +304,9 @@ Partial Class UserControlPersonnage
         Me.ColumnHeader240 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader241 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage17 = New System.Windows.Forms.TabPage()
+        Me.TabPageIA = New System.Windows.Forms.TabPage()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBoxIa = New System.Windows.Forms.TextBox()
         Me.PictureBox11 = New System.Windows.Forms.PictureBox()
         Me.LabelGroupeChef = New System.Windows.Forms.Label()
         Me.PictureBox10 = New System.Windows.Forms.PictureBox()
@@ -364,6 +367,7 @@ Partial Class UserControlPersonnage
         Me.TabPageAmi.SuspendLayout()
         Me.TabControlAmiEnnemi.SuspendLayout()
         Me.TabPage16.SuspendLayout()
+        Me.TabPageIA.SuspendLayout()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -393,12 +397,13 @@ Partial Class UserControlPersonnage
         Me.TabControl1.Controls.Add(Me.TabPageCraft)
         Me.TabControl1.Controls.Add(Me.TabPageTrajet)
         Me.TabControl1.Controls.Add(Me.TabPageAmi)
+        Me.TabControl1.Controls.Add(Me.TabPageIA)
         Me.TabControl1.ImageList = Me.ImageListUser
         Me.TabControl1.Location = New System.Drawing.Point(3, 3)
         Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1014, 651)
+        Me.TabControl1.Size = New System.Drawing.Size(1014, 706)
         Me.TabControl1.TabIndex = 0
         '
         'TabPageTchat
@@ -410,7 +415,7 @@ Partial Class UserControlPersonnage
         Me.TabPageTchat.Location = New System.Drawing.Point(47, 4)
         Me.TabPageTchat.Name = "TabPageTchat"
         Me.TabPageTchat.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageTchat.Size = New System.Drawing.Size(963, 643)
+        Me.TabPageTchat.Size = New System.Drawing.Size(963, 698)
         Me.TabPageTchat.TabIndex = 0
         '
         'TabControl2
@@ -660,6 +665,8 @@ Partial Class UserControlPersonnage
         Me.ImageListUser.Images.SetKeyName(44, "1290.png")
         Me.ImageListUser.Images.SetKeyName(45, "bworky.png")
         Me.ImageListUser.Images.SetKeyName(46, "Parchemin.png")
+        Me.ImageListUser.Images.SetKeyName(47, "AmpouleOff.png")
+        Me.ImageListUser.Images.SetKeyName(48, "AmpouleOn.png")
         '
         'TabPageSocket
         '
@@ -672,7 +679,7 @@ Partial Class UserControlPersonnage
         Me.TabPageSocket.Location = New System.Drawing.Point(47, 4)
         Me.TabPageSocket.Name = "TabPageSocket"
         Me.TabPageSocket.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageSocket.Size = New System.Drawing.Size(963, 643)
+        Me.TabPageSocket.Size = New System.Drawing.Size(963, 698)
         Me.TabPageSocket.TabIndex = 1
         '
         'TextBox1
@@ -714,7 +721,7 @@ Partial Class UserControlPersonnage
         Me.TabPageCaractéristique.Location = New System.Drawing.Point(47, 4)
         Me.TabPageCaractéristique.Name = "TabPageCaractéristique"
         Me.TabPageCaractéristique.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageCaractéristique.Size = New System.Drawing.Size(963, 643)
+        Me.TabPageCaractéristique.Size = New System.Drawing.Size(963, 698)
         Me.TabPageCaractéristique.TabIndex = 2
         '
         'DataGridView_BonusPanoplie
@@ -742,7 +749,7 @@ Partial Class UserControlPersonnage
         Me.DataGridView_BonusPanoplie.MultiSelect = False
         Me.DataGridView_BonusPanoplie.Name = "DataGridView_BonusPanoplie"
         Me.DataGridView_BonusPanoplie.RowHeadersWidth = 4
-        Me.DataGridView_BonusPanoplie.Size = New System.Drawing.Size(0, 630)
+        Me.DataGridView_BonusPanoplie.Size = New System.Drawing.Size(0, 685)
         Me.DataGridView_BonusPanoplie.TabIndex = 364
         '
         'DataGridViewTextBoxColumn9
@@ -944,7 +951,7 @@ Partial Class UserControlPersonnage
         Me.TabPageInventaire.Location = New System.Drawing.Point(47, 4)
         Me.TabPageInventaire.Name = "TabPageInventaire"
         Me.TabPageInventaire.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageInventaire.Size = New System.Drawing.Size(963, 643)
+        Me.TabPageInventaire.Size = New System.Drawing.Size(963, 698)
         Me.TabPageInventaire.TabIndex = 3
         '
         'TabControl3
@@ -958,7 +965,7 @@ Partial Class UserControlPersonnage
         Me.TabControl3.Location = New System.Drawing.Point(6, 6)
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(949, 630)
+        Me.TabControl3.Size = New System.Drawing.Size(949, 685)
         Me.TabControl3.TabIndex = 363
         '
         'TabPage1
@@ -970,7 +977,7 @@ Partial Class UserControlPersonnage
         Me.TabPage1.Location = New System.Drawing.Point(4, 47)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(941, 579)
+        Me.TabPage1.Size = New System.Drawing.Size(941, 634)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Inventaire"
         '
@@ -1082,7 +1089,7 @@ Partial Class UserControlPersonnage
         Me.TabPage2.Location = New System.Drawing.Point(4, 47)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(941, 579)
+        Me.TabPage2.Size = New System.Drawing.Size(941, 634)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Option"
         '
@@ -1095,7 +1102,7 @@ Partial Class UserControlPersonnage
         Me.TabPageSort.Location = New System.Drawing.Point(47, 4)
         Me.TabPageSort.Name = "TabPageSort"
         Me.TabPageSort.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageSort.Size = New System.Drawing.Size(963, 643)
+        Me.TabPageSort.Size = New System.Drawing.Size(963, 698)
         Me.TabPageSort.TabIndex = 4
         '
         'TabControl4
@@ -1109,7 +1116,7 @@ Partial Class UserControlPersonnage
         Me.TabControl4.Location = New System.Drawing.Point(6, 6)
         Me.TabControl4.Name = "TabControl4"
         Me.TabControl4.SelectedIndex = 0
-        Me.TabControl4.Size = New System.Drawing.Size(949, 630)
+        Me.TabControl4.Size = New System.Drawing.Size(949, 685)
         Me.TabControl4.TabIndex = 364
         '
         'TabPage3
@@ -1123,7 +1130,7 @@ Partial Class UserControlPersonnage
         Me.TabPage3.Location = New System.Drawing.Point(4, 47)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(941, 579)
+        Me.TabPage3.Size = New System.Drawing.Size(941, 634)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Sort"
         '
@@ -1215,7 +1222,7 @@ Partial Class UserControlPersonnage
         Me.TabPage4.Location = New System.Drawing.Point(4, 47)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(941, 579)
+        Me.TabPage4.Size = New System.Drawing.Size(941, 634)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "Option"
         '
@@ -1228,7 +1235,7 @@ Partial Class UserControlPersonnage
         Me.TabPageMap.Location = New System.Drawing.Point(47, 4)
         Me.TabPageMap.Name = "TabPageMap"
         Me.TabPageMap.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageMap.Size = New System.Drawing.Size(963, 643)
+        Me.TabPageMap.Size = New System.Drawing.Size(963, 698)
         Me.TabPageMap.TabIndex = 5
         '
         'TabControl5
@@ -1243,7 +1250,7 @@ Partial Class UserControlPersonnage
         Me.TabControl5.Location = New System.Drawing.Point(6, 6)
         Me.TabControl5.Name = "TabControl5"
         Me.TabControl5.SelectedIndex = 0
-        Me.TabControl5.Size = New System.Drawing.Size(949, 630)
+        Me.TabControl5.Size = New System.Drawing.Size(949, 685)
         Me.TabControl5.TabIndex = 365
         '
         'TabPage6
@@ -1256,7 +1263,7 @@ Partial Class UserControlPersonnage
         Me.TabPage6.Location = New System.Drawing.Point(4, 47)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(941, 579)
+        Me.TabPage6.Size = New System.Drawing.Size(941, 634)
         Me.TabPage6.TabIndex = 0
         Me.TabPage6.Text = "Map"
         '
@@ -1367,7 +1374,7 @@ Partial Class UserControlPersonnage
         Me.TabPage5.Location = New System.Drawing.Point(4, 47)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(941, 579)
+        Me.TabPage5.Size = New System.Drawing.Size(941, 634)
         Me.TabPage5.TabIndex = 2
         Me.TabPage5.Text = "Divers"
         '
@@ -1431,7 +1438,7 @@ Partial Class UserControlPersonnage
         Me.TabPage7.Location = New System.Drawing.Point(4, 47)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(941, 579)
+        Me.TabPage7.Size = New System.Drawing.Size(941, 634)
         Me.TabPage7.TabIndex = 1
         Me.TabPage7.Text = "Option"
         '
@@ -1444,7 +1451,7 @@ Partial Class UserControlPersonnage
         Me.TabPageMetier.Location = New System.Drawing.Point(47, 4)
         Me.TabPageMetier.Name = "TabPageMetier"
         Me.TabPageMetier.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageMetier.Size = New System.Drawing.Size(963, 643)
+        Me.TabPageMetier.Size = New System.Drawing.Size(963, 698)
         Me.TabPageMetier.TabIndex = 6
         '
         'FlowLayoutPanelMetier
@@ -1466,7 +1473,7 @@ Partial Class UserControlPersonnage
         Me.TabPageDragodinde.Location = New System.Drawing.Point(47, 4)
         Me.TabPageDragodinde.Name = "TabPageDragodinde"
         Me.TabPageDragodinde.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageDragodinde.Size = New System.Drawing.Size(963, 643)
+        Me.TabPageDragodinde.Size = New System.Drawing.Size(963, 698)
         Me.TabPageDragodinde.TabIndex = 7
         '
         'DataGridViewDragodindeEquipé
@@ -1877,7 +1884,7 @@ Partial Class UserControlPersonnage
         Me.TabPageCraft.Location = New System.Drawing.Point(47, 4)
         Me.TabPageCraft.Name = "TabPageCraft"
         Me.TabPageCraft.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageCraft.Size = New System.Drawing.Size(963, 643)
+        Me.TabPageCraft.Size = New System.Drawing.Size(963, 698)
         Me.TabPageCraft.TabIndex = 8
         '
         'Panel1
@@ -2066,16 +2073,17 @@ Partial Class UserControlPersonnage
         Me.TabPageTrajet.Location = New System.Drawing.Point(47, 4)
         Me.TabPageTrajet.Name = "TabPageTrajet"
         Me.TabPageTrajet.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageTrajet.Size = New System.Drawing.Size(963, 643)
+        Me.TabPageTrajet.Size = New System.Drawing.Size(963, 698)
         Me.TabPageTrajet.TabIndex = 9
         '
         'Button1
         '
+        Me.Button1.ForeColor = System.Drawing.Color.Red
         Me.Button1.Location = New System.Drawing.Point(25, 6)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(206, 60)
         Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
+        Me.Button1.Text = "Charger un trajet"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'TabPageAmi
@@ -2087,7 +2095,7 @@ Partial Class UserControlPersonnage
         Me.TabPageAmi.Location = New System.Drawing.Point(47, 4)
         Me.TabPageAmi.Name = "TabPageAmi"
         Me.TabPageAmi.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageAmi.Size = New System.Drawing.Size(963, 643)
+        Me.TabPageAmi.Size = New System.Drawing.Size(963, 698)
         Me.TabPageAmi.TabIndex = 10
         '
         'TabControlAmiEnnemi
@@ -2100,7 +2108,7 @@ Partial Class UserControlPersonnage
         Me.TabControlAmiEnnemi.Location = New System.Drawing.Point(6, 6)
         Me.TabControlAmiEnnemi.Name = "TabControlAmiEnnemi"
         Me.TabControlAmiEnnemi.SelectedIndex = 0
-        Me.TabControlAmiEnnemi.Size = New System.Drawing.Size(949, 630)
+        Me.TabControlAmiEnnemi.Size = New System.Drawing.Size(949, 685)
         Me.TabControlAmiEnnemi.TabIndex = 364
         '
         'TabPage16
@@ -2111,7 +2119,7 @@ Partial Class UserControlPersonnage
         Me.TabPage16.Location = New System.Drawing.Point(4, 22)
         Me.TabPage16.Name = "TabPage16"
         Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage16.Size = New System.Drawing.Size(941, 604)
+        Me.TabPage16.Size = New System.Drawing.Size(941, 659)
         Me.TabPage16.TabIndex = 0
         Me.TabPage16.Text = "Ami"
         '
@@ -2184,9 +2192,38 @@ Partial Class UserControlPersonnage
         Me.TabPage17.Location = New System.Drawing.Point(4, 22)
         Me.TabPage17.Name = "TabPage17"
         Me.TabPage17.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage17.Size = New System.Drawing.Size(941, 604)
+        Me.TabPage17.Size = New System.Drawing.Size(941, 659)
         Me.TabPage17.TabIndex = 1
         Me.TabPage17.Text = "Ennemi"
+        '
+        'TabPageIA
+        '
+        Me.TabPageIA.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.TabPageIA.Controls.Add(Me.Label1)
+        Me.TabPageIA.Controls.Add(Me.TextBoxIa)
+        Me.TabPageIA.ImageIndex = 47
+        Me.TabPageIA.Location = New System.Drawing.Point(47, 4)
+        Me.TabPageIA.Name = "TabPageIA"
+        Me.TabPageIA.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageIA.Size = New System.Drawing.Size(963, 698)
+        Me.TabPageIA.TabIndex = 11
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(420, 110)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(131, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Mettre l'ID du sort à lancer"
+        '
+        'TextBoxIa
+        '
+        Me.TextBoxIa.Location = New System.Drawing.Point(557, 107)
+        Me.TextBoxIa.Name = "TextBoxIa"
+        Me.TextBoxIa.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxIa.TabIndex = 0
         '
         'PictureBox11
         '
@@ -2225,7 +2262,7 @@ Partial Class UserControlPersonnage
         Me.LabelMap.ForeColor = System.Drawing.Color.White
         Me.LabelMap.Location = New System.Drawing.Point(1069, 299)
         Me.LabelMap.Name = "LabelMap"
-        Me.LabelMap.Size = New System.Drawing.Size(163, 24)
+        Me.LabelMap.Size = New System.Drawing.Size(109, 24)
         Me.LabelMap.TabIndex = 368
         Me.LabelMap.Text = "[XX,YY]"
         Me.LabelMap.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -2406,7 +2443,7 @@ Partial Class UserControlPersonnage
         Me.Controls.Add(Me.PictureBox8)
         Me.Controls.Add(Me.ProgressBarEnergie)
         Me.Name = "UserControlPersonnage"
-        Me.Size = New System.Drawing.Size(1238, 660)
+        Me.Size = New System.Drawing.Size(1238, 733)
         Me.TabControl1.ResumeLayout(False)
         Me.TabPageTchat.ResumeLayout(False)
         Me.TabControl2.ResumeLayout(False)
@@ -2450,6 +2487,8 @@ Partial Class UserControlPersonnage
         Me.TabPageAmi.ResumeLayout(False)
         Me.TabControlAmiEnnemi.ResumeLayout(False)
         Me.TabPage16.ResumeLayout(False)
+        Me.TabPageIA.ResumeLayout(False)
+        Me.TabPageIA.PerformLayout()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2668,4 +2707,7 @@ Partial Class UserControlPersonnage
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents RichTextBoxSocket As RichTextBox
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents TabPageIA As TabPage
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TextBoxIa As TextBox
 End Class

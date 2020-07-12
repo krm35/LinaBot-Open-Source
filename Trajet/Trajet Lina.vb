@@ -80,22 +80,32 @@
             'Exemple : Dim maVar As List = "Salut, ça va ?"
             Dim separate As String() = Split(ligne, " ")
 
-            Select Case separate(3)
+            Select Case separate(1)
 
-                Case "String"
+                Case "Pods"
 
-                    .FrmGroupe.VarStringTrajet.Add(separate(1), Split(ligne, " = ")(1))
+                    .FrmGroupe.PodsGroupe = separate(5)
 
-                Case "String()"
+                Case Else
 
-                    'Je fais ma liste
-                    Dim nomVar As String = separate(1)
+                    Select Case separate(3)
 
-                    separate = Split(ligne.Replace("""", ""), "{")
-                    separate = Split(separate(1), "}")
-                    separate = Split(separate(0), ", ")
+                        Case "String"
 
-                    .FrmGroupe.VarListeTrajet.Add(nomVar, separate)
+                            .FrmGroupe.VarStringTrajet.Add(separate(1), Split(ligne, " = ")(1))
+
+                        Case "String()"
+
+                            'Je fais ma liste
+                            Dim nomVar As String = separate(1)
+
+                            separate = Split(ligne.Replace("""", ""), "{")
+                            separate = Split(separate(1), "}")
+                            separate = Split(separate(0), ", ")
+
+                            .FrmGroupe.VarListeTrajet.Add(nomVar, separate)
+
+                    End Select
 
             End Select
 

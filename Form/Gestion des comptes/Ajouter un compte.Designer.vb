@@ -113,7 +113,6 @@ Partial Class Ajouter_un_compte
         '
         Me.ComboBoxChoixServeur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxChoixServeur.FormattingEnabled = True
-        Me.ComboBoxChoixServeur.Items.AddRange(New Object() {"Algathe", "Arty", "Ayuto", "Bilby", "Clustus", "Droupik", "Eratz", "Henual", "Hogmeiser", "Issering", "Nabur"})
         Me.ComboBoxChoixServeur.Location = New System.Drawing.Point(56, 174)
         Me.ComboBoxChoixServeur.Name = "ComboBoxChoixServeur"
         Me.ComboBoxChoixServeur.Size = New System.Drawing.Size(215, 21)

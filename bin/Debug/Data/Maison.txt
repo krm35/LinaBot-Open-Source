@@ -316,3 +316,14 @@ hP : 330 | Porte : 149 | Map : [X,Y] | Mapid : 0 | Nom : Maison
 hP : 761 | Porte : 0 | Map : [2,-6] | Mapid : 9451 | Nom : Maison
 hP : 677 | Porte : 0 | Map : [2,-19] | Mapid : 7379 | Nom : Maison
 hP : 678 | Porte : 0 | Map : [2,-19] | Mapid : 7379 | Nom : Maison
+hP : 281 | Porte : 0 | Map : [-29,-50] | Mapid : 4336 | Nom : Maison
+hP : 83 | Porte : 0 | Map : [2,2] | Mapid : 44 | Nom : Maison
+hP : 74 | Porte : 0 | Map : [1,-1] | Mapid : 36 | Nom : Maison
+hP : 75 | Porte : 0 | Map : [1,0] | Mapid : 37 | Nom : Maison
+hP : 76 | Porte : 0 | Map : [1,0] | Mapid : 37 | Nom : Maison
+hP : 77 | Porte : 0 | Map : [2,0] | Mapid : 42 | Nom : Maison
+hP : 78 | Porte : 0 | Map : [2,0] | Mapid : 42 | Nom : Maison
+hP : 70 | Porte : 0 | Map : [2,-2] | Mapid : 40 | Nom : Maison
+hP : 69 | Porte : 0 | Map : [2,-2] | Mapid : 40 | Nom : Maison
+hP : 80 | Porte : 0 | Map : [3,0] | Mapid : 49 | Nom : Maison
+hP : 79 | Porte : 0 | Map : [3,0] | Mapid : 49 | Nom : Maison

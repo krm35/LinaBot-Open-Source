@@ -213,6 +213,24 @@
 
                                     .DefaultCellStyle.BackColor = Color.Red
 
+                                    '
+                                    Dim separateMobs As String() = Split(separate(4), ",")
+
+                                    For a = 0 To separateMobs.Count - 1
+
+                                        If Liste_Archimonstre.Contains(separateMobs(a)) Then
+                                            LinaBot.sendMsg("```Serveur : " & Comptes(index).Serveur & vbCrLf &
+                                                            "Archimonstre : " & DicoMobs(separateMobs(a))(0).NomMobs & vbCrLf &
+                                                            "Position : " & Comptes(index).MapPosition & vbCrLf &
+                                                            "MapID : " & Comptes(index).MapID & vbCrLf &
+                                                            "Vue le : " & Date.Now & "```")
+                                        End If
+
+                                    Next
+
+
+                                    '
+
                                 Case -4 ' PNJ 
 
                                     ' GM|+ 152     ; 3 ; 0        ;-1      ; 100    ; -4     ; 9048^100 ; 0  ; -1 ; -1 ; e7b317 ;   ,   ,   ,   ,   ;   ; 0 |
@@ -293,6 +311,17 @@
                                         "Guilde : " & separate(8)
 
                                     .DefaultCellStyle.BackColor = Color.YellowGreen
+
+                                Case -9 ' Dragodinde
+
+                                    '252;1;-1;-9;M;-9;7002^100;Yoshimi;7;43;100
+
+                                    .Cells(2).Value = separate(4)
+                                    .Cells(3).Value = "Monture de : " & separate(7) & vbCrLf &
+                                        "Niveau : " & separate(8) & vbCrLf &
+                                        "Dragodinde " & DicoDragodindeId(separate(9))
+
+
 
                                 Case -10 ' Prisme
 

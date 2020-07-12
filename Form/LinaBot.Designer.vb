@@ -27,13 +27,14 @@ Partial Class LinaBot
         Me.PanelAddCompte = New System.Windows.Forms.ToolStripTextBox()
         Me.PanelLoadCompte = New System.Windows.Forms.ToolStripTextBox()
         Me.PanelDeleteCompte = New System.Windows.Forms.ToolStripTextBox()
+        Me.DiscordBotToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PanelAddCompte, Me.PanelLoadCompte, Me.PanelDeleteCompte})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PanelAddCompte, Me.PanelLoadCompte, Me.PanelDeleteCompte, Me.DiscordBotToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1435, 27)
@@ -67,6 +68,13 @@ Partial Class LinaBot
         Me.PanelDeleteCompte.Size = New System.Drawing.Size(130, 23)
         Me.PanelDeleteCompte.Text = "Supprimer un compte"
         '
+        'DiscordBotToolStripMenuItem
+        '
+        Me.DiscordBotToolStripMenuItem.ForeColor = System.Drawing.Color.Gold
+        Me.DiscordBotToolStripMenuItem.Name = "DiscordBotToolStripMenuItem"
+        Me.DiscordBotToolStripMenuItem.Size = New System.Drawing.Size(88, 23)
+        Me.DiscordBotToolStripMenuItem.Text = "Discord - Bot"
+        '
         'LinaBot
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -89,4 +97,5 @@ Partial Class LinaBot
     Friend WithEvents PanelAddCompte As ToolStripTextBox
     Friend WithEvents PanelLoadCompte As ToolStripTextBox
     Friend WithEvents PanelDeleteCompte As ToolStripTextBox
+    Friend WithEvents DiscordBotToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -20,4 +20,13 @@
 
     End Function
 
+    Public Function PnjEnAchatVente(ByVal index As Integer) As String
+
+        With Comptes(index)
+
+            Return .PnjAcheterVendre
+
+        End With
+
+    End Function
 End Class
